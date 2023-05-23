@@ -1,9 +1,10 @@
+'use client'
 import React from 'react';
 import { LinkedInIcon, Linked } from '@/Components/Atoms/Atoms';
 
 type Props = {}
 
-function login({}: Props) {
+function Login({}: Props) {
   return (
     <div>
         login
@@ -12,4 +13,4 @@ function login({}: Props) {
   )
 }
 
-export default login
+export default Login
