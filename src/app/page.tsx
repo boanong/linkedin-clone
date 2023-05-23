@@ -1,4 +1,6 @@
-import Image from 'next/image'
+'use client'
+import Image from 'next/image';
+import { LinkedInIcon, Linked } from '@/Components/Atoms/Atoms';
 
 export default function Home() {
   return (
