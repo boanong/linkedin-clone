@@ -3,10 +3,10 @@ import React from 'react'
 
 type Props = {}
 
-function signup({}: Props) {
+function Signup({}: Props) {
   return (
     <div>signup</div>
   )
 }
 
-export default signup
+export default Signup
