@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const Form = styled.div`
     max-width: 320px;
@@ -10,7 +10,7 @@ export const Form = styled.div`
 `;
 export const PassHolder = styled.div`
     max-width: 280px;
-    fit-content: fit-content;
+    width: fit-content;
     border-raduis: 10px;
     border: 1px solid #000;
 `;
