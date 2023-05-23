@@ -5,6 +5,6 @@ export const Form = styled.div`
     fit-content: fit-content;
     background-color: #fff;
     border-raduis: 10px;
-    justfify-self center;
+    justfify-self: center;
     color: #000; 
 `;
