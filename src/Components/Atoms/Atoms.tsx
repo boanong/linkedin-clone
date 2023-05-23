@@ -145,5 +145,13 @@ export const SocilaLogBtn = styled.button`
 
 export const PassInput = styled.input`
   width: 80%;
-  max-width:  '200px';
+  max-width: 200px;
+  padding: 28px 12px 6px;
+`;
+
+export const ViewPass = styled.p`
+  color: #0a66c2;
+  width: 15%;
+  margin: auto;
+  text-align: left;
 `;
