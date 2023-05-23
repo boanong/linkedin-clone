@@ -126,7 +126,7 @@ export const SubmitBtn = styled.button`
 
 export const Label = styled.label`
     font-size: 15px;
-    text-align left
+    text-align: left;
 `;
 
 export const SocilaLogBtn = styled.button`
