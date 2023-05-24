@@ -36,7 +36,7 @@ function signup({}: Props) {
             <Line />
           </OrSec>
           <SocilaLogBtn type='button'>Join with Google <FcGoogle /></SocilaLogBtn>
-          <SocilaLogBtn type='button'>Join with Github <FaGithub/></SocilaLogBtn>
+          <SocilaLogBtn type='button'>Join with GitHub <FaGithub/></SocilaLogBtn>
           <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
         </Form>
     </Main>
