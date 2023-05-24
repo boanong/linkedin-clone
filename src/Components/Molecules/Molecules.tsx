@@ -12,7 +12,7 @@ export const Form = styled.div`
     padding: 20px 10px;
     justfify-self: center;
     margin: auto;
-    gap: 18px;
+    gap: 12px;
     color: #000;
     @media only screen and (min-width: 768px) {
         background-color: #fff;
