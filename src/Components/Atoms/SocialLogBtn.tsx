@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const SocilaLogBtn = styled('button')`
-  max-width: 348px;
+  max-width: 300px;
   width: 100%;
   text-align: center;
   color: #000;
