@@ -1,5 +1,5 @@
 import Image from "next/image";
-import './page.css'
+import './page.css';
 import Login from "./Pages/Login/login";
 
 export default function Home() {
