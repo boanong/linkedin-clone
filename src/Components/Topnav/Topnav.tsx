@@ -1,14 +1,19 @@
 "use client";
 import React from "react";
-import { MainDiv } from "@/Components/Organisms/MainDiv";
+import { FeedNav, NavTxt } from "../Organisms/TopNavHolder";
+import { HomeIcon } from "../Atoms/HomeIcon";
+import { NIconHolder } from "../Molecules/NavIconHolder";
 
 type Props = {};
 
 function Topnav({}: Props) {
   return (
-    <MainDiv>
-      <p>hhhh</p>
-    </MainDiv>
+    <FeedNav>
+      <NIconHolder>
+        <HomeIcon/>
+        <NavTxt>Home</NavTxt>
+      </NIconHolder>
+    </FeedNav>
   );
 }
 
