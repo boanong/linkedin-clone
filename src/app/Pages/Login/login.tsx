@@ -1,5 +1,7 @@
 'use client'
 import React from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa'
 import { LinkedInIcon, SocilaLogBtn, SubmitBtn, Linked, ForgotPass, FormHeading, InputCredentials, Ptag, PassInput, ViewPass, Line, Or, Span } from '@/Components/Atoms/Atoms';
 import { Form, OrSec, PassHolder } from '@/Components/Molecules/Molecules';
 import { Main, NavBar } from '@/Components/Organisms/Organisms';
@@ -27,8 +29,8 @@ function Login({}: Props) {
               <Or>Or</Or>
             <Line />
           </OrSec>
-          <SocilaLogBtn>Google</SocilaLogBtn>
-          <SocilaLogBtn>GitHub</SocilaLogBtn>
+          <SocilaLogBtn><FcGoogle />Google</SocilaLogBtn>
+          <SocilaLogBtn><FaGithub/>GitHub</SocilaLogBtn>
         </Form>
         <Span>New to LinkedIn?<ForgotPass>Register</ForgotPass></Span>
     </Main>

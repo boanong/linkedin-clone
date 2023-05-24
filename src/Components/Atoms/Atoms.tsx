@@ -72,6 +72,8 @@ export const HomeIcon = styled(ImHome3)`
 
 export const FormHeading = styled.h1`
   font-size: 2.2rem;
+  margin: 0;
+  padding: 0;
   line-height: 0.9;
   font-weight: 500;
   color: #000;
@@ -187,6 +189,10 @@ export const SocilaLogBtn = styled.button`
   background-color: transparent;
   margin: auto;
   font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
   font-weight: 600;
   @media only screen and (min-width: 768px) {
     font-size: 1rem;
@@ -218,6 +224,8 @@ export const Line = styled.hr`
 export const Span = styled.span`
   display: flex;
   align-items: center;
+  justify-self: center;
+  margin-top: 0;
 `;
 
 export const PassInput = styled.input`

@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
 import React from 'react'
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 import { LinkedInIcon, Terms, TermsA, Label, SocilaLogBtn, SubmitBtn, Linked, ForgotPass, FormHeading, InputCredentials, Ptag, PassInput, ViewPass, Line, Or, Span } from '@/Components/Atoms/Atoms';
 import { Form, OrSec, PassHolder } from '@/Components/Molecules/Molecules';
 import { Main, NavBar } from '@/Components/Organisms/Organisms';
@@ -8,7 +10,7 @@ import { Main, NavBar } from '@/Components/Organisms/Organisms';
 
 type Props = {}
 
-function Signup({}: Props) {
+function signup({}: Props) {
   return (
     <Main>
       <NavBar>
@@ -31,12 +33,12 @@ function Signup({}: Props) {
               <Or>Or</Or>
             <Line />
           </OrSec>
-          <SocilaLogBtn>Join with Google</SocilaLogBtn>
-          <SocilaLogBtn>Join with GitHub</SocilaLogBtn>
+          <SocilaLogBtn>Join with Google <FcGoogle /></SocilaLogBtn>
+          <SocilaLogBtn>Join with Github <FaGithub/></SocilaLogBtn>
           <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
         </Form>
     </Main>
   )
 }
 
-export default Signup
+export default signup
