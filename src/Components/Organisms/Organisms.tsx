@@ -13,9 +13,19 @@ export const Footer = styled.footer`
 
 export const NavBar = styled.div`
     display: flex;
-    padding: 15px 80px;
+    padding: 10px 10%;
     justify-content: space-between;
     align-items: center;
     top: 0;
     width: 100vw;
+    @media only screen and (min-width: 768px) {
+        padding: 10px 80px;
+    }
+`;
+
+export const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
