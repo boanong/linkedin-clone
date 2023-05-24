@@ -18,23 +18,25 @@ function signup({}: Props) {
       </NavBar>
       
       <FormHeading>Make the most of your professional life.</FormHeading>
-        <Form>
+        <Form onSubmit={(e) => {
+          e.preventDefault();
+        }}>
           <Label>Email</Label>
-          <InputCredentials placeholder='Email or phone' />
+          <InputCredentials placeholder='Email or phone' type='text' name='email' />
           <Label>Password(6 characters minimum)</Label>
           <PassHolder>
-            <PassInput placeholder='Password' />
+            <PassInput placeholder='Password' type='password' name='password' />
             <ViewPass>Display</ViewPass>
           </PassHolder>
           <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
-          <SubmitBtn>Accept and Join</SubmitBtn>
+          <SubmitBtn type='submit'>Accept and Join</SubmitBtn>
           <OrSec>
             <Line />
               <Or>Or</Or>
             <Line />
           </OrSec>
-          <SocilaLogBtn>Join with Google <FcGoogle /></SocilaLogBtn>
-          <SocilaLogBtn>Join with Github <FaGithub/></SocilaLogBtn>
+          <SocilaLogBtn type='button'>Join with Google <FcGoogle /></SocilaLogBtn>
+          <SocilaLogBtn type='button'>Join with Github <FaGithub/></SocilaLogBtn>
           <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
         </Form>
     </Main>
