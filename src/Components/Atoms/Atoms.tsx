@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 import { FaLinkedin } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { IoMdNotifications } from "react-icons/io";
+import { HiPhoto } from 'react-icons/hi2';
 import { ImHome3 } from "react-icons/im";
-import { BsPeopleFill, BsBriefcaseFill } from "react-icons/bs";
+import { BsPeopleFill, BsBriefcaseFill, BsFillPlayBtnFill } from "react-icons/bs";
 
 export const LinkedInIcon = styled(FaLinkedin)`
   color: #0a66c2;
@@ -18,6 +19,26 @@ export const Linked = styled.h2`
   font-weight: 800;
   display: flex;
   justify-self: flex-start;
+`;
+
+export const PhotoIcon = styled(HiPhoto)`
+  font-size: 2.4rem;
+  color: #0a66c2;
+  @media only screen and (min-width: 768px) {
+    &:hover {
+      color: #000;
+    }
+  }
+`;
+
+export const VideoIcon = styled(BsFillPlayBtnFill)`
+  font-size: 2.4rem;
+  color: #5f9b41;
+  @media only screen and (min-width: 768px) {
+    &:hover {
+      color: #000;
+    }
+  }
 `;
 
 export const JobsIcon = styled(BsBriefcaseFill)`
