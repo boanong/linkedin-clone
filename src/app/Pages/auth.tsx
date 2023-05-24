@@ -1,25 +1,29 @@
 import React from "react";
 import { StyledFirebaseAuth } from "react-firebaseui";
-import firebase from "@/firebase/firebaseConfig";
-import { Auth } from "firebase/auth";
-const uiConfig = {
-    //Redirect to / after sign in is successful. Alternatively you can provide a callback function
-    signInSuccessUrl: "/",
-    // We will display Github as auth providers
-    signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID]
-};
+// import firebase from "@/firebase/firebaseConfig";
+import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 
-export default function SignInScreen() {
-    return (
-        <div style={{
-            maxWidth: "320px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-        }}>
-            <h1>Pineapple Login</h1>
-            <p>Please sign-in:</p>
-            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-         </div>
-    )
-}
+const provider = new GithubAuthProvider();
+
+const auth = getAuth();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GithubAuthProvider.credentialFromError(error);
+    // ...
+  });
+
