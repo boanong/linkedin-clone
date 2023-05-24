@@ -105,8 +105,8 @@ export const InputCredentials = styled.input`
   line-height: 1.33333;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
-  align-text: center;
-  display flex;
+  text-align: center;
+  display: flex;
   align-items: center;
   border: 1px solid #000;
   padding: 10px 8px;
@@ -174,13 +174,8 @@ export const SubmitBtn = styled.button`
 `;
 
 export const Label = styled.label`
-<<<<<<< HEAD
-    font-size: 15px;
-    text-align: left;
-=======
   font-size: 15px;
-  text-align left
->>>>>>> d4bfbfb9682f691fa086dbe6939409284fc42a3b
+  text-align: left;
 `;
 
 export const SocilaLogBtn = styled.button`
@@ -238,8 +233,8 @@ export const PassInput = styled.input`
   max-width: 200px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
-  align-text: center;
-  display flex;
+  text-align: center;
+  display: flex;
   border: none;
   align-items: center;
   padding: 10px 8px;

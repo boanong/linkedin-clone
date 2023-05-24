@@ -10,7 +10,7 @@ import { Main, NavBar } from '@/Components/Organisms/Organisms';
 
 type Props = {}
 
-function signup({}: Props) {
+function Signup({}: Props) {
   return (
     <Main>
       <NavBar>
@@ -43,4 +43,4 @@ function signup({}: Props) {
   )
 }
 
-export default signup
+export default Signup

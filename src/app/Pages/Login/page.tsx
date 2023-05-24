@@ -39,4 +39,4 @@ function Login({}: Props) {
   )
 }
 
-export default Login
+export default Login;
