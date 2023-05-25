@@ -1,15 +1,15 @@
 'use client'
 import React from 'react';
-import { Main, NavBar } from '@/Components/Organisms/Organisms';
-
+import { PostDiv } from '@/Components/Organisms/PostDiv';
+import { PostBtn } from '@/Components/Atoms/PostBtn';
 type Props = {}
 
-function Login({}: Props) {
+function Post({}: Props) {
   return (
-    <Main>
-      hello
-    </Main>
+    <PostDiv>
+        <PostBtn>start a post</PostBtn>
+    </PostDiv>
   )
 }
 
-export default Login
+export default Post
