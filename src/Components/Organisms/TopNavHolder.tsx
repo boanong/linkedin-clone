@@ -7,15 +7,17 @@ export const FeedNav = styled.div`
   width: 100vw;
   @media only screen and (min-width: 768px) {
     width: 100%;
-    max-width: 400px;
+    max-width: 100vw;
   }
 `;
 
 export const NavTxt = styled.p`
-  color: #666666;
-  font-size: 14px;
-  margin: 0;
+  display: none;
   @media only screen and (min-width: 768px) {
     font-size: 12px;
+    display: contents;
+    color: #666666;
+    margin: 0;
+    padding: 0;
   }
 `;
