@@ -1,6 +1,6 @@
 import Image from "next/image";
 import './page.css';
-import Login from "./Pages/Login/login";
+import Login from "./Pages/login/login";
 
 export default function Home() {
   return (
