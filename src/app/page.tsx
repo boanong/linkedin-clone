@@ -1,6 +1,5 @@
 import { initializeApp } from '@firebase/app';
 import './page.css'
-import authGuard from './service/authGuard';
 import { initFirebase } from '@/firebase/config';
 import { SubmitBtn } from '@/Components/Atoms/Atoms';
 import { getAuth, signOut } from 'firebase/auth';
@@ -16,4 +15,4 @@ function Home() {
   );
 }
 
-export default authGuard(Home);
+export default Home;
