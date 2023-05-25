@@ -7,7 +7,7 @@ export const MessageIcon = styled(FcSms)`
   @media only screen and (min-width: 768px) {
     &:hover {
       cursor: pointer;
-      color: #000;
+      color: black;
     }
   }
 `;
