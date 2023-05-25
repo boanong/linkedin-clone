@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
-import { FcSms } from "react-icons/fc";
+import { VscAccount } from 'react-icons/vsc';
 
-export const MessageIcon = styled(FcSms)`
-  font-size: 1.5rem;
+
+
+export const PhotoIcon = styled(VscAccount)`
+  font-size: 2.6rem;
   color: #666666;
   @media only screen and (min-width: 768px) {
     &:hover {
-      cursor: pointer;
       color: #000;
     }
   }
