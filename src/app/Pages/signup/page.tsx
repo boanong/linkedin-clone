@@ -19,9 +19,9 @@ import { SubmitBtn } from "@/Components/Atoms/SubmitBtn";
 import { Form1 } from "@/Components/Molecules/Form";
 import { OrSec } from "@/Components/Molecules/OrSec";
 import { PassHolder } from "@/Components/Molecules/PasswordHolder";
-import { NavBar } from "@/Components/Organisms/NavBar";
-import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { Footer } from "@/Components/Organisms/Footer";
+import { MainDiv } from "@/Components/Organisms/MainDiv";
+import { NavBar } from "@/Components/Organisms/NavBar";
 
 type Props = {};
 
