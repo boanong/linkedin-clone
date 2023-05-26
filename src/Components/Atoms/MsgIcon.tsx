@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
-import { FcSms } from "react-icons/fc";
+import { MdSms } from "react-icons/md";
 
-export const MessageIcon = styled(FcSms)`
-  font-size: 1.5rem;
+export const MessageIcon = styled(MdSms)`
+ font-size: 1.5rem;
   color: #666666;
   @media only screen and (min-width: 768px) {
     &:hover {
+      cursor: pointer;
       color: #000;
     }
-  }
+  } 
 `;

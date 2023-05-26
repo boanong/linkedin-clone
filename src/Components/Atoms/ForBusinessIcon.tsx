@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { IoMdNotifications } from "react-icons/io";
+import { CgMenuGridR } from 'react-icons/cg';
 
-export const NotificationBell = styled(IoMdNotifications)`
+export const ForBusinessIcon = styled(CgMenuGridR)`
  font-size: 1.5rem;
   color: #666666;
   @media only screen and (min-width: 768px) {

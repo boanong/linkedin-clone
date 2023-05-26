@@ -6,7 +6,7 @@ export const PassInput = styled.input`
   font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
   text-align: left;
-  display flex;
+  display: flex;
   border: none;
   background: transparent;
   border: hidden;
