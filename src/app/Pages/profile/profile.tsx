@@ -1,3 +1,5 @@
+import { ProfileLeftDiv } from "@/Components/Organisms/ProfileLeftDiv";
+import { ProfileRightDiv } from "@/Components/Organisms/ProfileRightDiv";
 import styled from "@emotion/styled";
 import React from "react";
 
@@ -21,7 +23,8 @@ const ProfileMain = styled.div`
 
 function profile({}: Props) {
   return <ProfileMain>
-
+    <ProfileLeftDiv></ProfileLeftDiv>
+    <ProfileRightDiv></ProfileRightDiv>
   </ProfileMain>;
 }
 

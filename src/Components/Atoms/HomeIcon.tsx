@@ -6,7 +6,6 @@ export const HomeIcon = styled(ImHome3)`
   color: #666666;
   @media only screen and (min-width: 768px) {
     &:hover {
-      cursor: pointer;
       color: #000;
     }
   }
