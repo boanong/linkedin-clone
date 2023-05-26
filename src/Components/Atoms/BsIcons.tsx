@@ -6,6 +6,7 @@ export const NetworkIcon = styled(BsPeopleFill)`
   color: #666666;
   @media only screen and (min-width: 768px) {
     &:hover {
+      cursor: pointer;
       color: #000;
     }
   }
@@ -16,6 +17,7 @@ export const VideoIcon = styled(BsFillPlayBtnFill)`
   color: #5f9b41;
   @media only screen and (min-width: 768px) {
     &:hover {
+      cursor: pointer;
       background-color: #6f6f6f82;
     }
   }
@@ -26,6 +28,7 @@ export const JobsIcon = styled(BsBriefcaseFill)`
   color: #666666;
   @media only screen and (min-width: 768px) {
     &:hover {
+      cursor: pointer;
       color: #000;
     }
   }
