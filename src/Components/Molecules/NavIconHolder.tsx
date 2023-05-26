@@ -4,7 +4,7 @@ export const NIconHolder = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
   align-items: center;
 `;

@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 
 export const FeedNav = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-  width: 100vw;
+  padding: 5px 100px;
+  width: 100vw; 
+  background-color: white;
   @media only screen and (min-width: 768px) {
     width: 100%;
+    justify-content: space-between;
     max-width: 100vw;
   }
 `;

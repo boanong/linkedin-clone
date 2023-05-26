@@ -8,5 +8,5 @@ export const Footer = styled.footer`
   align-items: center;
   bottom: 0;
   justify-self: flex-end;
-  width: 100vw;
+  width: 100vw; 
 `;

@@ -2,6 +2,6 @@ import styled from "@emotion/styled"
 
 export const FeaturesHolder = styled.div`
     display: flex;
-    gap: 20px;
+    gap: 40px;
     align-items: center;
 `;
