@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { FcSms } from "react-icons/fc";
+import { MdSms } from "react-icons/md";
 
-export const MessageIcon = styled(FcSms)`
+export const MessageIcon = styled(MdSms)`
   font-size: 1.5rem;
   color: #666666;
   @media only screen and (min-width: 768px) {
