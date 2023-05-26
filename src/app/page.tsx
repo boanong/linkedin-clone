@@ -1,18 +1,22 @@
-import { initializeApp } from '@firebase/app';
-import './page.css'
-import { initFirebase } from '@/firebase/config';
-import { SubmitBtn } from '@/Components/Atoms/Atoms';
-import { getAuth, signOut } from 'firebase/auth';
+import type { AppProps } from 'next/app'
 
-function Home() {
-  const app = initFirebase();
-  const auth = getAuth(app);
+import '../styles.css'
+import { AuthContextProvider } from '@/context/AuthContex'
+import { useRouter } from 'next/router'
+import ProtectedRoute from '@/Components/ProtectedRoute/ProtectedRoute'
+
+const noAuthRequired = ['/', '/Pages/signup', '/Pages/login']
+export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  const router = useRouter()
   return (
-    <main>
-      <h1>Welcome home</h1>
-      <SubmitBtn onClick={() => signOut(auth)}>Log out</SubmitBtn>
-    </main>
-  );
+    <AuthContextProvider>
+      {noAuthRequired.includes(router.pathname) ? (
+        <Component {...pageProps} />
+      ) : (
+        <ProtectedRoute>  
+        <Component {...pageProps} />
+        </ProtectedRoute>
+      )}
+    </AuthContextProvider>
+  )
 }
-
-export default Home;
