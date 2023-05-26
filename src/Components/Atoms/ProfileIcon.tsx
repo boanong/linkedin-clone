@@ -3,10 +3,11 @@ import { VscAccount } from 'react-icons/vsc';
 
 
 
-export const PhotoIcon = styled(VscAccount)`
-  font-size: 2.6rem;
+export const ProfileIcon = styled(VscAccount)`
   color: #666666;
+  font-size: 25px;
   @media only screen and (min-width: 768px) {
+    font-size: 55px;
     &:hover {
       color: #000;
     }

@@ -1,0 +1,24 @@
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalH1 {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.modalInput {
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.modalCloseBtn:hover {
+  background-color: #b0b0b06e;
+  padding: 10px;
+  border-radius: 100px;
+}
