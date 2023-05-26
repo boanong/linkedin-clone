@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 
 export const PostIconHolder = styled.div`
-    padding: 5px 2px;
+    padding: 3px 10px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     justify-content: center;
   @media only screen and (min-width: 768px) {
-    padding: 10px 3px;
-    max-width: 35px;
+    padding: 8px 25px;
     &:hover {
+      border-radius: 5px;
       background-color: #b0b0b08c;
     }
   }  

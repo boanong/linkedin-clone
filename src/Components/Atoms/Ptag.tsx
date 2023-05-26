@@ -23,3 +23,10 @@ export const Ptag = styled.p`
     font-weight: 400;
   }
 `;
+
+export const PostPtag = styled.p`
+  font-weight: bold;
+  color: #666666;
+  font-size: 18px;
+  white-space: nowrap;
+`;
