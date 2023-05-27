@@ -1,16 +1,14 @@
 import styled from "@emotion/styled";
 
-export const Form = styled.div`
+export const Form = styled.form`
     max-width: 350px;
     width: 95vw;
-    fit-content: fit-content;
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     justify-self: center;
     padding: 20px 10px;
-    justfify-self: center;
     margin: auto;
     gap: 12px;
     color: #000;
@@ -23,22 +21,7 @@ export const Form = styled.div`
     }
 `;
 
-export const OrSec = styled.span`
-    display: flex;
-    align-items: center;
-    max-width: 348px;
-    width: 100%;
-    margin: auto;
-`;
-
-export const PassHolder = styled.div`
-    max-width: 348px;
-    width: 100%;
-    margin: auto;
-    background: #fff;
-    border: 1px solid #000;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    border-radius: 4px !important;
+export const Form1 = styled(Form)`
+    padding: 15px;
+    gap: 8px;
 `;
