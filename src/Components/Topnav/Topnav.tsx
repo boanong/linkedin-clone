@@ -21,7 +21,6 @@ type Props = {};
 const FeedMain = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   height: fit-content;
   align-items: center;
   margin: 0;
