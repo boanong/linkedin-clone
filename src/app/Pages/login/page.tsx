@@ -20,7 +20,7 @@ import { PassHolder } from "@/Components/Molecules/PasswordHolder";
 import { Footer } from "@/Components/Organisms/Footer";
 import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { NavBar } from "@/Components/Organisms/NavBar";
-import { initFirebase } from "@/firebase/config";
+import { auth } from "@/firebase/config";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
@@ -28,8 +28,6 @@ import { AuthContextProvider } from "@/context/AuthContex";
 type Props = {};
 
 function Login({ }: Props) {
-  const app = initFirebase()
-  const auth = getAuth(app);
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -40,7 +38,7 @@ function Login({ }: Props) {
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
-}
+  }
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
@@ -111,16 +109,16 @@ function Login({ }: Props) {
                 email: e.target.value,
               })
             }
-              value={data.email}
+            value={data.email}
           />
           <PassHolder>
             <PassInput placeholder="Password" name="password" type="password" onChange={(e: any) =>
-            setData({
-              ...data,
-              password: e.target.value
-            })
-          }
-          value={data.password}/>
+              setData({
+                ...data,
+                password: e.target.value
+              })
+            }
+              value={data.password} />
             <ViewPass>display</ViewPass>
           </PassHolder>
           <ForgotPass>Forgot your Password?</ForgotPass>

@@ -12,13 +12,11 @@ import { PassHolder } from '@/Components/Molecules/PasswordHolder';
 import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
-import { initFirebase } from '@/firebase/config';
+import { auth }  from '@/firebase/config';
 
 
 
 function Signup() {
-  const app = initFirebase()
-  const auth = getAuth(app)
   const [authing, setAuthing] = useState(false);
   const [data, setData] = useState({
     email: '',
