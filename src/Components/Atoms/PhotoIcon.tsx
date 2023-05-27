@@ -4,12 +4,10 @@ import { HiPhoto } from 'react-icons/hi2';
 
 
 export const PhotoIcon = styled(HiPhoto)`
-  font-size: 2rem;
   color: #0a66c2;
+  font-size: 25px;
   @media only screen and (min-width: 768px) {
-    &:hover {
-      color: #000;
-    }
+    font-size: 35px;
   }
 `;
 

@@ -6,9 +6,9 @@ export const FeedNav = styled.div`
   width: 100vw; 
   background-color: white;
   @media only screen and (min-width: 768px) {
-    width: 100%;
+    width: 100vw;
     justify-content: space-between;
-    max-width: 100vw;
+
   }
 `;
 

@@ -9,7 +9,6 @@ export const Form = styled.form`
     flex-direction: column;
     justify-self: center;
     padding: 20px 10px;
-    justify-self: center;
     margin: auto;
     gap: 12px;
     color: #000;

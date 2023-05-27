@@ -13,8 +13,8 @@ export const NetworkIcon = styled(BsPeopleFill)`
 `;
 
 export const VideoIcon = styled(BsFillPlayBtnFill)`
-  font-size: 2rem;
   color: #5f9b41;
+  font-size: 25px;
   @media only screen and (min-width: 768px) {
     &:hover {
       cursor: pointer;
