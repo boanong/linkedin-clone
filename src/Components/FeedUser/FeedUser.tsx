@@ -16,7 +16,7 @@ import {
   FeedUserTxtH,
 } from "../Molecules/FeedUserDivs";
 
-type Props = {};
+type Props = { userData: any };
 
 const FeedUser = styled.div`
   display: none;
@@ -29,7 +29,7 @@ const FeedUser = styled.div`
   }
 `;
 
-function FeedUserSec({}: Props) {
+export default function FeedUserSec({ userData }: Props) {
   return (
     <FeedUser>
       <FeedUserDiv1>
@@ -39,7 +39,7 @@ function FeedUserSec({}: Props) {
         {/* </FeedUserProfilePic> */}
 
         {/* <FeedUserBio> */}
-        <FeedUserBioH>Current User</FeedUserBioH>
+        <FeedUserBioH>{userData?.displayName || 'username'}</FeedUserBioH>
         <FeedUserBioP>
           Mans baller, Keep Grinding, Head For the money
         </FeedUserBioP>
@@ -65,5 +65,3 @@ function FeedUserSec({}: Props) {
     </FeedUser>
   );
 }
-
-export default FeedUserSec;
