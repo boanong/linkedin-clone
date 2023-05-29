@@ -3,7 +3,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 export const LinkedInIcon = styled(FaLinkedin)`
   color: #0a66c2;
-  font-size: 26px;
+  font-size: 40px;
 `;  
 
 export const SmallLogo = styled(LinkedInIcon)`

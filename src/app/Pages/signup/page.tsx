@@ -13,6 +13,7 @@ import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
 import { auth }  from '@/firebase/config';
+import Link from 'next/link';
 
 
 
@@ -107,13 +108,13 @@ function Signup() {
           <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
           <SubmitBtn type='submit'>Accept and Join</SubmitBtn>
           <OrSec>
-            <Line />
+            <Line/>
             <Or>Or</Or>
             <Line />
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
-          <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
+          <Span>Already Registered<Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link></Span>
         </Form>
       </MainDiv>
     </AuthContextProvider>

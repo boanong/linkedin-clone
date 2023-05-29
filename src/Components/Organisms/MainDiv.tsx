@@ -7,6 +7,7 @@ export const MainDiv = styled.div`
   justify-content: center;
   margin: 0;
   height: 100vh;
+  box-sizing: border-box;
   height: fit-content;
   min-height: 100vh;
 `;
