@@ -7,8 +7,9 @@ import Topnav from "@/Components/Topnav/Topnav";
 import { PostSecHolder } from "@/Components/Organisms/PostSecHolder";
 import Post from "@/Components/Post/Post";
 import FeedR from "@/Components/FeedRight/FeedR";
+import AuthGaurd from "@/hoc/AuthGaurd";
 
-type Props = {};
+type Props = { userData: any };
 
 const FeedMain = styled.div`
   display: flex;
@@ -21,19 +22,19 @@ const FeedMain = styled.div`
   min-height: 100vh;
 `;
 
-function feed({}: Props) {
+function Feed({ userData }: Props) {
   return (
     <FeedMain>
       <Topnav />
       <FeedInnerMain>
-        <FeedUserSec />
+        <FeedUserSec userData={userData} />
         <PostSecHolder>
-          <Post/>
+          <Post />
         </PostSecHolder>
-        <FeedR/>
+        <FeedR />
       </FeedInnerMain>
     </FeedMain>
   );
 }
 
-export default feed;
+export default AuthGaurd(Feed);

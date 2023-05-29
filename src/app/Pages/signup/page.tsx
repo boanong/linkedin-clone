@@ -1,80 +1,123 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-import React from "react";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
-import { LinkedInIcon } from "@/Components/Atoms/LinkedLogo";
-import { Linked } from "@/Components/Atoms/LinkedLogoTxt";
-import { FormHeading } from "@/Components/Atoms/Heading";
-import { Label } from "@/Components/Atoms/LabelTag";
-import { TermsA, ForgotPass } from "@/Components/Atoms/AnchorTag";
-import { ViewPass } from "@/Components/Atoms/DisplayPass";
-import { InputCredentials1 } from "@/Components/Atoms/EmailInput";
-import { Line } from "@/Components/Atoms/Hr";
-import { PassInput1 } from "@/Components/Atoms/PasswordInput";
-import { Terms, Or } from "@/Components/Atoms/Ptag";
-import { SocilaLogBtn1 } from "@/Components/Atoms/SocialLogBtn";
-import { Span } from "@/Components/Atoms/Span";
-import { SubmitBtn } from "@/Components/Atoms/SubmitBtn";
-import { Form1 } from "@/Components/Molecules/Form";
-import { OrSec } from "@/Components/Molecules/OrSec";
-import { PassHolder } from "@/Components/Molecules/PasswordHolder";
-import { Footer } from "@/Components/Organisms/Footer";
-import { MainDiv } from "@/Components/Organisms/MainDiv";
-import { NavBar } from "@/Components/Organisms/NavBar";
+'use client'
+import React, { useState } from 'react'
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
+import { LinkedInIcon, Terms, TermsA, Label, SocilaLogBtn, SubmitBtn, Linked, ForgotPass, FormHeading, InputCredentials, Ptag, PassInput, ViewPass, Line, Or, Span } from '@/Components/Atoms/Atoms';
+import {  AuthContextProvider } from '@/context/AuthContex';
+import { MainDiv } from '@/Components/Organisms/MainDiv';
+import { NavBar } from '@/Components/Organisms/NavBar';
+import { Form } from '@/Components/Molecules/Form';
+import { PassHolder } from '@/Components/Molecules/PasswordHolder';
+import { OrSec } from '@/Components/Molecules/OrSec';
+import { useRouter } from 'next/navigation';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
+import { auth }  from '@/firebase/config';
 
-type Props = {};
 
-function signup({}: Props) {
+
+function Signup() {
+  const [authing, setAuthing] = useState(false);
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  })
+  const router = useRouter();
+
+  const signup = (email: string, password: string) => {
+    return createUserWithEmailAndPassword(auth, email, password)
+  }
+
+  const handleSignup = async (e: any) => {
+    e.preventDefault()
+    try {
+      await signup(data.email, data.password)
+      router.push('/Pages/Feed')
+    } catch (err) {
+      console.log(err)
+    }
+
+
+    console.log(data.email, data.password)
+  }
+
+
+  const signUpWithGoogle = async () => {
+    setAuthing(true);
+
+    signInWithPopup(auth, new GoogleAuthProvider())
+      .then(res => {
+        console.log(res.user.uid);
+        router.push("/Pages/Feed");
+      })
+      .catch(err => {
+        console.log(err)
+        setAuthing(false);
+      })
+  }
+
+
+  const GithubSignup = async () => {
+    setAuthing(true);
+
+    signInWithPopup(auth, new GithubAuthProvider())
+      .then(response => {
+        console.log(response.user.uid)
+        router.push("/Pages/Feed")
+      })
+      .catch(err => {
+        console.log(err)
+        setAuthing(false);
+      })
+  }
+
+
+
   return (
-    <MainDiv>
-      <NavBar>
-        <Linked>
-          Linked
-          <LinkedInIcon />
-        </Linked>
-      </NavBar>
-      <FormHeading>Make the most of your professional life.</FormHeading>
-      <Form1
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <Label>Email</Label>
-        <InputCredentials1
-          placeholder="Email or phone"
-          type="text"
-          name="email"
-        />
-        <Label>Password(6 characters minimum)</Label>
-        <PassHolder>
-          <PassInput1 placeholder="Password" type="password" name="password" />
-          <ViewPass>Display</ViewPass>
-        </PassHolder>
-        <Terms>
-          By clicking Accept and Join, you agree to LinkedIn's{" "}
-          <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> ,
-          and <TermsA>Cookie Policy</TermsA> .
-        </Terms>
-        <SubmitBtn type="submit">Accept and Join</SubmitBtn>
-        <OrSec>
-          <Line />
-          <Or>Or</Or>
-          <Line />
-        </OrSec>
-        <SocilaLogBtn1 type="button">
-          Join with Google <FcGoogle />
-        </SocilaLogBtn1>
-        <SocilaLogBtn1 type="button">
-          Join with GitHub <FaGithub />
-        </SocilaLogBtn1>
-        <Span>
-          Already Registered<ForgotPass>Login</ForgotPass>
-        </Span>
-      </Form1>
-      <Footer>Footer</Footer>
-    </MainDiv>
-  );
+    <AuthContextProvider>
+      <MainDiv>
+        <NavBar>
+          <Linked>
+            Linked
+            <LinkedInIcon />
+          </Linked>
+        </NavBar>
+
+        <FormHeading>Make the most of your professional life.</FormHeading>
+        <Form onSubmit={(e) => handleSignup(e)}>
+          <Label>Email</Label>
+          <InputCredentials placeholder='Email or phone' required type='text' name='email' onChange={(e: any) =>
+            setData({
+              ...data,
+              email: e.target.value,
+            })
+          }
+            value={data.email} />
+          <Label>Password(6 characters minimum)</Label>
+          <PassHolder>
+            <PassInput placeholder='Password' required type='password' name='password' onChange={(e: any) =>
+              setData({
+                ...data,
+                password: e.target.value,
+              })
+            }
+              value={data.password} />
+            <ViewPass>Display</ViewPass>
+          </PassHolder>
+          <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
+          <SubmitBtn type='submit'>Accept and Join</SubmitBtn>
+          <OrSec>
+            <Line />
+            <Or>Or</Or>
+            <Line />
+          </OrSec>
+          <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
+          <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
+          <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
+        </Form>
+      </MainDiv>
+    </AuthContextProvider>
+  )
 }
 
-export default signup;
+export default Signup
