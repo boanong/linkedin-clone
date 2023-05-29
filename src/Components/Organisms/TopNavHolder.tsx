@@ -8,7 +8,6 @@ export const FeedNav = styled.div`
   @media only screen and (min-width: 768px) {
     width: 100vw;
     justify-content: space-between;
-
   }
 `;
 
