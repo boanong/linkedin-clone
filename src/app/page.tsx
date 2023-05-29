@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-
 import './page.css'
 import { AuthContextProvider } from '@/context/AuthContex'
 import Login from './Pages/login/page'
