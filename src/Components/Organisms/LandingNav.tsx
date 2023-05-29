@@ -9,7 +9,7 @@ export const LandingNav = styled.div`
   top: 0;
   width: 100vw;
   @media only screen and (min-width: 768px) {
-    padding: 10px 20%;
+    padding: 10px 15%;
     flex-direction: row;
   }
 `;

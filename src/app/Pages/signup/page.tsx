@@ -92,7 +92,7 @@ function Signup() {
         <NavBar>
           <Linked>
             Linked
-            <LinkedInIcon />
+            <Link href="/"><LinkedInIcon/></Link>
           </Linked>
         </NavBar>
 

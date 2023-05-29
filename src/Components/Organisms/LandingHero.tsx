@@ -14,7 +14,6 @@ export const LandingHero = styled.section`
   height: calc(100vh - 73px);
   gap: 35px;
   align-items: flex-start;
-  position: relative;
 `;
 
 export const LandingHeroLeft = styled.div`
@@ -26,7 +25,7 @@ export const LandingHeroLeft = styled.div`
   @media only screen and (min-width: 768px) {
     margin: 20px auto;
     flex-direction: column;
-    width: 50vw;
+    width: 45vw;
     max-width: 680px;
   }
 `;
@@ -34,25 +33,26 @@ export const LandingHeroLeft = styled.div`
 export const LandingHeroH1 = styled.h1`
   font-size: 2rem;
   font-weight: 100;
-  margin-bottom: 25px;
   color: #8f5849;
   width: 100%;
-  text-align: center;
+  text-align: left;
   @media only screen and (min-width: 768px) {
-    font-size: 3.2rem;
-    margin-bottom: 18px;
+    font-size: 3rem;
+    width: 70%;
+    margin-bottom: 5px;
   }
 `;
 
 export const LandingHeroInput = styled.input`
-  padding: 5px 1px;
+  padding: 5px 10px;
   font-size: 1.1rem;
-  margin-top: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
   width: 97vw;
   @media only screen and (min-width: 768px) {
-    max-width: 350px;
-    width: 45vw;
-    padding: 5px 10px;
+    max-width: 400px;
+    width: 100%;
+    padding: 10px 15px;
     font-size: 1.2rem;
     margin-top: 15px;
   }
@@ -71,8 +71,6 @@ export const LandingHeroRight = styled.div`
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
-    z-index: -1;
-    position: absolute;
     right: 0;
   }
 `;

@@ -7,7 +7,11 @@ import { JobsIcon, NetworkIcon } from "@/Components/Atoms/BsIcons";
 import { ForgotPassH } from "@/Components/Atoms/ForgotPassHero";
 import { Line } from "@/Components/Atoms/Hr";
 import { JoinNowBtn, SignInLan } from "@/Components/Atoms/JoinNow";
-import { LandingNewTo } from "@/Components/Atoms/LandingSignIn";
+import {
+  LandingNewTo,
+  LandingNewTo1,
+  LandingSignInOnclick,
+} from "@/Components/Atoms/LandingSignIn";
 import { Learning } from "@/Components/Atoms/Learning";
 import { LinkedInIconLan } from "@/Components/Atoms/LinkedLogo";
 import { Linked } from "@/Components/Atoms/LinkedLogoTxt";
@@ -49,7 +53,7 @@ const LandingMain = styled.div`
   min-height: 100vh;
 `;
 
-function landing({}: Props) {
+function Landing({}: Props) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -93,7 +97,9 @@ function landing({}: Props) {
       <LandingNav>
         <Linked>
           Linked
-          <LinkedInIconLan />
+          <Link href="/">
+            <LinkedInIconLan />
+          </Link>
         </Linked>
         <LandingNavR>
           <NIconHolder>
@@ -114,8 +120,12 @@ function landing({}: Props) {
           </NIconHolder>
           <Vl />
           <JoinBtnHolder>
-            <JoinNowBtn>Join Now</JoinNowBtn>
-            <SignInLan>Sign in</SignInLan>
+            <Link href="/Pages/signup">
+              <JoinNowBtn type="button">Join Now</JoinNowBtn>
+            </Link>
+            <Link href="/Pages/login">
+              <SignInLan type="button">Sign in</SignInLan>
+            </Link>
           </JoinBtnHolder>
         </LandingNavR>
       </LandingNav>
@@ -147,34 +157,35 @@ function landing({}: Props) {
             value={data.password}
           />
           <ForgotPassH>Forgot password?</ForgotPassH>
-          <SignInLan type="button"
+          <LandingSignInOnclick
+            type="button"
             onClick={(e) => {
               handleLogin(e);
             }}
           >
             Sign in
-          </SignInLan>
+          </LandingSignInOnclick>
           <OrSec>
             <Line />
             <Or>Or</Or>
             <Line />
           </OrSec>
-          <LandingNewTo
+          <LandingNewTo1
             type="button"
             onClick={() => signInWithGoogle()}
             disabled={authing}
           >
             Google
             <FcGoogle />
-          </LandingNewTo>
-          <Link href="/signup">
+          </LandingNewTo1>
+          <Link href="/Pages/signup">
             <LandingNewTo type="button">New to LinkedIn? Join Now</LandingNewTo>
           </Link>
         </LandingHeroLeft>
-        <LandingHeroRight/>
+        <LandingHeroRight />
       </LandingHero>
     </LandingMain>
   );
 }
 
-export default landing;
+export default Landing;
