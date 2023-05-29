@@ -47,7 +47,7 @@ function Login({ }: Props) {
     console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-      router.push('/Pages/Feed')
+      router.push('/Pages/feed')
     } catch (err) {
       console.log(err)
     }
@@ -59,7 +59,7 @@ function Login({ }: Props) {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         console.log(res.user.uid);
-        router.push("/Pages/Feed");
+        router.push("/Pages/feed");
       })
       .catch(err => {
         console.log(err)
@@ -74,7 +74,7 @@ function Login({ }: Props) {
     signInWithPopup(auth, new GithubAuthProvider())
       .then(response => {
         console.log(response.user.uid)
-        router.push("/Pages/Feed")
+        router.push("/Pages/feed")
       })
       .catch(err => {
         console.log(err)

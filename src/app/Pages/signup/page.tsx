@@ -33,7 +33,7 @@ function Signup() {
     e.preventDefault()
     try {
       await signup(data.email, data.password)
-      router.push('/Pages/Feed')
+      router.push('/Pages/feed')
     } catch (err) {
       console.log(err)
     }
@@ -49,7 +49,7 @@ function Signup() {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         console.log(res.user.uid);
-        router.push("/Pages/Feed");
+        router.push("/Pages/feed");
       })
       .catch(err => {
         console.log(err)
@@ -64,7 +64,7 @@ function Signup() {
     signInWithPopup(auth, new GithubAuthProvider())
       .then(response => {
         console.log(response.user.uid)
-        router.push("/Pages/Feed")
+        router.push("/Pages/feed")
       })
       .catch(err => {
         console.log(err)
