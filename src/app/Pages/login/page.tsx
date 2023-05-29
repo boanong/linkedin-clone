@@ -24,6 +24,7 @@ import { auth } from "@/firebase/config";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
+import Link from "next/link";
 
 type Props = {};
 
@@ -138,7 +139,7 @@ function Login({ }: Props) {
           </SocilaLogBtn>
         </Form>
         <Span>
-          New to LinkedIn?<ForgotPass>Register</ForgotPass>
+          New to LinkedIn?<Link href="/Pages/signup"><ForgotPass>Register</ForgotPass></Link>
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>

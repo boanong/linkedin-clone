@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { LinkedInIcon, Terms, TermsA, Label, SocilaLogBtn, SubmitBtn, Linked, ForgotPass, FormHeading, InputCredentials, Ptag, PassInput, ViewPass, Line, Or, Span } from '@/Components/Atoms/Atoms';
-import {  AuthContextProvider } from '@/context/AuthContex';
+import { AuthContextProvider } from '@/context/AuthContex';
 import { MainDiv } from '@/Components/Organisms/MainDiv';
 import { NavBar } from '@/Components/Organisms/NavBar';
 import { Form } from '@/Components/Molecules/Form';
@@ -12,7 +12,8 @@ import { PassHolder } from '@/Components/Molecules/PasswordHolder';
 import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
-import { auth }  from '@/firebase/config';
+import { auth } from '@/firebase/config';
+import Link from 'next/link';
 
 
 
@@ -113,7 +114,8 @@ function Signup() {
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
-          <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
+          <Span>Already Registered <Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link>
+          </Span>
         </Form>
       </MainDiv>
     </AuthContextProvider>
