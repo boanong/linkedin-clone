@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Vl = styled.div`
+export const VerticalLine = styled.div`
   display: none;
   @media only screen and (min-width: 768px) {
     border-left: 4px solid #666666;

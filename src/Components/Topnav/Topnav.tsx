@@ -2,7 +2,7 @@
 import React from "react";
 import { FeedNav, NavTxt } from "../Organisms/TopNavHolder";
 import { HomeIcon } from "../Atoms/HomeIcon";
-import { NIconHolder } from "../Molecules/NavIconHolder";
+import { NIconHolder, NIconHolder2, MeAndTextHolder, Textandiconcontainer, Icondiv } from "../Molecules/NavIconHolder";
 import { JobsIcon, NetworkIcon } from "../Atoms/BsIcons";
 import { MessageIcon } from "../Atoms/MsgIcon";
 import { NotificationBell } from "../Atoms/NotificationIcon";
@@ -15,9 +15,8 @@ import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
 import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
-import { VerticalLine } from "../Atoms/VerticalLine"
+import {VerticalLine} from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
-import { NIconHolder2, MeFeatureIcondiv, MeAndTextHolder, Textandiconcontainer, Icondiv, NavTxt } from "../Molecules/NavIconHolder";
 
 
 

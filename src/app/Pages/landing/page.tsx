@@ -16,7 +16,7 @@ import { Learning } from "@/Components/Atoms/Learning";
 import { LinkedInIconLan } from "@/Components/Atoms/LinkedLogo";
 import { Linked } from "@/Components/Atoms/LinkedLogoTxt";
 import { Or } from "@/Components/Atoms/Ptag";
-import { Vl } from "@/Components/Atoms/VerticalLine";
+import { VerticalLine } from "@/Components/Atoms/VerticalLine";
 import { JoinBtnHolder } from "@/Components/Molecules/JoinBtnHolder";
 import { LandingNavR } from "@/Components/Molecules/LandingNavR";
 import { NIconHolder } from "@/Components/Molecules/NavIconHolder";
@@ -118,7 +118,7 @@ function Landing({}: Props) {
             <JobsIcon />
             <NavTxt>Jobs</NavTxt>
           </NIconHolder>
-          <Vl/>
+          <VerticalLine/>
           <JoinBtnHolder>
             <Link href="/Pages/signup">
               <JoinNowBtn type="button">Join Now</JoinNowBtn>
