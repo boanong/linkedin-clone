@@ -98,7 +98,7 @@ function Login({ }: Props) {
         >
           <FormHeading>Login</FormHeading>
           <Ptag>
-            Keep up to date with developments in your professional world
+            Keep up to date with developments in your professional world.
           </Ptag>
           <InputCredentials
             placeholder="Email or phone"
