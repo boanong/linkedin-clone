@@ -1,0 +1,131 @@
+[33mcommit ea844597a7cdacba4b8a56d994bb2d52795f022e[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/user-page[m[33m)[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Tue May 30 04:28:01 2023 -0500
+
+    removal of Login
+
+[33mcommit c9c6d1606a467bc6987a427fe1c2bfe80a27a4c0[m[33m ([m[1;31morigin/feature/user-page[m[33m)[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Tue May 30 03:54:43 2023 -0500
+
+    vertical line height edit
+
+[33mcommit d546a9329713a50737f137cf3ad462cd166acc34[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Tue May 30 03:45:49 2023 -0500
+
+    media query edits
+
+[33mcommit b9fe63d29a523019132682ed79fbf6d780ea33c4[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Mon May 29 16:15:08 2023 -0500
+
+    landing styling edits
+
+[33mcommit a7c6d9f8cd5587cf5a93951b786f18401e46e97e[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Mon May 29 11:59:49 2023 -0500
+
+    creation of landing page
+
+[33mcommit 15854b4ced3e01adddf92f780ac38e381b9869d1[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Mon May 29 07:27:38 2023 -0500
+
+    creation of loading componenet
+
+[33mcommit 6c6ce755741ccf9ce04b75b3f827cb8b8f7a7a93[m
+Merge: d73062a cb4eb13
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Mon May 29 03:55:39 2023 -0500
+
+    Merge branch 'development' of https://github.com/boanong/linkedin-clone into feature/user-page
+
+[33mcommit d73062af7a7f40d63df8eafdd1fbbbc3d035d95d[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Mon May 29 03:46:00 2023 -0500
+
+    hoc file creation
+
+[33mcommit cb4eb1303a50c65a369315e79aef66de652ae1b6[m[33m ([m[1;31morigin/development[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 4a92502 052d3ee
+Author: PENN JR™ <85356158+Payne680@users.noreply.github.com>
+Date:   Sat May 27 15:41:12 2023 +0100
+
+    Merge pull request #27 from boanong/feature/signup-login
+    
+    Feature/signup login
+
+[33mcommit 052d3eeae1b39c9a9c614d393864331c0b620aa5[m
+Author: PENN JR <pennjunior680@gmail.com>
+Date:   Sat May 27 15:32:50 2023 +0100
+
+    Adding a login with  email and password functionality
+
+[33mcommit 9d2a69cdf9d963869e0e760e524dac2d3d0810cc[m
+Merge: 115a9db 4a92502
+Author: PENN JR <pennjunior680@gmail.com>
+Date:   Sat May 27 13:58:34 2023 +0100
+
+    Adding email and password signup
+
+[33mcommit 4a925027eaa147f8608c7dc6d84a12f2c46914cd[m
+Merge: f2c9ce9 0cac3d4
+Author: Boanong Joshua Tamfu <117082549+boanong@users.noreply.github.com>
+Date:   Sat May 27 09:49:06 2023 +0100
+
+    Merge pull request #26 from boanong/feature/user-page
+    
+    Feed Page
+
+[33mcommit 0cac3d484830343546bfdbcca188c91820cd2f26[m
+Merge: bf7207f f2c9ce9
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Fri May 26 23:30:35 2023 -0500
+
+    addition of a landing page file and assembling of componenets on feed
+
+[33mcommit f2c9ce9524855b54faf05ea84f6643844559f788[m
+Merge: e5086ed 56dafda
+Author: kivenalaric <89359876+kivenalaric@users.noreply.github.com>
+Date:   Fri May 26 13:03:33 2023 -0500
+
+    Merge pull request #25 from boanong/feature/posts
+    
+    Feature/posts
+
+[33mcommit 56dafdae254aa7e863b7accb35e25562ab5a8d58[m
+Author: NNVG <g696607013@gmail.com>
+Date:   Fri May 26 18:21:57 2023 +0100
+
+    create post modal
+
+[33mcommit 7e3914dc670cef40696feed6ad1dfdf3766b3ee4[m
+Author: NNVG <g696607013@gmail.com>
+Date:   Thu May 25 12:52:30 2023 +0100
+
+    Created the start post button
+
+[33mcommit 544cd157dc719a916676f125a967016125fe8ea3[m
+Author: NNVG <g696607013@gmail.com>
+Date:   Thu May 25 10:58:32 2023 +0100
+
+    Setting up the post page
+
+[33mcommit 6fcb541c2941ccb0ef06a21cb7975db8cc4a439e[m
+Author: NNVG <g696607013@gmail.com>
+Date:   Wed May 24 12:43:47 2023 +0100
+
+    Connecting firebase with next js
+
+[33mcommit bf7207f5231cf0aceacb90fd56246d8cb0d2353f[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Fri May 26 12:09:15 2023 -0500
+
+    addition of components of feed page
+
+[33mcommit 207ba84289c5d94a753f36f2ae4eea19dc0a3d6e[m
+Author: Kiven Alaric <elmozaro3@gmail.com>
+Date:   Fri May 26 12:01:26 2023 -0500
+
+    addition of Pages and Components

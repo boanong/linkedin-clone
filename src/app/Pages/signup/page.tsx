@@ -12,7 +12,6 @@ import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/firebase/config';
-import Link from 'next/link';
 import { TermsA, ForgotPass } from '@/Components/Atoms/AnchorTag';
 import { ViewPass } from '@/Components/Atoms/DisplayPass';
 import { InputCredentials } from '@/Components/Atoms/EmailInput';
@@ -26,6 +25,7 @@ import { Terms, Or } from '@/Components/Atoms/Ptag';
 import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
 import { Span } from '@/Components/Atoms/Span';
 import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
+import Link from 'next/link';
 
 function Signup() {
   const [authing, setAuthing] = useState(false);

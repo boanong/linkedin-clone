@@ -1,4 +1,3 @@
-import type { AppProps } from 'next/app'
 import './page.css'
 import { AuthContextProvider } from '@/context/AuthContex';
 import Landing from './Pages/landing/page';
