@@ -7,7 +7,11 @@ import Topnav from "@/Components/Topnav/Topnav";
 import { PostSecHolder } from "@/Components/Organisms/PostSecHolder";
 import Post from "@/Components/Post/Post";
 import FeedR from "@/Components/FeedRight/FeedR";
+<<<<<<< HEAD
 import AuthGaurd from "@/hoc/AuthGaurd";
+=======
+import AuthGaurd from "@/HOC/AuthGaurd";
+>>>>>>> fb0832553ca043d4ece40ef439751fd45cff81c6
 
 type Props = { userData: any };
 
