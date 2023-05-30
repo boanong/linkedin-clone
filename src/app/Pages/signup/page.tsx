@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-import {  AuthContextProvider } from '@/context/AuthContex';
+import { AuthContextProvider } from '@/context/AuthContex';
 import { MainDiv } from '@/Components/Organisms/MainDiv';
 import { NavBar } from '@/Components/Organisms/NavBar';
 import { Form } from '@/Components/Molecules/Form';
@@ -11,8 +11,7 @@ import { PassHolder } from '@/Components/Molecules/PasswordHolder';
 import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
-import { auth }  from '@/firebase/config';
-import Link from 'next/link';
+import { auth } from '@/firebase/config';
 import { TermsA, ForgotPass } from '@/Components/Atoms/AnchorTag';
 import { ViewPass } from '@/Components/Atoms/DisplayPass';
 import { InputCredentials } from '@/Components/Atoms/EmailInput';
@@ -26,11 +25,11 @@ import { Terms, Or } from '@/Components/Atoms/Ptag';
 import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
 import { Span } from '@/Components/Atoms/Span';
 import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
-
-
+import Link from 'next/link';
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
+  const [isLoading, setLoading] = useState(false)
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -43,17 +42,17 @@ function Signup() {
 
   const handleSignup = async (e: any) => {
     e.preventDefault()
+    setLoading(true)
+    console.log('this e', e)
     try {
       await signup(data.email, data.password)
-      router.push('/Pages/Feed')
+        .then(() => router.push('/Pages/feed'));
     } catch (err) {
       console.log(err)
     }
 
-
     console.log(data.email, data.password)
   }
-
 
   const signUpWithGoogle = async () => {
     setAuthing(true);
@@ -61,7 +60,7 @@ function Signup() {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         console.log(res.user.uid);
-        router.push("/Pages/Feed");
+        router.push("/Pages/feed");
       })
       .catch(err => {
         console.log(err)
@@ -76,7 +75,7 @@ function Signup() {
     signInWithPopup(auth, new GithubAuthProvider())
       .then(response => {
         console.log(response.user.uid)
-        router.push("/Pages/Feed")
+        router.push("/Pages/feed")
       })
       .catch(err => {
         console.log(err)
@@ -84,21 +83,22 @@ function Signup() {
       })
   }
 
-
-
   return (
     <AuthContextProvider>
-      <MainDiv> 
+      <MainDiv>
         <NavBar>
           <Linked>
             Linked
-            <Link href="/"><LinkedInIcon/></Link>
+            <Link href="/"><LinkedInIcon /></Link>
           </Linked>
         </NavBar>
 
         <FormHeading>Make the most of your professional life.</FormHeading>
         <Form onSubmit={(e) => handleSignup(e)}>
+          {isLoading && <p>Loading...</p>}
+
           <Label>Email</Label>
+          <p></p>
           <InputCredentials placeholder='Email or phone' required type='text' name='email' onChange={(e: any) =>
             setData({
               ...data,
@@ -120,16 +120,16 @@ function Signup() {
           <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
           <SubmitBtn type='submit'>Accept and Join</SubmitBtn>
           <OrSec>
-            <Line/>
+            <Line />
             <Or>Or</Or>
             <Line />
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
           <Span>Already Registered<Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link></Span>
-        </Form>
-      </MainDiv>
-    </AuthContextProvider>
+        </Form >
+      </MainDiv >
+    </AuthContextProvider >
   )
 }
 

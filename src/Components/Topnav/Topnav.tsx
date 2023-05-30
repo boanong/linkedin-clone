@@ -2,7 +2,7 @@
 import React from "react";
 import { FeedNav, NavTxt } from "../Organisms/TopNavHolder";
 import { HomeIcon } from "../Atoms/HomeIcon";
-import { NIconHolder } from "../Molecules/NavIconHolder";
+import { NIconHolder, NIconHolder2, MeAndTextHolder, Textandiconcontainer, Icondiv } from "../Molecules/NavIconHolder";
 import { JobsIcon, NetworkIcon } from "../Atoms/BsIcons";
 import { MessageIcon } from "../Atoms/MsgIcon";
 import { NotificationBell } from "../Atoms/NotificationIcon";
@@ -15,6 +15,10 @@ import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
 import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
+import {VerticalLine} from "../Atoms/VerticalLine";
+import { DropdownIcon } from "../Atoms/DropdownIcon";
+
+
 
 type Props = {};
 
@@ -65,14 +69,32 @@ function Topnav({}: Props) {
             <NavTxt>Notifications</NavTxt>
           </NIconHolder>
 
-          <NIconHolder>
-            <MeFeatureIcon />
-            <NavTxt>Me</NavTxt>
-          </NIconHolder>
+          <NIconHolder2>
+            <MeFeatureIcon /> 
+            <Textandiconcontainer>
+            <MeAndTextHolder>
+            <NavTxt>Me</NavTxt> 
+            </MeAndTextHolder>
+            <Icondiv>
+            <DropdownIcon/> 
+            </Icondiv>
+            </Textandiconcontainer>
+          </NIconHolder2>
+          
+          <VerticalLine>
+          </VerticalLine>
+          
 
           <NIconHolder>
             <ForBusinessIcon />
+            <Textandiconcontainer>
+            <MeAndTextHolder>
             <NavTxt>For Business</NavTxt>
+            </MeAndTextHolder>
+            <Icondiv>
+            <DropdownIcon/> 
+            </Icondiv>
+            </Textandiconcontainer>
           </NIconHolder>
 
           <NIconHolder>
