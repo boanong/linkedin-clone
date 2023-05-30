@@ -9,6 +9,7 @@ export const NIconHolder = styled.div`
   align-items: center;
   &:hover {
     cursor: pointer;
+    border-bottom: 1px solid black;
   }
 `;
 export const NIconHolder2 = styled.div`
@@ -17,7 +18,8 @@ flex-direction: column;
 gap: 0;
 
 &:hover {
-  border-bottom: thick solid black;
+  cursor: pointer;
+  border-bottom: 2px solid black;
   }
 
 `;
