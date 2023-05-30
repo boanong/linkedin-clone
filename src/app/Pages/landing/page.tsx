@@ -53,7 +53,7 @@ const LandingMain = styled.div`
   min-height: 100vh;
 `;
 
-function Landing({}: Props) {
+function Landing({ }: Props) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -118,7 +118,7 @@ function Landing({}: Props) {
             <JobsIcon />
             <NavTxt>Jobs</NavTxt>
           </NIconHolder>
-          <VerticalLine/>
+          <VerticalLine />
           <JoinBtnHolder>
             <Link href="/Pages/signup">
               <JoinNowBtn type="button">Join Now</JoinNowBtn>
