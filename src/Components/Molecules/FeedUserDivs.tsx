@@ -20,7 +20,7 @@ export const FeedUserImages = styled.div`
   border-radius: 5px 5px 0 0;
   height: 65px;
   max-height: 65px;
-  
+
   background-image: url("https://images.pexels.com/photos/16863602/pexels-photo-16863602/free-photo-of-heavy-snowfall-in-the-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 `;
 
@@ -85,7 +85,7 @@ export const FeedUserTxtH = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
-  &:hover{
+  &:hover {
     cursor: pointer;
     background: #b1b1b188;
   }
@@ -122,5 +122,4 @@ export const FeedUserP2 = styled.p`
 
 export const FeedUserPN = styled(FeedUserP2)`
   color: #0060c7;
-
 `;

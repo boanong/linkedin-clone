@@ -88,7 +88,7 @@ function Signup() {
 
   return (
     <AuthContextProvider>
-      <MainDiv>
+      <MainDiv> 
         <NavBar>
           <Linked>
             Linked
