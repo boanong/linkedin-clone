@@ -1,33 +1,37 @@
-import { auth } from '@/firebase/config'
-import { onAuthStateChanged } from 'firebase/auth'
-import { useEffect, useState } from 'react'
+import Loading from "@/Components/Loading/Loading";
+import { auth } from "@/firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 function AuthGaurd(Component: any) {
-    return function GAURD(props: any) {
-        const [userData, setUserData] = useState<any>(false);
+  return function GAURD(props: any) {
+    const [userData, setUserData] = useState<any>(false);
 
-        useEffect(() => {
-            const unsubcribe = onAuthStateChanged(auth, (user) => {
+    useEffect(() => {
+      const unsubcribe = onAuthStateChanged(auth, (user) => {
+        console.log("this user in onAuth", user);
+        if (user) {
+          setUserData({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+          });
+        } else {
+          setUserData(undefined);
+        }
+      });
 
-                console.log('this user in onAuth', user)
-                if (user) {
-                    setUserData({
-                        uid: user.uid,
-                        email: user.email,
-                        displayName: user.displayName,
-                    })
-                } else {
-                    setUserData(null)
-                }
-            })
+      return () => unsubcribe();
+    }, []);
 
-            return () => unsubcribe();
-        }, []);
+    console.log("this userData", userData);
 
-        console.log('this userData', userData)
-
-        return <Component {...props} userData={userData} />
-    }
+    return userData ? (
+      <Component {...props} userData={userData} />
+    ) : (
+      <Loading />
+    );
+  };
 }
 
-export default AuthGaurd
+export default AuthGaurd;

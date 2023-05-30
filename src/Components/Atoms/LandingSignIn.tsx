@@ -13,7 +13,7 @@ export const LandingSignInOnclick = styled.button`
   font-size: 1.2rem;
   font-weight: 500;
   margin: 10px auto;
-  @media and screen only (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1rem;
     &:hover {
       background-color: #05417d;
@@ -34,7 +34,7 @@ export const LandingNewTo = styled.button`
   font-size: 1.2rem;
   font-weight: 500;
   margin: 10px auto;
-  @media and screen only (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1rem;
     &:hover {
       background-color: #a6a6a76f;
