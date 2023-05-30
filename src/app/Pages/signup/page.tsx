@@ -26,13 +26,10 @@ import { Terms, Or } from '@/Components/Atoms/Ptag';
 import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
 import { Span } from '@/Components/Atoms/Span';
 import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
-import Loading from '@/Components/Loading/Loading';
-
-
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
-  const [isloading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -45,21 +42,16 @@ function Signup() {
 
   const handleSignup = async (e: any) => {
     e.preventDefault()
+    setLoading(true)
+    console.log('this e', e)
     try {
-      setLoading(true)
       await signup(data.email, data.password)
-      setLoading(false)
-      router.push('/Pages/feed')
+        .then(() => router.push('/Pages/feed'));
     } catch (err) {
       console.log(err)
     }
 
-
     console.log(data.email, data.password)
-  }
-
-  if (isloading) {
-    return <Loading />
   }
 
   const signUpWithGoogle = async () => {
@@ -91,11 +83,8 @@ function Signup() {
       })
   }
 
-
-
   return (
     <AuthContextProvider>
-
       <MainDiv>
         <NavBar>
           <Linked>
@@ -106,6 +95,8 @@ function Signup() {
 
         <FormHeading>Make the most of your professional life.</FormHeading>
         <Form onSubmit={(e) => handleSignup(e)}>
+          {isLoading && <p>Loading...</p>}
+
           <Label>Email</Label>
           <p></p>
           <InputCredentials placeholder='Email or phone' required type='text' name='email' onChange={(e: any) =>

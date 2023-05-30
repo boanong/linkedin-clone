@@ -36,6 +36,7 @@ function Login({ }: Props) {
 
   const router = useRouter()
   const [authing, setAuthing] = useState(false);
+  const [isLoading, setLoading] = useState(false)
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
@@ -43,11 +44,11 @@ function Login({ }: Props) {
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
-
+    setLoading(true)
     console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-      router.push('/Pages/feed')
+        .then(() => router.push('/Pages/feed'))
     } catch (err) {
       console.log(err)
     }
@@ -96,6 +97,7 @@ function Login({ }: Props) {
         <Form
           onSubmit={(e) => handleLogin(e)}
         >
+          {isLoading && <p>Loading...</p>}
           <FormHeading>Login</FormHeading>
           <Ptag>
             Keep up to date with developments in your professional world
