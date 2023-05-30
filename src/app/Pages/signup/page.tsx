@@ -13,6 +13,7 @@ import { OrSec } from '@/Components/Molecules/OrSec';
 import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
 import { auth }  from '@/firebase/config';
+import Link from 'next/link';
 
 
 
@@ -32,7 +33,7 @@ function Signup() {
     e.preventDefault()
     try {
       await signup(data.email, data.password)
-      router.push('/Pages/Feed')
+      router.push('/Pages/feed')
     } catch (err) {
       console.log(err)
     }
@@ -48,7 +49,7 @@ function Signup() {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         console.log(res.user.uid);
-        router.push("/Pages/Feed");
+        router.push("/Pages/feed");
       })
       .catch(err => {
         console.log(err)
@@ -63,7 +64,7 @@ function Signup() {
     signInWithPopup(auth, new GithubAuthProvider())
       .then(response => {
         console.log(response.user.uid)
-        router.push("/Pages/Feed")
+        router.push("/Pages/feed")
       })
       .catch(err => {
         console.log(err)
@@ -113,7 +114,7 @@ function Signup() {
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
-          <Span>Already Registered<ForgotPass>Login</ForgotPass></Span>
+          <Span>Already Registered?<Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link></Span>
         </Form>
       </MainDiv>
     </AuthContextProvider>

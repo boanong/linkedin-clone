@@ -17,7 +17,7 @@ import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
 import { VerticalLine } from "../Atoms/VerticalLine"
 import { DropdownIcon } from "../Atoms/DropdownIcon";
-import { NIconHolder2 } from "../Molecules/NavIconHolder";
+import { NIconHolder2, MeFeatureIcondiv, MeAndTextHolder, Textandiconcontainer, Icondiv, NavTxt } from "../Molecules/NavIconHolder";
 
 
 
@@ -72,9 +72,14 @@ function Topnav({}: Props) {
 
           <NIconHolder2>
             <MeFeatureIcon /> 
+            <Textandiconcontainer>
+            <MeAndTextHolder>
             <NavTxt>Me</NavTxt> 
-            <DropdownIcon/>
-           
+            </MeAndTextHolder>
+            <Icondiv>
+            <DropdownIcon/> 
+            </Icondiv>
+            </Textandiconcontainer>
           </NIconHolder2>
           
           <VerticalLine>
@@ -83,7 +88,14 @@ function Topnav({}: Props) {
 
           <NIconHolder>
             <ForBusinessIcon />
+            <Textandiconcontainer>
+            <MeAndTextHolder>
             <NavTxt>For Business</NavTxt>
+            </MeAndTextHolder>
+            <Icondiv>
+            <DropdownIcon/> 
+            </Icondiv>
+            </Textandiconcontainer>
           </NIconHolder>
 
           <NIconHolder>
