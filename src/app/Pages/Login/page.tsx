@@ -90,7 +90,7 @@ function Login({ }: Props) {
         <NavBar>
           <Linked>
             Linked
-            <LinkedInIcon />
+            <Link href="/"><LinkedInIcon /></Link>
           </Linked>
         </NavBar>
         <Form

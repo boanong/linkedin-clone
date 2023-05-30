@@ -8,3 +8,13 @@ export const ArticleIcon = styled(RiArticleFill)`
     font-size: 35px;
   }
 `;
+
+export const ArticleLan = styled(RiArticleFill)`
+  font-size: 1.5rem;
+  color: #666666;
+  @media only screen and (min-width: 768px) {
+    &:hover {
+      color: #000;
+    }
+  }
+`;

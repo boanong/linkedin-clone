@@ -15,6 +15,11 @@ import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
 import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
+import { VerticalLine } from "../Atoms/VerticalLine"
+import { DropdownIcon } from "../Atoms/DropdownIcon";
+import { NIconHolder2 } from "../Molecules/NavIconHolder";
+
+
 
 type Props = {};
 
@@ -65,10 +70,16 @@ function Topnav({}: Props) {
             <NavTxt>Notifications</NavTxt>
           </NIconHolder>
 
-          <NIconHolder>
-            <MeFeatureIcon />
-            <NavTxt>Me</NavTxt>
-          </NIconHolder>
+          <NIconHolder2>
+            <MeFeatureIcon /> 
+            <NavTxt>Me</NavTxt> 
+            <DropdownIcon/>
+           
+          </NIconHolder2>
+          
+          <VerticalLine>
+          </VerticalLine>
+          
 
           <NIconHolder>
             <ForBusinessIcon />

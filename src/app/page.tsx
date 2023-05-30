@@ -1,9 +1,15 @@
 import type { AppProps } from 'next/app'
+import './page.css'
+import { AuthContextProvider } from '@/context/AuthContex';
+import Landing from './Pages/landing/page';
 
-export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+
+function Home(props: any) {
   return (
-    <main>
-      <h1>Landinig page</h1>
-    </main>
+    <AuthContextProvider>
+      <Landing />
+    </AuthContextProvider>
   )
 }
+
+export default Home

@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-import { LinkedInIcon, Terms, TermsA, Label, SocilaLogBtn, SubmitBtn, Linked, ForgotPass, FormHeading, InputCredentials, Ptag, PassInput, ViewPass, Line, Or, Span } from '@/Components/Atoms/Atoms';
 import { AuthContextProvider } from '@/context/AuthContex';
 import { MainDiv } from '@/Components/Organisms/MainDiv';
 import { NavBar } from '@/Components/Organisms/NavBar';
@@ -14,11 +13,26 @@ import { useRouter } from 'next/navigation';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/firebase/config';
 import Link from 'next/link';
+import { TermsA, ForgotPass } from '@/Components/Atoms/AnchorTag';
+import { ViewPass } from '@/Components/Atoms/DisplayPass';
+import { InputCredentials } from '@/Components/Atoms/EmailInput';
+import { FormHeading } from '@/Components/Atoms/Heading';
+import { Line } from '@/Components/Atoms/Hr';
+import { Label } from '@/Components/Atoms/LabelTag';
+import { LinkedInIcon } from '@/Components/Atoms/LinkedLogo';
+import { Linked } from '@/Components/Atoms/LinkedLogoTxt';
+import { PassInput } from '@/Components/Atoms/PasswordInput';
+import { Terms, Or } from '@/Components/Atoms/Ptag';
+import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
+import { Span } from '@/Components/Atoms/Span';
+import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
+import Loading from '@/Components/Loading/Loading';
 
 
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
+  const [isloading, setLoading] = useState(false)
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -32,7 +46,9 @@ function Signup() {
   const handleSignup = async (e: any) => {
     e.preventDefault()
     try {
+      setLoading(true)
       await signup(data.email, data.password)
+      setLoading(false)
       router.push('/Pages/feed')
     } catch (err) {
       console.log(err)
@@ -42,6 +58,9 @@ function Signup() {
     console.log(data.email, data.password)
   }
 
+  if (isloading) {
+    return <Loading />
+  }
 
   const signUpWithGoogle = async () => {
     setAuthing(true);
@@ -76,17 +95,19 @@ function Signup() {
 
   return (
     <AuthContextProvider>
+
       <MainDiv>
         <NavBar>
           <Linked>
             Linked
-            <LinkedInIcon />
+            <Link href="/"><LinkedInIcon /></Link>
           </Linked>
         </NavBar>
 
         <FormHeading>Make the most of your professional life.</FormHeading>
         <Form onSubmit={(e) => handleSignup(e)}>
           <Label>Email</Label>
+          <p></p>
           <InputCredentials placeholder='Email or phone' required type='text' name='email' onChange={(e: any) =>
             setData({
               ...data,
@@ -114,11 +135,10 @@ function Signup() {
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
-          <Span>Already Registered <Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link>
-          </Span>
-        </Form>
-      </MainDiv>
-    </AuthContextProvider>
+          <Span>Already Registered<Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link></Span>
+        </Form >
+      </MainDiv >
+    </AuthContextProvider >
   )
 }
 

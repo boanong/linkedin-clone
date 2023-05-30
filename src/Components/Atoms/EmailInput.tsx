@@ -9,7 +9,7 @@ export const InputCredentials = styled.input`
   font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
   text-align: left;
-  display flex;
+  display: flex;
   border: 1px solid #000;
   background: transparent;
   padding: 12px 10px;
