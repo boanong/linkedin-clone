@@ -118,7 +118,7 @@ function Landing({}: Props) {
             <JobsIcon />
             <NavTxt>Jobs</NavTxt>
           </NIconHolder>
-          <Vl />
+          <Vl/>
           <JoinBtnHolder>
             <Link href="/Pages/signup">
               <JoinNowBtn type="button">Join Now</JoinNowBtn>
