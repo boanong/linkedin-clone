@@ -24,6 +24,7 @@ import { auth } from "@/firebase/config";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
+import Link from "next/link";
 
 type Props = {};
 
@@ -46,7 +47,7 @@ function Login({ }: Props) {
     console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-      router.push('/Pages/Feed')
+      router.push('/Pages/feed')
     } catch (err) {
       console.log(err)
     }
@@ -58,7 +59,7 @@ function Login({ }: Props) {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         console.log(res.user.uid);
-        router.push("/Pages/Feed");
+        router.push("/Pages/feed");
       })
       .catch(err => {
         console.log(err)
@@ -89,7 +90,7 @@ function Login({ }: Props) {
         <NavBar>
           <Linked>
             Linked
-            <LinkedInIcon />
+            <Link href="/"><LinkedInIcon /></Link>
           </Linked>
         </NavBar>
         <Form
@@ -97,7 +98,7 @@ function Login({ }: Props) {
         >
           <FormHeading>Login</FormHeading>
           <Ptag>
-            Keep up to date with developments in your professional world
+            Keep up to date with developments in your professional world.
           </Ptag>
           <InputCredentials
             placeholder="Email or phone"
@@ -138,7 +139,7 @@ function Login({ }: Props) {
           </SocilaLogBtn>
         </Form>
         <Span>
-          New to LinkedIn?<ForgotPass>Register</ForgotPass>
+          New to LinkedIn?<Link href="/Pages/signup"><ForgotPass>Register</ForgotPass></Link>
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>
