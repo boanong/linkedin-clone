@@ -24,7 +24,7 @@ export const LandingSignInOnclick = styled.button`
 
 export const LandingNewTo = styled.button`
   max-width: 400px;
-  width: 100%;
+  width: 400px;
   text-align: center;
   border: 1px solid #000;
   border-radius: 25px;

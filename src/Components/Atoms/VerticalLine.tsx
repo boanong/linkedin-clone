@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 
 export const VerticalLine = styled.div`
-  display: none;
-  @media only screen and (min-width: 768px) {
-    border-left: 4px solid #666666;
-    height: 200px;
+  height: 40px;
+  max-height: 45px;
+  border-left: #525252 1px solid;
+  margin: auto 5px;
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;

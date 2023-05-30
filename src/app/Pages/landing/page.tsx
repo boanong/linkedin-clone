@@ -118,7 +118,7 @@ function Landing({ }: Props) {
             <JobsIcon />
             <NavTxt>Jobs</NavTxt>
           </NIconHolder>
-          <VerticalLine />
+          <VerticalLine></VerticalLine>
           <JoinBtnHolder>
             <Link href="/Pages/signup">
               <JoinNowBtn type="button">Join Now</JoinNowBtn>
@@ -159,9 +159,7 @@ function Landing({ }: Props) {
           <ForgotPassH>Forgot password?</ForgotPassH>
           <LandingSignInOnclick
             type="button"
-            onClick={(e) => {
-              handleLogin(e);
-            }}
+            onClick={(e) => handleLogin(e)}
           >
             Sign in
           </LandingSignInOnclick>

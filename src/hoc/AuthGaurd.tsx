@@ -27,7 +27,7 @@ function AuthGaurd(Component: any) {
 
     console.log("this userData", userData);
 
-    return userData ? (
+    return !userData ? (
       <Component {...props} userData={userData} />
     ) : (
       <Loading />
