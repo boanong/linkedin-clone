@@ -5,6 +5,12 @@ export const DropdownCard = styled.div`
   width: 360px;
   background-color: white;
   border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%);
+  margin: 15px 0 0;
+  z-index: 3;
 `;
 
 export const ProfilePictureAndName = styled.div`

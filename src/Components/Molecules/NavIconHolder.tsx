@@ -13,35 +13,29 @@ export const NIconHolder = styled.div`
   }
 `;
 export const NIconHolder2 = styled.div`
-display: flex;
-flex-direction: column;
-gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
 
-&:hover {
-  cursor: pointer;
-  border-bottom: 2px solid black;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid black;
   }
-
 `;
-export const MeFeatureIcondiv = styled.div`
+export const MeFeatureIcondiv = styled.div``;
 
-`;
-
-export const MeAndTextHolder = styled.div`
-
-`;
+export const MeAndTextHolder = styled.div``;
 
 export const Textandiconcontainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-export const Icondiv = styled.div`
-
-`;
+export const Icondiv = styled.div``;
 
 export const NavTxt = styled.p`
-&:hover {
+  &:hover {
     cursor: pointer;
   }
 `;

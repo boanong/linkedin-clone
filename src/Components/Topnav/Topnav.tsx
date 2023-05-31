@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FeedNav, NavTxt } from "../Organisms/TopNavHolder";
 import { HomeIcon } from "../Atoms/HomeIcon";
 import {
@@ -23,25 +23,7 @@ import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
 import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
-import {
-  DropdownCard,
-  ProfilePicture,
-  ProfilePictureAndName,
-  ProfileName,
-  Button,
-  ButtonDiv,
-  StyledText,
-  StyledText2,
-  ProfileDiv,
-  SettingAndPrivacy,
-  ManageDiv,
-  LanguageText,
-  Manage,
-  JobTitle,
-  SignOut,
-  JobtitleDiv,
-  ProfilePictureDiv,
-} from "../Atoms/DropdownCard";
+import Dropdown from "../Organisms/Dropdown/Dropdown";
 
 type Props = {};
 
@@ -54,9 +36,28 @@ const FeedMain = styled.div`
   padding: 0;
 `;
 
+const Overlay = styled.div`
+  background-color: #00000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+`;
+
+
 function Topnav({}: Props) {
+  const [showDrop, setShowDrop] = useState<boolean>(false);
+
+  const toggleDrop = () => {
+    setShowDrop((prev) => !prev);
+  };
+
   return (
     <FeedMain>
+      {showDrop && <Overlay onClick={toggleDrop} />}
+
       <FeedNav>
         <NavSearchHolder>
           <LinkedInIconLarge />
@@ -93,8 +94,8 @@ function Topnav({}: Props) {
           </NIconHolder>
 
           <NIconHolder2>
-            <MeFeatureIcon />
-            <Textandiconcontainer>
+            <MeFeatureIcon onClick={toggleDrop} />
+            <Textandiconcontainer onClick={toggleDrop}>
               <MeAndTextHolder>
                 <NavTxt>Me</NavTxt>
               </MeAndTextHolder>
@@ -102,6 +103,8 @@ function Topnav({}: Props) {
                 <DropdownIcon />
               </Icondiv>
             </Textandiconcontainer>
+
+            {showDrop && <Dropdown toggleDrop={toggleDrop} />}
           </NIconHolder2>
 
           <VerticalLine></VerticalLine>
@@ -124,37 +127,6 @@ function Topnav({}: Props) {
           </NIconHolder>
         </FeaturesHolder>
       </FeedNav>
-
-      <DropdownCard>
-        <ProfilePictureAndName>
-          {/* <ProfilePictureDiv></ProfilePictureDiv> */}
-          <ProfilePicture />
-
-          <JobtitleDiv>
-            <ProfileName>Boanong Joshua</ProfileName>
-            <JobTitle>UI/UX Designer || Web developer </JobTitle>
-          </JobtitleDiv>
-        </ProfilePictureAndName>
-
-        <ButtonDiv>
-          <Button>View Profile</Button>
-        </ButtonDiv>
-        <ProfileDiv>
-          <StyledText>Account</StyledText>
-
-          <StyledText2>Try Premium for Free</StyledText2>
-          <SettingAndPrivacy>Setting & Privacy</SettingAndPrivacy>
-          <SettingAndPrivacy>Help</SettingAndPrivacy>
-          <SettingAndPrivacy>Language</SettingAndPrivacy>
-        </ProfileDiv>
-
-        <ManageDiv>
-          <Manage>Manage</Manage>
-          <LanguageText>Posts and activities</LanguageText>
-          <LanguageText>Job posting Account</LanguageText>
-        </ManageDiv>
-        <SignOut>Sign out </SignOut>
-      </DropdownCard>
     </FeedMain>
   );
 }
