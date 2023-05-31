@@ -1,20 +1,22 @@
 import styled from "@emotion/styled";
 
 export const LandingSignInOnclick = styled.button`
-  max-width: 400px;
-  width: 100%;
   text-align: center;
   color: #fff;
   border: none;
   border-radius: 25px;
   padding: 10px;
   background-color: #0a66c2;
-  margin: auto;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin: 10px auto;
-  @media only screen and (max-width: 768px) {
-    font-size: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 94vw;
+  margin: 5px auto;
+  @media only screen and (min-width: 768px) {
+    font-size: 1.1rem;
+    width: 100%;
+    font-weight: 500;
+    max-width: 400px;
+    margin: 10px auto;
     &:hover {
       background-color: #05417d;
       transition: 0.5s;
@@ -23,19 +25,21 @@ export const LandingSignInOnclick = styled.button`
 `;
 
 export const LandingNewTo = styled.button`
-  max-width: 400px;
-  width: 400px;
   text-align: center;
   border: 1px solid #000;
   border-radius: 25px;
-  padding: 8px;
+  padding: 6px;
   background-color: transparent;
   margin: auto;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 18;
+  font-weight: 300;
   margin: 10px auto;
-  @media only screen and (max-width: 768px) {
-    font-size: 1rem;
+  width: 94vw;
+  @media only screen and (min-width: 768px) {
+    max-width: 400px;
+    width: 400px;
+    font-weight: 400;
+    font-size: 16px;
     &:hover {
       background-color: #a6a6a76f;
       transition: 0.5s;
@@ -46,5 +50,5 @@ export const LandingNewTo = styled.button`
 export const LandingNewTo1 = styled(LandingNewTo)`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;

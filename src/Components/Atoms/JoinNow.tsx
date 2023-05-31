@@ -1,18 +1,20 @@
 import styled from "@emotion/styled";
 
 export const JoinNowBtn = styled.button`
-  background-color: #666666;
-  padding: 12px 24px;
-  font-weight: 500;
+  background-color: transparent;
+  padding: 5px 15px;
+  font-weight: 400;
   text-align: center;
   border-radius: 24px;
   border: none;
   height: min-content;
-  min-height: 40px;
-  font-size: 1.1rem;
+  min-height: 20px;
+  font-size: 16px;
   cursor: pointer;
   @media only screen and (min-width: 768px) {
-    background-color: transparent;
+    font-weight: 500;
+    min-height: 40px;
+    padding: 12px 24px;
     &:hover {
       background-color: #a9a9a982;
       transition: 0.4s;
