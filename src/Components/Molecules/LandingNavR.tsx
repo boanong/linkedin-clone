@@ -8,7 +8,7 @@ export const LandingNavR = styled.div`
 
 export const LandingNavRInner = styled.div`
   display: none;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 778px) {
     display: flex;
     align-items: center;
     gap: 30px;

@@ -9,7 +9,7 @@ export const LandingSignInOnclick = styled.button`
   background-color: #0a66c2;
   font-size: 1rem;
   font-weight: 400;
-  width: 94vw;
+  width: min(94vw, 380px);
   margin: 5px auto;
   @media only screen and (min-width: 768px) {
     font-size: 1.1rem;
@@ -22,6 +22,7 @@ export const LandingSignInOnclick = styled.button`
       transition: 0.5s;
     }
   }
+  
 `;
 
 export const LandingNewTo = styled.button`
@@ -34,7 +35,7 @@ export const LandingNewTo = styled.button`
   font-size: 18;
   font-weight: 300;
   margin: 10px auto;
-  width: 94vw;
+  width: min(94vw, 380px);
   @media only screen and (min-width: 768px) {
     max-width: 400px;
     width: 400px;

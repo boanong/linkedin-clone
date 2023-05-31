@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const JoinNowBtn = styled.button`
   background-color: transparent;
-  padding: 5px 15px;
+  padding: 8px 18px;
   font-weight: 400;
   text-align: center;
   border-radius: 24px;
@@ -20,6 +20,10 @@ export const JoinNowBtn = styled.button`
       transition: 0.4s;
       border: #a9a9a982 1px solid;
     }
+  }
+  @media only screen and (max-width: 400px) {
+    padding: 5px 15px;
+    font-size: 16px;
   }
 `;
 

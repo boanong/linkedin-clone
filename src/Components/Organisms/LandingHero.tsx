@@ -18,6 +18,7 @@ export const LandingHero = styled.section`
   @media only screen and (min-width: 768px) {
     gap: 35px;
     height: fit-content;
+    width: 100vw;
     min-height: calc(100vh - 76px - 50px);
     flex-direction: row;
     align-items: flex-start;
@@ -39,7 +40,7 @@ export const LandingHeroLeft = styled.div`
 `;
 
 export const LandingHeroH1 = styled.h1`
-  font-size: 30px;
+  font-size: 32px;
   color: #8f5849;
   width: 87%;
   padding-bottom: 20px;
@@ -51,6 +52,9 @@ export const LandingHeroH1 = styled.h1`
     margin: 0;
     padding: 0 0 24px;
   }
+  @media only screen and (max-width: 400px) {
+    font-size: 30px;
+  }
 `;
 
 export const LandingHeroInput = styled.input`
@@ -59,7 +63,7 @@ export const LandingHeroInput = styled.input`
   margin-top: 15px;
   border: 1px solid #000;
   border-radius: 5px;
-  width: 94vw;
+  width: min(94vw, 380px);
   height: fit-content;
   min-height: 40px;
   @media only screen and (min-width: 768px) {
