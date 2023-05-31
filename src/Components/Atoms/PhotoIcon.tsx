@@ -11,6 +11,11 @@ export const PhotoIcon = styled(HiPhoto)`
   }
 `;
 
+export const PostPhotoIcon = styled(HiPhoto)`
+  color: #b0b0b0d3;
+  font-size: 25px;
+`;
+
 export const PhotoIcon1 = styled(HiPhoto)`
   font-size: 1rem;
   color: #666666;
