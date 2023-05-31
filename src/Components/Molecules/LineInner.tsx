@@ -2,22 +2,21 @@ import styled from "@emotion/styled";
 
 export const LineInner = styled.div`
     width: 100%;
-    max-width: 100px;
+    max-width: 230px;
     height: inherit;
-    left: -50px;
+    margin: auto;
     background: #0077B5;
-    position: absolute;
     animation: slide 1.5s ease-in-out infinite;
 
     @keyframes slide{
-  /* 0%{
+  0%{
     transform-origin: left;
     transform: scalex(0.3);
   }
-  //12.5%{
-    //transform-origin: left;
-    //transform: scalex(0.2);
-  //}
+  12%{
+    transform-origin: left;
+    transform: scalex(0.2);
+  }
   25%{
     transform-origin: left;
     transform: scalex(1);
@@ -30,12 +29,12 @@ export const LineInner = styled.div`
     transform-origin: right;
     transform: scalex(0.3);
   }
-  //62.5%{
-    //transform-origin: right;
-    //transform: scalex(0.2);
-  //}
-  75%{
+  62%{
     transform-origin: right;
+    transform: scalex(0.2);
+  }
+  75%{
+    transform-origin: left;
     transform: scalex(1);
   }
   76%{
@@ -45,9 +44,9 @@ export const LineInner = styled.div`
   100%{
     transform-origin: left;
     transform: scalex(0.3);
-  } */
-  50%{
-    left: 150px;
   }
+  /* 50%{
+    left: 150px;
+  } */
 }
 `;
