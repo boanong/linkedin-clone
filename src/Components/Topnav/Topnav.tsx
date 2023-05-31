@@ -2,7 +2,13 @@
 import React from "react";
 import { FeedNav, NavTxt } from "../Organisms/TopNavHolder";
 import { HomeIcon } from "../Atoms/HomeIcon";
-import { NIconHolder, NIconHolder2, MeAndTextHolder, Textandiconcontainer, Icondiv } from "../Molecules/NavIconHolder";
+import {
+  NIconHolder,
+  NIconHolder2,
+  MeAndTextHolder,
+  Textandiconcontainer,
+  Icondiv,
+} from "../Molecules/NavIconHolder";
 import { JobsIcon, NetworkIcon } from "../Atoms/BsIcons";
 import { MessageIcon } from "../Atoms/MsgIcon";
 import { NotificationBell } from "../Atoms/NotificationIcon";
@@ -15,10 +21,27 @@ import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
 import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
-import {VerticalLine} from "../Atoms/VerticalLine";
+import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
-
-
+import {
+  DropdownCard,
+  ProfilePicture,
+  ProfilePictureAndName,
+  ProfileName,
+  Button,
+  ButtonDiv,
+  StyledText,
+  StyledText2,
+  ProfileDiv,
+  SettingAndPrivacy,
+  ManageDiv,
+  LanguageText,
+  Manage,
+  JobTitle,
+  SignOut,
+  JobtitleDiv,
+  ProfilePictureDiv,
+} from "../Atoms/DropdownCard";
 
 type Props = {};
 
@@ -70,30 +93,28 @@ function Topnav({}: Props) {
           </NIconHolder>
 
           <NIconHolder2>
-            <MeFeatureIcon /> 
+            <MeFeatureIcon />
             <Textandiconcontainer>
-            <MeAndTextHolder>
-            <NavTxt>Me</NavTxt> 
-            </MeAndTextHolder>
-            <Icondiv>
-            <DropdownIcon/> 
-            </Icondiv>
+              <MeAndTextHolder>
+                <NavTxt>Me</NavTxt>
+              </MeAndTextHolder>
+              <Icondiv>
+                <DropdownIcon />
+              </Icondiv>
             </Textandiconcontainer>
           </NIconHolder2>
-          
-          <VerticalLine>
-          </VerticalLine>
-          
+
+          <VerticalLine></VerticalLine>
 
           <NIconHolder>
             <ForBusinessIcon />
             <Textandiconcontainer>
-            <MeAndTextHolder>
-            <NavTxt>For Business</NavTxt>
-            </MeAndTextHolder>
-            <Icondiv>
-            <DropdownIcon/> 
-            </Icondiv>
+              <MeAndTextHolder>
+                <NavTxt>For Business</NavTxt>
+              </MeAndTextHolder>
+              <Icondiv>
+                <DropdownIcon />
+              </Icondiv>
             </Textandiconcontainer>
           </NIconHolder>
 
@@ -103,6 +124,37 @@ function Topnav({}: Props) {
           </NIconHolder>
         </FeaturesHolder>
       </FeedNav>
+
+      <DropdownCard>
+        <ProfilePictureAndName>
+          {/* <ProfilePictureDiv></ProfilePictureDiv> */}
+          <ProfilePicture />
+
+          <JobtitleDiv>
+            <ProfileName>Boanong Joshua</ProfileName>
+            <JobTitle>UI/UX Designer || Web developer </JobTitle>
+          </JobtitleDiv>
+        </ProfilePictureAndName>
+
+        <ButtonDiv>
+          <Button>View Profile</Button>
+        </ButtonDiv>
+        <ProfileDiv>
+          <StyledText>Account</StyledText>
+
+          <StyledText2>Try Premium for Free</StyledText2>
+          <SettingAndPrivacy>Setting & Privacy</SettingAndPrivacy>
+          <SettingAndPrivacy>Help</SettingAndPrivacy>
+          <SettingAndPrivacy>Language</SettingAndPrivacy>
+        </ProfileDiv>
+
+        <ManageDiv>
+          <Manage>Manage</Manage>
+          <LanguageText>Posts and activities</LanguageText>
+          <LanguageText>Job posting Account</LanguageText>
+        </ManageDiv>
+        <SignOut>Sign out </SignOut>
+      </DropdownCard>
     </FeedMain>
   );
 }
