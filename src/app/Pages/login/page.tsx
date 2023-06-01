@@ -21,7 +21,7 @@ import { Footer } from "@/Components/Organisms/Footer";
 import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { NavBar } from "@/Components/Organisms/NavBar";
 import { auth } from "@/firebase/config";
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
@@ -36,11 +36,14 @@ function Login({ }: Props) {
 
   const router = useRouter()
   const [authing, setAuthing] = useState(false);
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
+  const [noEmail, setNoEmail] = useState(false);
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
   }
+
+
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
@@ -83,6 +86,24 @@ function Login({ }: Props) {
       })
   }
 
+  const resetPassword = () => {
+    if (!data.email) {
+      setNoEmail(true);
+      return;
+    };
+
+    sendPasswordResetEmail(auth, data.email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+
+  }
 
 
   return (
@@ -113,6 +134,7 @@ function Login({ }: Props) {
               })
             }
             value={data.email}
+            noEmail={noEmail}
           />
           <PassHolder>
             <PassInput placeholder="Password" name="password" type="password" onChange={(e: any) =>
@@ -124,7 +146,7 @@ function Login({ }: Props) {
               value={data.password} />
             <ViewPass>display</ViewPass>
           </PassHolder>
-          <ForgotPass>Forgot your Password?</ForgotPass>
+          <ForgotPass onClick={resetPassword}>Forgot your Password?</ForgotPass>
           <SubmitBtn type="submit">Login</SubmitBtn>
           <OrSec>
             <Line />
