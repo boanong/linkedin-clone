@@ -13,6 +13,7 @@ export const DropdownCard = styled.div`
   z-index: 3;
 `;
 
+
 export const ProfilePictureAndName = styled.div`
   display: flex;
   justify-content: space-between;

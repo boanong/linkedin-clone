@@ -46,6 +46,17 @@ const Overlay = styled.div`
   z-index: 2;
 `;
 
+const DisplayNoneDiv = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 15px;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 
 function Topnav({}: Props) {
   const [showDrop, setShowDrop] = useState<boolean>(false);
@@ -93,38 +104,40 @@ function Topnav({}: Props) {
             <NavTxt>Notifications</NavTxt>
           </NIconHolder>
 
-          <NIconHolder2>
-            <MeFeatureIcon onClick={toggleDrop} />
-            <Textandiconcontainer onClick={toggleDrop}>
-              <MeAndTextHolder>
-                <NavTxt>Me</NavTxt>
-              </MeAndTextHolder>
-              <Icondiv>
-                <DropdownIcon />
-              </Icondiv>
-            </Textandiconcontainer>
+          <DisplayNoneDiv>
+            <NIconHolder2>
+              <MeFeatureIcon onClick={toggleDrop} />
+              <Textandiconcontainer onClick={toggleDrop}>
+                <MeAndTextHolder>
+                  <NavTxt>Me</NavTxt>
+                </MeAndTextHolder>
+                <Icondiv>
+                  <DropdownIcon />
+                </Icondiv>
+              </Textandiconcontainer>
 
-            {showDrop && <Dropdown toggleDrop={toggleDrop} />}
-          </NIconHolder2>
+              {showDrop && <Dropdown />}
+            </NIconHolder2>
 
-          <VerticalLine></VerticalLine>
+            <VerticalLine></VerticalLine>
 
-          <NIconHolder>
-            <ForBusinessIcon />
-            <Textandiconcontainer>
-              <MeAndTextHolder>
-                <NavTxt>For Business</NavTxt>
-              </MeAndTextHolder>
-              <Icondiv>
-                <DropdownIcon />
-              </Icondiv>
-            </Textandiconcontainer>
-          </NIconHolder>
+            <NIconHolder>
+              <ForBusinessIcon />
+              <Textandiconcontainer>
+                <MeAndTextHolder>
+                  <NavTxt>For Business</NavTxt>
+                </MeAndTextHolder>
+                <Icondiv>
+                  <DropdownIcon />
+                </Icondiv>
+              </Textandiconcontainer>
+            </NIconHolder>
 
-          <NIconHolder>
-            <PostJobs />
-            <NavTxt>Post a job</NavTxt>
-          </NIconHolder>
+            <NIconHolder>
+              <PostJobs />
+              <NavTxt>Post a job</NavTxt>
+            </NIconHolder>
+          </DisplayNoneDiv>
         </FeaturesHolder>
       </FeedNav>
     </FeedMain>
