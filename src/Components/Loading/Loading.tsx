@@ -25,7 +25,7 @@ const LoadingInner = styled.div`
   flex-direction: column;
   align-items: center;
   justify-self: center;
-  margin: auto;
+  margin: -300px auto 0;
 `;
 
 function Loading({}: Props) {

@@ -51,6 +51,7 @@ const LandingMain = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
+  background-color: #cfcfcf;
   height: fit-content;
   @media only screen and (min-width: 768px) {
     display: flex;
@@ -61,6 +62,18 @@ const LandingMain = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
+  }
+`;
+
+const LandingForm = styled.form`
+  width: min(94vw, 380px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  @media only screen and (min-width: 768px) {
+    width: 47vw;
+    max-width: 400px;
   }
 `;
 
@@ -145,6 +158,7 @@ function Landing({}: Props) {
       <LandingHero>
         <LandingHeroLeft>
           <LandingHeroH1>Welcome to your professional community</LandingHeroH1>
+          <LandingForm onSubmit={(e) => handleLogin(e)}>
           <LandingHeroInput
             placeholder="Email or phone number"
             type="text"
@@ -170,9 +184,10 @@ function Landing({}: Props) {
             value={data.password}
           />
           <ForgotPassH>Forgot password?</ForgotPassH>
-          <LandingSignInOnclick type="button" onClick={(e) => handleLogin(e)}>
+          <LandingSignInOnclick type="submit">
             Sign in
           </LandingSignInOnclick>
+          </LandingForm>
           <OrSec>
             <Line />
             <Or>Or</Or>

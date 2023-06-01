@@ -2,8 +2,10 @@ import styled from "@emotion/styled";
 
 export const LineInner = styled.div`
     width: 100%;
-    max-width: 230px;
-    height: inherit;
+    max-width: 250px;
+    height: 2.5px;
+    left: 150px;
+    position: absolute;
     margin: auto;
     background: #0077B5;
     animation: slide 1.5s ease-in-out infinite;
@@ -39,7 +41,7 @@ export const LineInner = styled.div`
   }
   76%{
     transform-origin: left;
-    transform: scalex(1);
+    transform: scalex(0.2);
   }
   100%{
     transform-origin: left;

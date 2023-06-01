@@ -36,6 +36,15 @@ function Signup() {
   })
   const router = useRouter();
 
+  const [passwordType, setPasswordType] = useState('password');
+  const togglePassword = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+      return;
+    }
+    setPasswordType('password');
+  };
+
   const signup = (email: string, password: string) => {
     return createUserWithEmailAndPassword(auth, email, password)
   }
@@ -108,14 +117,14 @@ function Signup() {
             value={data.email} />
           <Label>Password(6 characters minimum)</Label>
           <PassHolder>
-            <PassInput placeholder='Password' required type='password' name='password' onChange={(e: any) =>
+            <PassInput placeholder='Password' required type={passwordType} name='password' onChange={(e: any) =>
               setData({
                 ...data,
                 password: e.target.value,
               })
             }
               value={data.password} />
-            <ViewPass>Display</ViewPass>
+            <ViewPass onClick={() => togglePassword()}>Display</ViewPass>
           </PassHolder>
           <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
           <SubmitBtn type='submit'>Accept and Join</SubmitBtn>

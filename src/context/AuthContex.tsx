@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children,
 
     const [user, setUser] = useState<any>(null);
     const [loading, setloading] = useState(true);
-    console.log(user)
+    // console.log(user)
 
     useEffect(() => {
         const unsubcribe = onAuthStateChanged(auth, (user) => {

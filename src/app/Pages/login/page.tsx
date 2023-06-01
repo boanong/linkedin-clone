@@ -34,6 +34,15 @@ function Login({ }: Props) {
     password: '',
   })
 
+  const [passwordType, setPasswordType] = useState('password');
+  const togglePassword = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+      return;
+    }
+    setPasswordType('password');
+  };
+
   const router = useRouter()
   const [authing, setAuthing] = useState(false);
   const [isLoading, setLoading] = useState(false)
@@ -115,14 +124,14 @@ function Login({ }: Props) {
             value={data.email}
           />
           <PassHolder>
-            <PassInput placeholder="Password" name="password" type="password" onChange={(e: any) =>
+            <PassInput placeholder="Password" name="password" type={passwordType} onChange={(e: any) =>
               setData({
                 ...data,
                 password: e.target.value
               })
             }
               value={data.password} />
-            <ViewPass>display</ViewPass>
+            <ViewPass onClick={() => togglePassword()}>display</ViewPass>
           </PassHolder>
           <ForgotPass>Forgot your Password?</ForgotPass>
           <SubmitBtn type="submit">Login</SubmitBtn>

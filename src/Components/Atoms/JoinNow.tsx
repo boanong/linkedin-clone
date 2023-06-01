@@ -11,7 +11,7 @@ export const JoinNowBtn = styled.button`
   min-height: 20px;
   font-size: 16px;
   cursor: pointer;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 990px) {
     font-weight: 500;
     min-height: 40px;
     padding: 12px 24px;
@@ -21,7 +21,7 @@ export const JoinNowBtn = styled.button`
       border: #a9a9a982 1px solid;
     }
   }
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 500px) {
     padding: 5px 15px;
     font-size: 16px;
   }
