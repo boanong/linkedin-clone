@@ -51,7 +51,7 @@ function Login({ }: Props) {
           swal("Wrong info!", "Please check your email or password!", "error");
 
         } else {
-          swal(errorMessage, "info")
+          swal(errorMessage, { icon: "warning" })
         }
         console.log(error);
       })
@@ -108,7 +108,7 @@ function Login({ }: Props) {
     sendPasswordResetEmail(auth, data.email)
       .then(() => {
         // Password reset email sent!
-        swal("Password reset!", "Please check your email to reset your password!", "success");
+        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
         // ..
       })
       .catch((error) => {
