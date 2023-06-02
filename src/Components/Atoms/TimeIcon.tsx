@@ -13,3 +13,9 @@ export const TimeIcon = styled(MdOutlineSchedule)`
     }
   }
 `;
+
+export const PostTimeIcon = styled(MdOutlineSchedule)`
+  font-size: 1.6rem;
+  color: #00000099;
+  margin-top: 10px;
+`;

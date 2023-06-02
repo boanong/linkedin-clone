@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { BsPeopleFill, BsBriefcaseFill, BsFillPlayBtnFill } from "react-icons/bs";
+import { FaVideo} from "react-icons/fa";
 
 export const NetworkIcon = styled(BsPeopleFill)`
   font-size: 1.5rem;
@@ -45,4 +46,9 @@ export const VideoIcon2 = styled(BsFillPlayBtnFill)`
       background-color: #b0b0b08c;
     }
   }
+`;
+
+export const PostVideoIcon = styled(FaVideo)`
+  font-size: 1.6rem;
+  color: #00000099;
 `;

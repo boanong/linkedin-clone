@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import Modal from "react-modal";
+import React, { useRef, useState } from "react";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import "./page.css";
 import { PostDiv } from "@/Components/Organisms/PostDiv";
 import { PostBtn } from "@/Components/Atoms/PostBtn";
@@ -8,49 +9,44 @@ import { ProfileIcon } from "@/Components/Atoms/ProfileIcon";
 import { CreatePostDiv } from "@/Components/Molecules/CreatePostDiv";
 import { PostDiv2 } from "@/Components/Molecules/PostDiv2";
 import { ArticleIcon } from "@/Components/Atoms/ArticleIcon";
-import { VideoIcon } from "@/Components/Atoms/BsIcons";
+import { PostVideoIcon, VideoIcon } from "@/Components/Atoms/BsIcons";
 import { EventIcon } from "@/Components/Atoms/EventIcon";
 import { PhotoIcon, PostPhotoIcon } from "@/Components/Atoms/PhotoIcon";
 import { PostIconHolder } from "@/Components/Molecules/PostIconHolder";
 import { PostPtag } from "@/Components/Atoms/Ptag";
-import { CloseIcon } from "@/Components/Atoms/CloseIcon";
-import { addDoc, collection } from "firebase/firestore";
+// import { CloseIcon } from "@/Components/Atoms/CloseIcon";
+import { addDoc, collection } from "@firebase/firestore";
 import { fireStore } from "@/firebase/config";
+import { PostTimeIcon } from "../Atoms/TimeIcon";
+import { PostCalenderIcon } from "../Atoms/CalendarIcon";
+import { PostOptionsIcon } from "../Atoms/OptionsIcon";
+import { PostEmojiIcon } from "../Atoms/EmojiIcon";
 
 type Props = {};
 
 function Post({}: Props) {
   const [value, setValue] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  const imageRef = useRef<any>(null);
+  const videoRef = useRef<any>(null);
 
   const handleSubmit = () => {
     const values = addDoc(collection(fireStore, "Posts"), {
       content: value,
     });
     console.log(values, value);
-    setIsOpen(false);
     setValue("");
   };
-  const customStyles = {
-    overlay: {
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
-    },
-    content: {
-      top: "20%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      padding: "30px",
-      transform: "translate(-50%, -50%)",
-    },
-  };
+
   return (
     <>
       <PostDiv>
         <CreatePostDiv>
           <ProfileIcon />
-          <PostBtn onClick={() => setIsOpen(true)}>Start a post</PostBtn>
+          <PostBtn onClick={onOpenModal}>Start a post</PostBtn>
         </CreatePostDiv>
         <PostDiv2>
           <PostIconHolder>
@@ -71,33 +67,67 @@ function Post({}: Props) {
           </PostIconHolder>
         </PostDiv2>
       </PostDiv>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        style={customStyles}
-      >
+
+      <Modal open={open} onClose={onCloseModal}>
         <div className="modalHeader">
           <h1 className="modalH1">Create a post</h1>
-          <div className="modalCloseBtn">
+          {/* <div className="modalCloseBtn">
             <CloseIcon onClick={() => setIsOpen(false)} />
-          </div>
+          </div> */}
         </div>
 
-        <input
-          className="modalInput"
+        <textarea
+          name=""
+          id="" 
+          rows={10}
+          className="modalTextarea"
           placeholder="What do you want to talk about?"
-          type="text"
-          onChange={(e) => setValue(e.currentTarget.value)}
-        />
-        <div>
-          <input type="file" />
+          onChange={(e) => setValue(e.target.value)}
+        ></textarea>
+
+        <div className="ModalEmojiIcon">
+          <PostEmojiIcon />
         </div>
-        <div>
+
+        {/* <div className="ModalHoverContainer">
+          <div className="ModalHover1">Add a photo</div>
+          <div className="ModalHover2">Add a video</div>
+          <div className="ModalHover3">Create an event</div>
+          <div className="ModalHover4">More</div>
+        </div> */}
+
+        <div className="ModalIconsConainer">
+          <div className="ModalIcon1">
+            <input style={{ display: "none" }} ref={imageRef} type="file" />
+            <PostPhotoIcon
+              onClick={() => {
+                imageRef.current.click();
+              }}
+            />
+          </div>
+          <div className="ModalIcon2">
+            <input style={{ display: "none" }} ref={videoRef} type="file" />
+            <PostVideoIcon
+              onClick={() => {
+                videoRef.current.click();
+              }}
+            />
+          </div>
+          <div className="ModalIcon3">
+            <PostCalenderIcon />
+          </div>
+          <div className="ModalIcon4">
+            <PostOptionsIcon />
+          </div>
+        </div>
+        <hr />
+        <div className="PostButtonContainer">
+          <PostTimeIcon />
           <button
-            onClick={ () => handleSubmit()}
+            onClick={handleSubmit}
             type="submit"
-            disabled={value == "" ? true : false}
-            className={value == "" ? "modalDisableButton" : "modalButton"}
+            disabled={!value.trim()}
+            className={!value.trim() ? "modalDisableButton" : "modalButton"}
           >
             Post
           </button>

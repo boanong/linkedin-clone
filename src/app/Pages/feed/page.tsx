@@ -31,7 +31,7 @@ function Feed({ userData }: Props) {
         <PostSecHolder>
           <Post />
         </PostSecHolder>
-        <FeedR />
+        {/* <FeedR /> */}
       </FeedInnerMain>
     </FeedMain>
   );

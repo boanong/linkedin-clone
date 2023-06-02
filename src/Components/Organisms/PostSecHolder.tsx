@@ -6,7 +6,6 @@ export const PostSecHolder = styled.div`
   width: 100vw;
   max-width: 560px;
   @media only screen and (min-width: 768px) {
-    width: 45vw;
     overflow: hidden;
     overflow-y: hidden;
     overflow-x: hidden;
