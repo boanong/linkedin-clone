@@ -9,37 +9,33 @@ export const NIconHolder = styled.div`
   align-items: center;
   &:hover {
     cursor: pointer;
+    border-bottom: 1px solid black;
   }
 `;
 export const NIconHolder2 = styled.div`
-display: flex;
-flex-direction: column;
-gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
 
-&:hover {
-  border-bottom: thick solid black;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid black;
   }
-
 `;
-export const MeFeatureIcondiv = styled.div`
+export const MeFeatureIcondiv = styled.div``;
 
-`;
-
-export const MeAndTextHolder = styled.div`
-
-`;
+export const MeAndTextHolder = styled.div``;
 
 export const Textandiconcontainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-export const Icondiv = styled.div`
-
-`;
+export const Icondiv = styled.div``;
 
 export const NavTxt = styled.p`
-&:hover {
+  &:hover {
     cursor: pointer;
   }
 `;
