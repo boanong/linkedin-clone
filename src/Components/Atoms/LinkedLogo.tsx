@@ -19,10 +19,23 @@ export const SmallLogo = styled(LinkedInIcon)`
   font-size: 20px;
 `;
 
-export const LinkedInIconLarge = styled(LinkedInIcon)`
+export const LinkedInIconLarge = styled(FaLinkedin)`
   font-size: 32px;
+  color: #0a66c2;
+  cursor: pointer;
   @media only screen and (min-width: 768px) {
     font-size: 2.6rem;
     font-weight: 600;
+    margin-left: 20px;
   }
 `;
+
+export const LinkedInIconLarge2 = styled(FaLinkedin)`
+  font-size: 32px;
+  color: #0a66c2;
+  cursor: pointer;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+

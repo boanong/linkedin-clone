@@ -13,9 +13,9 @@ import { JobsIcon, NetworkIcon } from "../Atoms/BsIcons";
 import { MessageIcon } from "../Atoms/MsgIcon";
 import { NotificationBell } from "../Atoms/NotificationIcon";
 import { Searchbar, SearchInput } from "../Atoms/Searchbar";
-import { LinkedInIconLarge } from "../Atoms/LinkedLogo";
+import { LinkedInIconLarge, LinkedInIconLarge2 } from "../Atoms/LinkedLogo";
 import { SearchIcon } from "../Atoms/SearchIcon";
-import { NavSearchHolder } from "../Molecules/NavSearchHolder";
+import { NavSearchHolder, NavSearchHolder2 } from "../Molecules/NavSearchHolder";
 import { FeaturesHolder } from "../Molecules/FeaturesHolder";
 import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
@@ -70,6 +70,10 @@ function Topnav({}: Props) {
       {showDrop && <Overlay onClick={toggleDrop} />}
 
       <FeedNav>
+        <NavSearchHolder2>
+        <LinkedInIconLarge2 />
+        <SearchIcon />
+        </NavSearchHolder2>
         <NavSearchHolder>
           <LinkedInIconLarge />
           <Searchbar>
