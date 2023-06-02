@@ -25,6 +25,7 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPass
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
+import Loading from "@/Components/Loading/Loading";
 
 type Props = {};
 
@@ -54,7 +55,7 @@ function Login({ }: Props) {
   const handleLogin = async (e: any) => {
     e.preventDefault()
     setLoading(true)
-    console.log(data.email, data.password);
+    // console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
         .then(() => router.push('/Pages/feed'))
@@ -96,6 +97,7 @@ function Login({ }: Props) {
 
   return (
     <AuthContextProvider>
+      {isLoading && <Loading />}
       <MainDiv>
         <NavBar>
           <Linked>
@@ -106,7 +108,6 @@ function Login({ }: Props) {
         <Form
           onSubmit={(e) => handleLogin(e)}
         >
-          {isLoading && <p>Loading...</p>}
           <FormHeading>Login</FormHeading>
           <Ptag>
             Keep up to date with developments in your professional world.
@@ -114,7 +115,7 @@ function Login({ }: Props) {
           <InputCredentials
             placeholder="Email or phone"
             name="email"
-            type="text"
+            type="email"
             onChange={(e: any) =>
               setData({
                 ...data,
@@ -150,7 +151,7 @@ function Login({ }: Props) {
           </SocilaLogBtn>
         </Form>
         <Span>
-          New to LinkedIn?<Link href="/Pages/signup"><ForgotPass>Register</ForgotPass></Link>
+          New to LinkedIn?<Link href="/Pages/signup" onClick={() => setLoading(true)}><ForgotPass>Register</ForgotPass></Link>
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>

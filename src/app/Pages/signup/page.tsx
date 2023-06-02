@@ -21,11 +21,12 @@ import { Label } from '@/Components/Atoms/LabelTag';
 import { LinkedInIcon } from '@/Components/Atoms/LinkedLogo';
 import { Linked } from '@/Components/Atoms/LinkedLogoTxt';
 import { PassInput } from '@/Components/Atoms/PasswordInput';
-import { Terms, Or } from '@/Components/Atoms/Ptag';
+import { Terms, Or, Ptag } from '@/Components/Atoms/Ptag';
 import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
 import { Span } from '@/Components/Atoms/Span';
 import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
 import Link from 'next/link';
+import Loading from '@/Components/Loading/Loading';
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
@@ -53,6 +54,7 @@ function Signup() {
     e.preventDefault()
     setLoading(true)
     console.log('this e', e)
+    
     try {
       await signup(data.email, data.password)
         .then(() => router.push('/Pages/feed'));
@@ -94,21 +96,20 @@ function Signup() {
 
   return (
     <AuthContextProvider>
+      {isLoading && <Loading />}
       <MainDiv>
         <NavBar>
           <Linked>
             Linked
-            <Link href="/"><LinkedInIcon /></Link>
+            <Link href="/" onClick={() => setLoading(true)}><LinkedInIcon /></Link>
           </Linked>
         </NavBar>
 
         <FormHeading>Make the most of your professional life.</FormHeading>
         <Form onSubmit={(e) => handleSignup(e)}>
-          {isLoading && <p>Loading...</p>}
-
           <Label>Email</Label>
           <p></p>
-          <InputCredentials placeholder='Email or phone' required type='text' name='email' onChange={(e: any) =>
+          <InputCredentials placeholder='Email or phone' required type='email' name='email' onChange={(e: any) =>
             setData({
               ...data,
               email: e.target.value,
@@ -135,7 +136,7 @@ function Signup() {
           </OrSec>
           <SocilaLogBtn type='button' onClick={() => signUpWithGoogle()} disabled={authing}>Join with Google <FcGoogle /></SocilaLogBtn>
           <SocilaLogBtn type='button' onClick={() => GithubSignup()} disabled={authing}>Join with GitHub <FaGithub /></SocilaLogBtn>
-          <Span>Already Registered<Link href="/Pages/login"><ForgotPass>Login</ForgotPass></Link></Span>
+          <Span>Already Registered<Link href="/Pages/login" onClick={() => setLoading(true)}><ForgotPass>Login</ForgotPass></Link></Span>
         </Form >
       </MainDiv >
     </AuthContextProvider >

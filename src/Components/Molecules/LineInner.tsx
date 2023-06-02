@@ -1,54 +1,41 @@
 import styled from "@emotion/styled";
 
 export const LineInner = styled.div`
-    width: 100%;
-    max-width: 250px;
-    height: 2.5px;
-    left: 150px;
-    position: absolute;
-    margin: auto;
-    background: #0077B5;
-    animation: slide 1.5s ease-in-out infinite;
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 2px;
+  overflow: hidden;
+  background-color: lightgray;
 
-    @keyframes slide{
-  0%{
-    transform-origin: left;
-    transform: scalex(0.3);
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -25%;
+    width: 50%;
+    height: 100%;
+    background-color: #0077b5;
+    animation: load 1.25s ease infinite;
   }
-  12%{
-    transform-origin: left;
-    transform: scalex(0.2);
+
+  // &:after {
+  // 	position: absolute;
+  // 	content: '';
+  // 	top: 0;
+  // 	right: 0;
+  // 	width: 25%;
+  // 	height: 100%;
+  // 	background-color: slategray;
+  // 	animation: load 3s ease-in-out infinite;
+  // }
+  @keyframes load {
+    0% {
+    }
+    50% {
+      left: 75%;
+    }
+    100% {
+    }
   }
-  25%{
-    transform-origin: left;
-    transform: scalex(1);
-  }
-  26%{
-    transform-origin: right;
-    transform: scalex(1);
-  }
-  50%{
-    transform-origin: right;
-    transform: scalex(0.3);
-  }
-  62%{
-    transform-origin: right;
-    transform: scalex(0.2);
-  }
-  75%{
-    transform-origin: left;
-    transform: scalex(1);
-  }
-  76%{
-    transform-origin: left;
-    transform: scalex(0.2);
-  }
-  100%{
-    transform-origin: left;
-    transform: scalex(0.3);
-  }
-  /* 50%{
-    left: 150px;
-  } */
-}
 `;

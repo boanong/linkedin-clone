@@ -42,6 +42,7 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import Loading from "@/Components/Loading/Loading";
 
 type Props = {};
 
@@ -79,26 +80,27 @@ const LandingForm = styled.form`
 
 function Landing({}: Props) {
   const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+    email: '',
+    password: '',
+  })
 
-  const router = useRouter();
+  const router = useRouter()
   const [authing, setAuthing] = useState(false);
+  const [isLoading, setLoading] = useState(false)
 
   const login = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password);
-  };
+    return signInWithEmailAndPassword(auth, email, password)
+  }
 
   const handleLogin = async (e: any) => {
-    e.preventDefault();
-
-    console.log(data.email, data.password);
+    e.preventDefault()
+    setLoading(true)
+    // console.log(data.email, data.password);
     try {
-      await login(data.email, data.password);
-      router.push("/Pages/feed");
+      await login(data.email, data.password)
+        .then(() => router.push('/Pages/feed'))
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };
 
@@ -117,97 +119,102 @@ function Landing({}: Props) {
   };
 
   return (
-    <LandingMain>
-      <LandingNav>
-        <Linked>
-          Linked
-          <Link href="/">
-            <LinkedInIconLan />
-          </Link>
-        </Linked>
-        <LandingNavR>
-          <LandingNavRInner>
-            <NIconHolder>
-              <ArticleLan />
-              <NavTxt>Articles</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <NetworkIcon />
-              <NavTxt>People</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <Learning />
-              <NavTxt>Learning</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <JobsIcon />
-              <NavTxt>Jobs</NavTxt>
-            </NIconHolder>
-          </LandingNavRInner>
-          <VerticalLine></VerticalLine>
-          <JoinBtnHolder>
-            <Link href="/Pages/signup">
-              <JoinNowBtn type="button">Join Now</JoinNowBtn>
+    <>
+      {isLoading && <Loading />}
+      <LandingMain>
+        <LandingNav>
+          <Linked>
+            Linked
+            <Link href="/">
+              <LinkedInIconLan />
             </Link>
-            <Link href="/Pages/login">
-              <SignInLan type="button">Sign in</SignInLan>
+          </Linked>
+          <LandingNavR>
+            <LandingNavRInner>
+              <NIconHolder>
+                <ArticleLan />
+                <NavTxt>Articles</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <NetworkIcon />
+                <NavTxt>People</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <Learning />
+                <NavTxt>Learning</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <JobsIcon />
+                <NavTxt>Jobs</NavTxt>
+              </NIconHolder>
+            </LandingNavRInner>
+            <VerticalLine></VerticalLine>
+            <JoinBtnHolder>
+              <Link href="/Pages/signup" onClick={() => setLoading(true)}>
+                <JoinNowBtn type="button">Join Now</JoinNowBtn>
+              </Link>
+              <Link href="/Pages/login" onClick={() => setLoading(true)}>
+                <SignInLan type="button">Sign in</SignInLan>
+              </Link>
+            </JoinBtnHolder>
+          </LandingNavR>
+        </LandingNav>
+        <LandingHero>
+          <LandingHeroLeft>
+            <LandingHeroH1>
+              Welcome to your professional community
+            </LandingHeroH1>
+            <LandingForm onSubmit={(e) => handleLogin(e)}>
+              <LandingHeroInput
+                placeholder="Email or phone number"
+                type="email"
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    email: e.target.value,
+                  })
+                }
+                value={data.email}
+                required
+              />
+              <LandingHeroInput
+                placeholder="Password"
+                type="password"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    password: e.target.value,
+                  })
+                }
+                value={data.password}
+              />
+              <ForgotPassH>Forgot password?</ForgotPassH>
+              <LandingSignInOnclick type="submit">Sign in</LandingSignInOnclick>
+            </LandingForm>
+            <OrSec>
+              <Line />
+              <Or>Or</Or>
+              <Line />
+            </OrSec>
+            <LandingNewTo1
+              type="button"
+              onClick={() => signInWithGoogle()}
+              disabled={authing}
+            >
+              Continue with google
+              <FcGoogle />
+            </LandingNewTo1>
+            <Link href="/Pages/signup" onClick={() => setLoading(true)}>
+              <LandingNewTo type="button">
+                New to LinkedIn? Join Now
+              </LandingNewTo>
             </Link>
-          </JoinBtnHolder>
-        </LandingNavR>
-      </LandingNav>
-      <LandingHero>
-        <LandingHeroLeft>
-          <LandingHeroH1>Welcome to your professional community</LandingHeroH1>
-          <LandingForm onSubmit={(e) => handleLogin(e)}>
-          <LandingHeroInput
-            placeholder="Email or phone number"
-            type="text"
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                email: e.target.value,
-              })
-            }
-            value={data.email}
-            required
-          />
-          <LandingHeroInput
-            placeholder="Password"
-            type="password"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-            value={data.password}
-          />
-          <ForgotPassH>Forgot password?</ForgotPassH>
-          <LandingSignInOnclick type="submit">
-            Sign in
-          </LandingSignInOnclick>
-          </LandingForm>
-          <OrSec>
-            <Line />
-            <Or>Or</Or>
-            <Line />
-          </OrSec>
-          <LandingNewTo1
-            type="button"
-            onClick={() => signInWithGoogle()}
-            disabled={authing}
-          >
-            Continue with google
-            <FcGoogle />
-          </LandingNewTo1>
-          <Link href="/Pages/signup">
-            <LandingNewTo type="button">New to LinkedIn? Join Now</LandingNewTo>
-          </Link>
-        </LandingHeroLeft>
-        <LandingHeroRight />
-      </LandingHero>
-    </LandingMain>
+          </LandingHeroLeft>
+          <LandingHeroRight />
+        </LandingHero>
+      </LandingMain>
+    </>
   );
 }
 

@@ -15,6 +15,7 @@ import {
   FeedUserP1U,
   FeedUserTxtH,
 } from "../Molecules/FeedUserDivs";
+import { Profpic } from "../Atoms/Profpic";
 
 type Props = { userData: any };
 
@@ -35,7 +36,7 @@ export default function FeedUserSec({ userData }: Props) {
       <FeedUserDiv1>
         <FeedUserImages></FeedUserImages>
         {/* <FeedUserProfilePic> */}
-        <FeedUserPPic />
+        { <Profpic src={userData?.photoUrl} /> || <FeedUserPPic />}
         {/* </FeedUserProfilePic> */}
 
         {/* <FeedUserBio> */}

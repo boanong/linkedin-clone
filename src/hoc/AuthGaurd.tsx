@@ -16,6 +16,7 @@ function AuthGaurd(Component: any) {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
+            photoUrl: user.photoURL,
           });
         } else {
           setUserData(null);
@@ -25,7 +26,7 @@ function AuthGaurd(Component: any) {
       return () => unsubcribe;
     }, []);
 
-    console.log("this userData", userData);
+    // console.log("this userData", userData);
 
     return userData ? (
       <Component {...props} userData={userData} />
