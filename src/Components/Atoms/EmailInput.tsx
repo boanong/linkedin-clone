@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
+interface StyledProp {
+  noEmail?: boolean;
+}
 
-export const InputCredentials = styled.input`
+export const InputCredentials = styled.input<StyledProp>`
   font-size: 1.2rem;
   max-width: 348px;
   width: 100%;
@@ -10,10 +13,11 @@ export const InputCredentials = styled.input`
   color: rgba(0, 0, 0, 0.9);
   text-align: left;
   display: flex;
-  border: 1px solid #000;
   background: transparent;
   padding: 12px 10px;
   border-radius: 4px !important;
+  border: ${({ noEmail }) => noEmail ? '1px solid red' : ' 1px solid #000'};
+
   @media only screen and (min-width: 768px) {
     font-size: 1.1rem;
     padding: 12px 10px;

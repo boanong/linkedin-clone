@@ -25,6 +25,7 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth, sendPasswordResetEmail
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
+import swal from "sweetalert";
 
 type Props = {};
 
@@ -41,6 +42,19 @@ function Login({ }: Props) {
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
+      .then(() => { router.push('/Pages/feed') }).
+      catch(function (error) {
+        //Handle error
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          swal("Wrong info!", "Please check your email or password!", "error");
+
+        } else {
+          swal(errorMessage, "info")
+        }
+        console.log(error);
+      })
   }
 
 
@@ -51,7 +65,6 @@ function Login({ }: Props) {
     console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-        .then(() => router.push('/Pages/feed'))
     } catch (err) {
       console.log(err)
     }
@@ -95,11 +108,13 @@ function Login({ }: Props) {
     sendPasswordResetEmail(auth, data.email)
       .then(() => {
         // Password reset email sent!
+        swal("Password reset!", "Please check your email to reset your password!", "success");
         // ..
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        alert(errorMessage);
         // ..
       });
 
@@ -116,9 +131,9 @@ function Login({ }: Props) {
           </Linked>
         </NavBar>
         <Form
-          onSubmit={(e) => handleLogin(e)}
+          onSubmit={(e: any) => handleLogin(e)}
         >
-          {isLoading && <p>Loading...</p>}
+          {isLoading && <Ptag color='green'>Loading...</Ptag>}
           <FormHeading>Login</FormHeading>
           <Ptag>
             Keep up to date with developments in your professional world.
@@ -167,7 +182,7 @@ function Login({ }: Props) {
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>
-    </AuthContextProvider>
+    </AuthContextProvider >
   );
 }
 
