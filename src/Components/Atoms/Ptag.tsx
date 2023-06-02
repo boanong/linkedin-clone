@@ -31,6 +31,6 @@ export const Ptag = styled.p`
 export const PostPtag = styled.p`
   font-weight: bold;
   color: #666666;
-  font-size: 18px;
+  font-size: 15px;
   white-space: nowrap;
 `;

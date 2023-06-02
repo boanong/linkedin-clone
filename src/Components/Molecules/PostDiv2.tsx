@@ -5,6 +5,7 @@ export const PostDiv2 = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   @media only screen and (min-width: 768px) {
-    gap: 10px;
+    flex-wrap: nowrap;
+    gap: 30px;
   }
 `;
