@@ -21,12 +21,14 @@ type Props = { userData: any };
 
 const FeedUser = styled.div`
   display: none;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 425px) {
     width: 20vw;
     position: sticky;
     max-width: 230px;
     display: flex;
     flex-direction: column;
+    border: 1px solid #000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 `;
 

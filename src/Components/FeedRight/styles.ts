@@ -3,6 +3,11 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   position: sticky;
   overflow: hidden;
+
+  @media only screen and (max-width: 770px) {
+    width: 100%;
+    max-width: 460px;
+  }
 `;
 
 export const FeedRSpan = styled.span`

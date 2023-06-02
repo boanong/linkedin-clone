@@ -17,10 +17,11 @@ import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
 import {VerticalLine} from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
+import { Profpic2 } from "../Atoms/Profpic";
 
 
 
-type Props = {};
+type Props = { userData: any };
 
 const FeedMain = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const FeedMain = styled.div`
   padding: 0;
 `;
 
-function Topnav({}: Props) {
+function Topnav({ userData }: Props) {
   return (
     <FeedMain>
       <FeedNav>
@@ -70,7 +71,8 @@ function Topnav({}: Props) {
           </NIconHolder>
 
           <NIconHolder2>
-            <MeFeatureIcon /> 
+          { <Profpic2 src={userData?.photoUrl} /> || <MeFeatureIcon />}
+            {/* <MeFeatureIcon />  */}
             <Textandiconcontainer>
             <MeAndTextHolder>
             <NavTxt>Me</NavTxt> 
