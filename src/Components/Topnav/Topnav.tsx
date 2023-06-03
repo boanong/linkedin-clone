@@ -15,7 +15,10 @@ import { NotificationBell } from "../Atoms/NotificationIcon";
 import { Searchbar, SearchInput } from "../Atoms/Searchbar";
 import { LinkedInIconLarge, LinkedInIconLarge2 } from "../Atoms/LinkedLogo";
 import { SearchIcon } from "../Atoms/SearchIcon";
-import { NavSearchHolder, NavSearchHolder2 } from "../Molecules/NavSearchHolder";
+import {
+  NavSearchHolder,
+  NavSearchHolder2,
+} from "../Molecules/NavSearchHolder";
 import { FeaturesHolder } from "../Molecules/FeaturesHolder";
 import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
@@ -24,6 +27,7 @@ import styled from "@emotion/styled";
 import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
 import Dropdown from "../Organisms/Dropdown/Dropdown";
+import { PostSection, Header, ProfilePicture, JobTitle, PostText, PostImage } from "../postSection/PostSection";
 
 type Props = {};
 
@@ -66,85 +70,99 @@ function Topnav({}: Props) {
   };
 
   return (
-    <FeedMain>
-      {showDrop && <Overlay onClick={toggleDrop} />}
+    <>
+      <FeedMain>
+        {showDrop && <Overlay onClick={toggleDrop} />}
 
-      <FeedNav>
-        <NavSearchHolder2>
-        <LinkedInIconLarge2 />
-        <SearchIcon />
-        </NavSearchHolder2>
-        <NavSearchHolder>
-          <LinkedInIconLarge />
-          <Searchbar>
+        <FeedNav>
+          <NavSearchHolder2>
+            <LinkedInIconLarge2 />
             <SearchIcon />
-            <SearchInput type="text" placeholder="Search" />
-          </Searchbar>
-        </NavSearchHolder>
+          </NavSearchHolder2>
+          <NavSearchHolder>
+            <LinkedInIconLarge />
+            <Searchbar>
+              <SearchIcon />
+              <SearchInput type="text" placeholder="Search" />
+            </Searchbar>
+          </NavSearchHolder>
 
-        <FeaturesHolder>
-          <NIconHolder>
-            <HomeIcon />
-            <NavTxt>Home</NavTxt>
-          </NIconHolder>
-
-          <NIconHolder>
-            <NetworkIcon />
-            <NavTxt>My Network</NavTxt>
-          </NIconHolder>
-
-          <NIconHolder>
-            <JobsIcon />
-            <NavTxt>Jobs</NavTxt>
-          </NIconHolder>
-
-          <NIconHolder>
-            <MessageIcon />
-            <NavTxt>Messaging</NavTxt>
-          </NIconHolder>
-
-          <NIconHolder>
-            <NotificationBell />
-            <NavTxt>Notifications</NavTxt>
-          </NIconHolder>
-
-          <DisplayNoneDiv>
-            <NIconHolder2>
-              <MeFeatureIcon onClick={toggleDrop} />
-              <Textandiconcontainer onClick={toggleDrop}>
-                <MeAndTextHolder>
-                  <NavTxt>Me</NavTxt>
-                </MeAndTextHolder>
-                <Icondiv>
-                  <DropdownIcon />
-                </Icondiv>
-              </Textandiconcontainer>
-
-              {showDrop && <Dropdown />}
-            </NIconHolder2>
-
-            <VerticalLine></VerticalLine>
-
+          <FeaturesHolder>
             <NIconHolder>
-              <ForBusinessIcon />
-              <Textandiconcontainer>
-                <MeAndTextHolder>
-                  <NavTxt>For Business</NavTxt>
-                </MeAndTextHolder>
-                <Icondiv>
-                  <DropdownIcon />
-                </Icondiv>
-              </Textandiconcontainer>
+              <HomeIcon />
+              <NavTxt>Home</NavTxt>
             </NIconHolder>
 
             <NIconHolder>
-              <PostJobs />
-              <NavTxt>Post a job</NavTxt>
+              <NetworkIcon />
+              <NavTxt>My Network</NavTxt>
             </NIconHolder>
-          </DisplayNoneDiv>
-        </FeaturesHolder>
-      </FeedNav>
-    </FeedMain>
+
+            <NIconHolder>
+              <JobsIcon />
+              <NavTxt>Jobs</NavTxt>
+            </NIconHolder>
+
+            <NIconHolder>
+              <MessageIcon />
+              <NavTxt>Messaging</NavTxt>
+            </NIconHolder>
+
+            <NIconHolder>
+              <NotificationBell />
+              <NavTxt>Notifications</NavTxt>
+            </NIconHolder>
+
+            <DisplayNoneDiv>
+              <NIconHolder2>
+                <MeFeatureIcon onClick={toggleDrop} />
+                <Textandiconcontainer onClick={toggleDrop}>
+                  <MeAndTextHolder>
+                    <NavTxt>Me</NavTxt>
+                  </MeAndTextHolder>
+                  <Icondiv>
+                    <DropdownIcon />
+                  </Icondiv>
+                </Textandiconcontainer>
+
+                {showDrop && <Dropdown />}
+              </NIconHolder2>
+
+              <VerticalLine></VerticalLine>
+
+              <NIconHolder>
+                <ForBusinessIcon />
+                <Textandiconcontainer>
+                  <MeAndTextHolder>
+                    <NavTxt>For Business</NavTxt>
+                  </MeAndTextHolder>
+                  <Icondiv>
+                    <DropdownIcon />
+                  </Icondiv>
+                </Textandiconcontainer>
+              </NIconHolder>
+
+              <NIconHolder>
+                <PostJobs />
+                <NavTxt>Post a job</NavTxt>
+              </NIconHolder>
+            </DisplayNoneDiv>
+          </FeaturesHolder>
+        </FeedNav>
+      </FeedMain>
+
+      <PostSection>
+        <Header>
+          <ProfilePicture
+            src="https://media.istockphoto.com/id/1286810719/photo/smiling-cheerful-young-adult-african-american-ethnicity-man-looking-at-camera-standing-at.jpg?s=612x612&w=0&k=20&c=b9sWYITIZ_yjXB3m-Xftj-latPXQDhb5Roa0pA0JaNY="
+            alt="Profile Picture"
+          />
+          <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
+        </Header>
+        <PostText>Rebase Academy offers comprehensive and personalized programming education for students of all skill levels. With experienced instructors and a flexible curriculum, students can learn at their own pace and gain the skills needed to become successful developers. From web development to machine learning, Rebase Academy provides a top-notch education for the next generation of programmers.</PostText>
+        <PostImage src="https://cdn.pixabay.com/photo/2016/11/19/15/32/laptop-1839876_1280.jpg" alt="Post Image" />
+      </PostSection>
+    </>
   );
 }
 
