@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ArticleLan } from "@/Components/Atoms/ArticleIcon";
 import { JobsIcon, NetworkIcon } from "@/Components/Atoms/BsIcons";
 import { ForgotPassH } from "@/Components/Atoms/ForgotPassHero";
@@ -164,7 +164,7 @@ function Landing({}: Props) {
             <LandingHeroH1>
               Welcome to your professional community
             </LandingHeroH1>
-            <LandingForm onSubmit={(e) => handleLogin(e)}>
+            <LandingForm onSubmit={(e: any) => handleLogin(e)}>
               <LandingHeroInput
                 placeholder="Email or phone number"
                 type="email"
