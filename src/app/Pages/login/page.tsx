@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/no-children-prop */
 "use client";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -21,11 +23,12 @@ import { Footer } from "@/Components/Organisms/Footer";
 import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { NavBar } from "@/Components/Organisms/NavBar";
 import { auth } from "@/firebase/config";
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
 import Loading from "@/Components/Loading/Loading";
+import swal from "sweetalert";
 
 type Props = {};
 
@@ -46,11 +49,27 @@ function Login({ }: Props) {
 
   const router = useRouter()
   const [authing, setAuthing] = useState(false);
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
+  const [noEmail, setNoEmail] = useState(false);
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
+      .then(() => { router.push('/Pages/feed') }).
+      catch(function (error) {
+        //Handle error
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          swal("Wrong info!", "Please check your email or password!", "error");
+
+        } else {
+          swal(errorMessage, { icon: "warning" })
+        }
+        console.log(error);
+      })
   }
+
+
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
@@ -58,7 +77,6 @@ function Login({ }: Props) {
     // console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-        .then(() => router.push('/Pages/feed'))
     } catch (err) {
       console.log(err)
     }
@@ -73,7 +91,7 @@ function Login({ }: Props) {
         router.push("/Pages/feed");
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
         setAuthing(false);
       })
   }
@@ -93,6 +111,25 @@ function Login({ }: Props) {
       })
   }
 
+  const resetPassword = () => {
+    if (!data.email) {
+      setNoEmail(true);
+      return;
+    };
+
+    sendPasswordResetEmail(auth, data.email)
+      .then(() => {
+        // Password reset email sent!
+        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
+        // ..
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+      });
+
+  }
 
 
   return (
@@ -123,6 +160,7 @@ function Login({ }: Props) {
               })
             }
             value={data.email}
+            noEmail={noEmail}
           />
           <PassHolder>
             <PassInput placeholder="Password" name="password" type={passwordType} onChange={(e: any) =>
@@ -134,7 +172,7 @@ function Login({ }: Props) {
               value={data.password} />
             <ViewPass onClick={() => togglePassword()}>display</ViewPass>
           </PassHolder>
-          <ForgotPass>Forgot your Password?</ForgotPass>
+          <ForgotPass onClick={resetPassword}>Forgot your Password?</ForgotPass>
           <SubmitBtn type="submit">Login</SubmitBtn>
           <OrSec>
             <Line />
@@ -155,7 +193,7 @@ function Login({ }: Props) {
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>
-    </AuthContextProvider>
+    </AuthContextProvider >
   );
 }
 
