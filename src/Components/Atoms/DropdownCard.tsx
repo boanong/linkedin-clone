@@ -26,8 +26,7 @@ export const ProfilePictureAndName = styled.div`
 
 export const ProfilePictureDiv = styled.div``;
 
-export const ProfilePicture = styled.div`
-  background-image: url("https://t3.ftcdn.net/jpg/04/60/91/88/360_F_460918802_XVCymFr7MoziFpnInbTDvrlblYhvAOi2.jpg");
+export const ProfilePicture = styled.img`
   width: 80px;
   height: 80px;
   background-size: cover;
