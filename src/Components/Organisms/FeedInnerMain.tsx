@@ -8,10 +8,8 @@ export const FeedInnerMain = styled.div`
     width: fit-content;
     max-width: 1128px;
     margin: 30px auto 0;
-    display: flex;
     flex-direction: row;
-    top: 0;
-    gap: 20px;
+    gap: 15px;
   }
 `;
 
@@ -28,6 +26,5 @@ export const FeedInnerMainR = styled.div`
     margin: -30px auto 0 ;
     flex-direction: row;
     gap: 20px;
-    top: 0;
   }
 `;

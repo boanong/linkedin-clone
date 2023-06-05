@@ -1,3 +1,5 @@
+/* eslint-disable react/no-children-prop */
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React, { useState } from "react";
@@ -43,6 +45,8 @@ import {
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import Loading from "@/Components/Loading/Loading";
+import { AuthContextProvider } from "@/context/AuthContex";
+import swal from "sweetalert";
 
 type Props = {};
 
@@ -90,6 +94,19 @@ function Landing({}: Props) {
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
+      .then(() => { router.push('/Pages/feed') }).
+      catch(function (error) {
+        //Handle error
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          swal("Wrong info!", "Please check your email or password!", "error");
+
+        } else {
+          swal(errorMessage, { icon: "warning" })
+        }
+        console.log(error);
+      })
   }
 
   const handleLogin = async (e: any) => {
@@ -98,7 +115,6 @@ function Landing({}: Props) {
     // console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
-        .then(() => router.push('/Pages/feed'))
     } catch (err) {
       console.log(err)
     }
@@ -119,7 +135,7 @@ function Landing({}: Props) {
   };
 
   return (
-    <>
+    <AuthContextProvider>
       {isLoading && <Loading />}
       <LandingMain>
         <LandingNav>
@@ -164,7 +180,7 @@ function Landing({}: Props) {
             <LandingHeroH1>
               Welcome to your professional community
             </LandingHeroH1>
-            <LandingForm onSubmit={(e: any) => handleLogin(e)}>
+            <LandingForm onSubmit={(e) => handleLogin(e)}>
               <LandingHeroInput
                 placeholder="Email or phone number"
                 type="email"
@@ -214,7 +230,7 @@ function Landing({}: Props) {
           <LandingHeroRight />
         </LandingHero>
       </LandingMain>
-    </>
+    </AuthContextProvider>
   );
 }
 

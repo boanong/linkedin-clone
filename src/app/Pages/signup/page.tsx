@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 /* eslint-disable react/no-unescaped-entities */
 'use client'
 import React, { useState } from 'react'
@@ -108,7 +109,6 @@ function Signup() {
         <FormHeading>Make the most of your professional life.</FormHeading>
         <Form onSubmit={(e) => handleSignup(e)}>
           <Label>Email</Label>
-          <p></p>
           <InputCredentials placeholder='Email or phone' required type='email' name='email' onChange={(e: any) =>
             setData({
               ...data,

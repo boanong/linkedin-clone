@@ -22,7 +22,7 @@ type Props = { userData: any };
 const FeedUser = styled.div`
   display: none;
   @media only screen and (min-width: 425px) {
-    width: 20vw;
+    width: 15vw;
     position: sticky;
     max-width: 230px;
     display: flex;

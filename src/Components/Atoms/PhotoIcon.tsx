@@ -1,14 +1,17 @@
 import styled from "@emotion/styled";
-import { HiPhoto } from 'react-icons/hi2';
-
-
+import { HiPhoto } from "react-icons/hi2";
 
 export const PhotoIcon = styled(HiPhoto)`
   color: #0a66c2;
   font-size: 25px;
   @media only screen and (min-width: 768px) {
-    font-size: 35px;
+    font-size: 25px;
   }
+`;
+
+export const PostPhotoIcon = styled(HiPhoto)`
+  color: #666666;
+  font-size: 25px;
 `;
 
 export const PhotoIcon1 = styled(HiPhoto)`
