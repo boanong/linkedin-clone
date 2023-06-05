@@ -21,7 +21,7 @@ import { Footer } from "@/Components/Organisms/Footer";
 import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { NavBar } from "@/Components/Organisms/NavBar";
 import { auth } from "@/firebase/config";
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
@@ -48,7 +48,7 @@ function Login({ }: Props) {
         let errorCode = error.code;
         let errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
-          swal("Wrong info!", "Please check your email or password!", "error");
+          swal("Wrong info!", "We can't log you in. Please check for an email from us, reset your password, or try again", "error");
 
         } else {
           swal(errorMessage, { icon: "warning" })
@@ -114,7 +114,7 @@ function Login({ }: Props) {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        swal(errorMessage, { icon: "warning" });
         // ..
       });
 
