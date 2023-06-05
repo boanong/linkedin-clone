@@ -106,26 +106,10 @@ function Topnav({userData}: Props) {
             <NotificationBell />
             <NavTxt>Notifications</NavTxt>
           </NIconHolder>
-
-          <NIconHolder2>
-          { <Profpic2 src={userData?.photoUrl} /> || <MeFeatureIcon />}
-            {/* <MeFeatureIcon />  */}
-            <Textandiconcontainer>
-            <MeAndTextHolder>
-            <NavTxt>Me</NavTxt> 
-            </MeAndTextHolder>
-            <Icondiv>
-            <DropdownIcon/> 
-            </Icondiv>
-            </Textandiconcontainer>
-          </NIconHolder2>
-          
-          <VerticalLine>
-          </VerticalLine>
-          
+        
           <DisplayNoneDiv>
             <NIconHolder2>
-              <MeFeatureIcon onClick={toggleDrop} />
+            { <Profpic2 src={userData?.photoUrl} onClick={toggleDrop} /> || <MeFeatureIcon onClick={toggleDrop} />}
               <Textandiconcontainer onClick={toggleDrop}>
                 <MeAndTextHolder>
                   <NavTxt>Me</NavTxt>
@@ -135,7 +119,7 @@ function Topnav({userData}: Props) {
                 </Icondiv>
               </Textandiconcontainer>
 
-              {showDrop && <Dropdown />}
+              {showDrop && <Dropdown userData={userData} />}
             </NIconHolder2>
 
             <VerticalLine></VerticalLine>

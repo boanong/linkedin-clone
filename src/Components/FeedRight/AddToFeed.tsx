@@ -12,6 +12,8 @@ const Container = styled.div`
     gap: 5px;
     padding: 12px;
     border-radius: 8px;
+    border: 1px solid #868686b2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 function AddToYourFeed({}: Props) {

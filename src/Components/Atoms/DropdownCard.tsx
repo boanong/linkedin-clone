@@ -11,12 +11,15 @@ export const DropdownCard = styled.div`
   transform: translate(-50%);
   margin: 15px 0 0;
   z-index: 3;
+  border: 1px solid #868686b2;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 
 export const ProfilePictureAndName = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
   gap: 7px;

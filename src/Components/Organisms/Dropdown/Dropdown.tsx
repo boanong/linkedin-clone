@@ -2,7 +2,6 @@
 import React, { useContext, useState } from "react";
 import {
   DropdownCard,
-  ProfilePicture,
   ProfilePictureAndName,
   ProfileName,
   Button,
@@ -21,6 +20,7 @@ import {
 import { Profpic } from "@/Components/Atoms/Profpic";
 import { FeedUserPPic } from "@/Components/Molecules/FeedUserDivs";
 import { useAuth } from "@/context/AuthContex";
+import Link from "next/link";
 
 type Props = { userData: any };
 
@@ -57,7 +57,7 @@ export default function Dropdown({ userData }: Props) {
         <LanguageText>Posts and activities</LanguageText>
         <LanguageText>Job posting Account</LanguageText>
       </ManageDiv>
-      <SignOut type='button' onClick={() => logout()} >Sign out </SignOut>
+      <SignOut type='button' onClick={() => logout()}><Link href="/">Sign out</Link></SignOut>
     </DropdownCard>
   );
 }
