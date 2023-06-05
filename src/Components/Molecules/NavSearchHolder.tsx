@@ -12,3 +12,14 @@ export const NavSearchHolder = styled.div`
     height: fit-content;
   }
 `;
+
+export const NavSearchHolder2 = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: auto;
+    justify-self: flex-start;
+    @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;

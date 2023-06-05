@@ -47,6 +47,7 @@ import { FcGoogle } from "react-icons/fc";
 import Loading from "@/Components/Loading/Loading";
 import { AuthContextProvider } from "@/context/AuthContex";
 import swal from "sweetalert";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 type Props = {};
 
@@ -90,7 +91,8 @@ function Landing({}: Props) {
 
   const router = useRouter()
   const [authing, setAuthing] = useState(false);
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
+  const [noEmail, setNoEmail] = useState(false)
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
@@ -100,7 +102,7 @@ function Landing({}: Props) {
         let errorCode = error.code;
         let errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
-          swal("Wrong info!", "Please check your email or password!", "error");
+          swal("Wrong info!", "We can't log you in. Please check for an email from us, reset your password, or try again", "error");
 
         } else {
           swal(errorMessage, { icon: "warning" })
@@ -118,21 +120,41 @@ function Landing({}: Props) {
     } catch (err) {
       console.log(err)
     }
-  };
+  }
 
   const signInWithGoogle = async () => {
     setAuthing(true);
 
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then((res) => {
+      .then(res => {
         console.log(res.user.uid);
         router.push("/Pages/feed");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(err => {
+        // console.log(err)
         setAuthing(false);
+      })
+  }
+
+  const resetPassword = () => {
+    if (!data.email) {
+      setNoEmail(true);
+      return;
+    };
+
+    sendPasswordResetEmail(auth, data.email)
+      .then(() => {
+        // Password reset email sent!
+        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
+        // ..
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        swal(errorMessage, { icon: "warning" });
+        // ..
       });
-  };
+
+  }
 
   return (
     <AuthContextProvider>
@@ -183,7 +205,8 @@ function Landing({}: Props) {
             <LandingForm onSubmit={(e) => handleLogin(e)}>
               <LandingHeroInput
                 placeholder="Email or phone number"
-                type="email"
+                name="email"
+            type="email"
                 onChange={(e: any) =>
                   setData({
                     ...data,
@@ -191,7 +214,7 @@ function Landing({}: Props) {
                   })
                 }
                 value={data.email}
-                required
+                noEmail={noEmail}
               />
               <LandingHeroInput
                 placeholder="Password"
@@ -205,7 +228,7 @@ function Landing({}: Props) {
                 }
                 value={data.password}
               />
-              <ForgotPassH>Forgot password?</ForgotPassH>
+              <ForgotPassH onClick={resetPassword}>Forgot password?</ForgotPassH>
               <LandingSignInOnclick type="submit">Sign in</LandingSignInOnclick>
             </LandingForm>
             <OrSec>

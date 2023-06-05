@@ -7,13 +7,17 @@
 .modalH1 {
   font-size: 25px;
   font-weight: 400;
-  font-family: 'Times New Roman', Times, serif;
   white-space: nowrap;
 }
 
 .modalTextarea {
   margin-top: 20px;
   outline: none;
+  resize: none;
+}
+
+.imgContainer {
+  margin-top: -150px;
 }
 
 .ModalEmojiIcon {
@@ -84,7 +88,10 @@
 .modalButton {
   background-color: #0A66C2;
   color: white;
+}
 
+.modalButton:hover {
+  background-color: #074a8e;
 }
 
 .modalDisableButton,
@@ -94,10 +101,18 @@
   margin-top: 10px;
 }
 
-.modalCloseBtn:hover {
-  background-color: #b0b0b06e;
-  padding: 10px;
+.modalCloseBtn {
+  position: absolute;
+  right: 18%;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #3c3b3bfd;
   border-radius: 100px;
+  color: white
+}
+
+.modalCloseBtn:hover {
+  background-color: #000000d5;
 }
 
 .PostButtonContainer {
@@ -114,7 +129,90 @@ textarea {
 .react-responsive-modal-modal {
   margin-top: 50px;
   max-width: 742px;
- border-radius: 10px;
- display: block;
- margin-inline: auto;
+  border-radius: 10px;
+  display: block;
+  margin-inline: auto;
+}
+
+label.modal2ImageContainer input[type="file"] {
+  position: absolute;
+  top: -1000px;
+}
+
+.modal2H1 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.modal2ImageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #0A66C2;
+}
+
+.modal2ImgSpan {
+  padding: 8px;
+}
+
+.modal2HideImgSpan {
+  display: none;
+}
+
+.modal2ImgSpan:hover {
+  background-color: #2199de2a;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.img {
+  margin-inline: auto;
+  border-radius: 10px;
+}
+
+.modal2BtnConatiner {
+  float: right;
+  display: flex;
+  gap: 15px;
+}
+
+.modal2Btn,
+.modal2DisableBtn,
+.modal2Btn2 {
+  padding: 4px 18px;
+  border-radius: 25px;
+  margin-top: 10px;
+  color: #0A66C2;
+  border: 1px solid #0A66C2;
+}
+
+.modal2DisableBtn {
+  color: #0000004D;
+  background: #00000014;
+  border: none;
+}
+
+.modal2Btn:hover {
+  outline: 1px solid #0a66c2ea;
+  background-color: #2199de2a;
+}
+
+.modal2Btn2 {
+  background-color: #0A66C2;
+  color: white;
+}
+
+.customModal {
+  display: block;
+}
+
+.displayModal {
+  display: none;
+}
+
+@media screen and (max-width: 425px) {
+  .modalCloseBtn {
+    right: 10%;
+  }
 }

@@ -13,9 +13,12 @@ import { JobsIcon, NetworkIcon } from "../Atoms/BsIcons";
 import { MessageIcon } from "../Atoms/MsgIcon";
 import { NotificationBell } from "../Atoms/NotificationIcon";
 import { Searchbar, SearchInput } from "../Atoms/Searchbar";
-import { LinkedInIconLarge } from "../Atoms/LinkedLogo";
+import { LinkedInIconLarge, LinkedInIconLarge2 } from "../Atoms/LinkedLogo";
 import { SearchIcon } from "../Atoms/SearchIcon";
-import { NavSearchHolder } from "../Molecules/NavSearchHolder";
+import {
+  NavSearchHolder,
+  NavSearchHolder2,
+} from "../Molecules/NavSearchHolder";
 import { FeaturesHolder } from "../Molecules/FeaturesHolder";
 import { ForBusinessIcon } from "../Atoms/ForBusinessIcon";
 import { PostJobs } from "../Atoms/PostJobs";
@@ -69,44 +72,49 @@ function Topnav({userData}: Props) {
   };
 
   return (
-    <FeedMain>
-      {showDrop && <Overlay onClick={toggleDrop} />}
+    <>
+      <FeedMain>
+        {showDrop && <Overlay onClick={toggleDrop} />}
 
-      <FeedNav>
-        <NavSearchHolder>
-          <LinkedInIconLarge />
-          <Searchbar>
+        <FeedNav>
+          <NavSearchHolder2>
+            <LinkedInIconLarge2 />
             <SearchIcon />
-            <SearchInput type="text" placeholder="Search" />
-          </Searchbar>
-        </NavSearchHolder>
+          </NavSearchHolder2>
+          <NavSearchHolder>
+            <LinkedInIconLarge />
+            <Searchbar>
+              <SearchIcon />
+              <SearchInput type="text" placeholder="Search" />
+            </Searchbar>
+          </NavSearchHolder>
 
-        <FeaturesHolder>
-          <NIconHolder>
-            <HomeIcon />
-            <NavTxt>Home</NavTxt>
-          </NIconHolder>
+          <FeaturesHolder>
+            <NIconHolder>
+              <HomeIcon />
+              <NavTxt>Home</NavTxt>
+            </NIconHolder>
 
-          <NIconHolder>
-            <NetworkIcon />
-            <NavTxt>My Network</NavTxt>
-          </NIconHolder>
+            <NIconHolder>
+              <NetworkIcon />
+              <NavTxt>My Network</NavTxt>
+            </NIconHolder>
 
-          <NIconHolder>
-            <JobsIcon />
-            <NavTxt>Jobs</NavTxt>
-          </NIconHolder>
+            <NIconHolder>
+              <JobsIcon />
+              <NavTxt>Jobs</NavTxt>
+            </NIconHolder>
 
-          <NIconHolder>
-            <MessageIcon />
-            <NavTxt>Messaging</NavTxt>
-          </NIconHolder>
+            <NIconHolder>
+              <MessageIcon />
+              <NavTxt>Messaging</NavTxt>
+            </NIconHolder>
 
           <NIconHolder>
             <NotificationBell />
             <NavTxt>Notifications</NavTxt>
           </NIconHolder>
-        
+
           <DisplayNoneDiv>
             <NIconHolder2>
             { <Profpic2 src={userData?.photoUrl} onClick={toggleDrop} /> || <MeFeatureIcon onClick={toggleDrop} />}
@@ -122,28 +130,30 @@ function Topnav({userData}: Props) {
               {showDrop && <Dropdown userData={userData} />}
             </NIconHolder2>
 
-            <VerticalLine></VerticalLine>
+              <VerticalLine></VerticalLine>
 
-            <NIconHolder>
-              <ForBusinessIcon />
-              <Textandiconcontainer>
-                <MeAndTextHolder>
-                  <NavTxt>For Business</NavTxt>
-                </MeAndTextHolder>
-                <Icondiv>
-                  <DropdownIcon />
-                </Icondiv>
-              </Textandiconcontainer>
-            </NIconHolder>
+              <NIconHolder>
+                <ForBusinessIcon />
+                <Textandiconcontainer>
+                  <MeAndTextHolder>
+                    <NavTxt>For Business</NavTxt>
+                  </MeAndTextHolder>
+                  <Icondiv>
+                    <DropdownIcon />
+                  </Icondiv>
+                </Textandiconcontainer>
+              </NIconHolder>
 
-            <NIconHolder>
-              <PostJobs />
-              <NavTxt>Post a job</NavTxt>
-            </NIconHolder>
-          </DisplayNoneDiv>
-        </FeaturesHolder>
-      </FeedNav>
-    </FeedMain>
+              <NIconHolder>
+                <PostJobs />
+                <NavTxt>Post a job</NavTxt>
+              </NIconHolder>
+            </DisplayNoneDiv>
+          </FeaturesHolder>
+        </FeedNav>
+      </FeedMain>
+
+    </>
   );
 }
 
