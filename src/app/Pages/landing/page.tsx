@@ -18,7 +18,10 @@ import { Linked } from "@/Components/Atoms/LinkedLogoTxt";
 import { Or } from "@/Components/Atoms/Ptag";
 import { VerticalLine } from "@/Components/Atoms/VerticalLine";
 import { JoinBtnHolder } from "@/Components/Molecules/JoinBtnHolder";
-import { LandingNavR } from "@/Components/Molecules/LandingNavR";
+import {
+  LandingNavR,
+  LandingNavRInner,
+} from "@/Components/Molecules/LandingNavR";
 import { NIconHolder } from "@/Components/Molecules/NavIconHolder";
 import { OrSec } from "@/Components/Molecules/OrSec";
 import {
@@ -43,14 +46,22 @@ import { FcGoogle } from "react-icons/fc";
 type Props = {};
 
 const LandingMain = styled.div`
-  display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0;
   width: 100vw;
   height: fit-content;
-  min-height: 100vh;
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    height: fit-content;
+    min-height: calc(100vh - 76px - 50px);
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  }
 `;
 
 function Landing({}: Props) {
@@ -102,23 +113,25 @@ function Landing({}: Props) {
           </Link>
         </Linked>
         <LandingNavR>
-          <NIconHolder>
-            <ArticleLan />
-            <NavTxt>Articles</NavTxt>
-          </NIconHolder>
-          <NIconHolder>
-            <NetworkIcon />
-            <NavTxt>People</NavTxt>
-          </NIconHolder>
-          <NIconHolder>
-            <Learning />
-            <NavTxt>Learning</NavTxt>
-          </NIconHolder>
-          <NIconHolder>
-            <JobsIcon />
-            <NavTxt>Jobs</NavTxt>
-          </NIconHolder>
-          <VerticalLine/>
+          <LandingNavRInner>
+            <NIconHolder>
+              <ArticleLan />
+              <NavTxt>Articles</NavTxt>
+            </NIconHolder>
+            <NIconHolder>
+              <NetworkIcon />
+              <NavTxt>People</NavTxt>
+            </NIconHolder>
+            <NIconHolder>
+              <Learning />
+              <NavTxt>Learning</NavTxt>
+            </NIconHolder>
+            <NIconHolder>
+              <JobsIcon />
+              <NavTxt>Jobs</NavTxt>
+            </NIconHolder>
+          </LandingNavRInner>
+          <VerticalLine></VerticalLine>
           <JoinBtnHolder>
             <Link href="/Pages/signup">
               <JoinNowBtn type="button">Join Now</JoinNowBtn>
@@ -157,12 +170,7 @@ function Landing({}: Props) {
             value={data.password}
           />
           <ForgotPassH>Forgot password?</ForgotPassH>
-          <LandingSignInOnclick
-            type="button"
-            onClick={(e) => {
-              handleLogin(e);
-            }}
-          >
+          <LandingSignInOnclick type="button" onClick={(e) => handleLogin(e)}>
             Sign in
           </LandingSignInOnclick>
           <OrSec>
@@ -175,7 +183,7 @@ function Landing({}: Props) {
             onClick={() => signInWithGoogle()}
             disabled={authing}
           >
-            Google
+            Continue with google
             <FcGoogle />
           </LandingNewTo1>
           <Link href="/Pages/signup">
