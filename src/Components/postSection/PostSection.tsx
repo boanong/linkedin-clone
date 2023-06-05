@@ -47,4 +47,8 @@ export const PostImage = styled.img`
   margin-bottom: 16px;
 `;
 
+export const OptionsSection = styled.div`
+  margin-bottom: 16px;
+`;
+
 
