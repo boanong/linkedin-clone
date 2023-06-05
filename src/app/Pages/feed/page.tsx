@@ -8,6 +8,7 @@ import { PostSecHolder } from "@/Components/Organisms/PostSecHolder";
 import Post from "@/Components/Post/Post";
 import FeedR from "@/Components/FeedRight/FeedR";
 import AuthGaurd from "@/hoc/AuthGaurd";
+import { PostsSection } from "@/Components/PostSection/PostsSection";
 
 type Props = { userData: any };
 
@@ -30,6 +31,7 @@ function Feed({ userData }: Props) {
         <FeedUserSec userData={userData} />
         <PostSecHolder>
           <Post userData={userData} />
+          <PostsSection />
         </PostSecHolder>
         {/* <FeedR /> */}
       </FeedInnerMain>
