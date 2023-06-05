@@ -27,7 +27,6 @@ import styled from "@emotion/styled";
 import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
 import Dropdown from "../Organisms/Dropdown/Dropdown";
-import { PostSection, Header, ProfilePicture, JobTitle, PostText, PostImage } from "../postSection/PostSection";
 
 type Props = {};
 

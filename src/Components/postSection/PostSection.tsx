@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-type Props = {}
 
+type Props = {}
 
 export const PostSection = styled.div`
   display: flex;
@@ -50,5 +50,6 @@ export const PostImage = styled.img`
 export const OptionsSection = styled.div`
   margin-bottom: 16px;
 `;
+
 
 
