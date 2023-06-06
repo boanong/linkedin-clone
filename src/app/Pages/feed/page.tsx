@@ -31,7 +31,7 @@ function Feed({ userData }: Props) {
         <FeedUserSec userData={userData} />
         <PostSecHolder>
           <Post userData={userData} />
-          <PostsSection />
+          <PostsSection userData={userData} />
         </PostSecHolder>
         {/* <FeedR /> */}
       </FeedInnerMain>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ProfilePicture, JobTitle } from "../Atoms/DropdownCard";
 import {
   PostSection,
@@ -6,8 +7,23 @@ import {
   PostImage,
   OptionsSection,
 } from "../Molecules/PostSection";
+import { onSnapshot, query, collection, orderBy } from "@firebase/firestore";
+import { db } from "@/firebase/config";
 
-export  function PostsSection() {
+// const [vals, setVals] = useState<any>(null);
+
+// useEffect(() => {
+//   onSnapshot(
+//     query(collection(db, "posts"), orderBy("timestamp", "desc")),
+//     (data) => {
+//       setVals(data.docs);
+//     }
+//   );
+// }, []);
+
+type Props = { userData: any };
+
+export function PostsSection({ userData }: Props) {
   return (
     <>
       <PostSection>

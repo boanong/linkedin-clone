@@ -19,6 +19,9 @@ import {
   addDoc,
   collection,
   doc,
+  onSnapshot,
+  orderBy,
+  query,
   serverTimestamp,
   updateDoc,
 } from "@firebase/firestore";
@@ -77,7 +80,7 @@ function Post({ userData }: Props) {
     }
     reader.onload = (readerEvent: any) => {
       setSelectedFile(readerEvent.target.result);
-    };  
+    };
   };
 
   return (
