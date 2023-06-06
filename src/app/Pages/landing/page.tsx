@@ -42,6 +42,8 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { sendPasswordResetEmail } from "firebase/auth";
+import swal from "sweetalert";
 
 type Props = {};
 
@@ -64,7 +66,7 @@ const LandingMain = styled.div`
   }
 `;
 
-function Landing({}: Props) {
+function Landing({ }: Props) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -72,9 +74,23 @@ function Landing({}: Props) {
 
   const router = useRouter();
   const [authing, setAuthing] = useState(false);
+  const [noEmail, setNoEmail] = useState(false);
 
   const login = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+      .then(() => { router.push('/Pages/feed') }).
+      catch(function (error) {
+        //Handle error
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          swal("Wrong info!", "We can't log you in. Please check for an email from us, reset your password, or try again", "error");
+
+        } else {
+          swal(errorMessage, { icon: "warning" })
+        }
+        console.log(error);
+      })
   };
 
   const handleLogin = async (e: any) => {
@@ -83,7 +99,6 @@ function Landing({}: Props) {
     console.log(data.email, data.password);
     try {
       await login(data.email, data.password);
-      router.push("/Pages/feed");
     } catch (err) {
       console.log(err);
     }
@@ -102,6 +117,27 @@ function Landing({}: Props) {
         setAuthing(false);
       });
   };
+
+  const resetPassword = () => {
+    if (!data.email) {
+      setNoEmail(true);
+      return;
+    };
+
+    sendPasswordResetEmail(auth, data.email)
+      .then(() => {
+        // Password reset email sent!
+        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        swal(errorMessage, { icon: "warning" });
+        // ..
+      });
+
+  }
 
   return (
     <LandingMain>
@@ -147,6 +183,7 @@ function Landing({}: Props) {
           <LandingHeroH1>Welcome to your professional community</LandingHeroH1>
           <LandingHeroInput
             placeholder="Email or phone number"
+            name="email"
             type="text"
             onChange={(e: any) =>
               setData({
@@ -155,7 +192,7 @@ function Landing({}: Props) {
               })
             }
             value={data.email}
-            required
+            noEmail={noEmail}
           />
           <LandingHeroInput
             placeholder="Password"
@@ -169,7 +206,7 @@ function Landing({}: Props) {
             }
             value={data.password}
           />
-          <ForgotPassH>Forgot password?</ForgotPassH>
+          <ForgotPassH onClick={resetPassword}>Forgot password?</ForgotPassH>
           <LandingSignInOnclick type="button" onClick={(e) => handleLogin(e)}>
             Sign in
           </LandingSignInOnclick>

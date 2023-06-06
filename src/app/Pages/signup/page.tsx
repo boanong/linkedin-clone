@@ -26,6 +26,7 @@ import { SocilaLogBtn } from '@/Components/Atoms/SocialLogBtn';
 import { Span } from '@/Components/Atoms/Span';
 import { SubmitBtn } from '@/Components/Atoms/SubmitBtn';
 import Link from 'next/link';
+import swal from 'sweetalert';
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
@@ -38,6 +39,13 @@ function Signup() {
 
   const signup = (email: string, password: string) => {
     return createUserWithEmailAndPassword(auth, email, password)
+      .then(() => { router.push('/Pages/feed') }).
+      catch(function (error) {
+        //Handle error
+        let errorMessage = error.message;
+        swal(errorMessage, { icon: "warning" })
+        console.log(error);
+      })
   }
 
   const handleSignup = async (e: any) => {
@@ -46,11 +54,9 @@ function Signup() {
     console.log('this e', e)
     try {
       await signup(data.email, data.password)
-        .then(() => router.push('/Pages/feed'));
     } catch (err) {
       console.log(err)
     }
-
     console.log(data.email, data.password)
   }
 
