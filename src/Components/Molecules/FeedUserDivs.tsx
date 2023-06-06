@@ -70,6 +70,11 @@ export const FeedUserBioH = styled.h2`
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+  max-width: 70%;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const FeedUserConnect = styled.span`

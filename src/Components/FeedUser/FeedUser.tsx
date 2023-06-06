@@ -15,6 +15,8 @@ import {
   FeedUserP1U,
   FeedUserTxtH,
 } from "../Molecules/FeedUserDivs";
+import { PostSection, Header, ProfilePicture, JobTitle, PostText, PostImage, OptionsSection } from "../Molecules/PostSection";
+
 
 type Props = { userData: any };
 
@@ -39,7 +41,7 @@ export default function FeedUserSec({ userData }: Props) {
         {/* </FeedUserProfilePic> */}
 
         {/* <FeedUserBio> */}
-        <FeedUserBioH>{userData?.displayName || 'username'}</FeedUserBioH>
+        <FeedUserBioH>{userData?.displayName || userData?.email || 'username'}</FeedUserBioH>
         <FeedUserBioP>
           Mans baller, Keep Grinding, Head For the money
         </FeedUserBioP>

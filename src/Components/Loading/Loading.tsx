@@ -12,20 +12,34 @@ const LoadingMain = styled.div`
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  vertical-align: middle;
-  margin: 20% auto;
+  /* vertical-align: middle; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const LoadingInner = styled.div`
+  width: fit-content;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  margin: auto;
 `;
 
 function Loading({}: Props) {
   return (
     <LoadingMain>
-      <Linked>
-        Linked
-        <LinkedInIcon />
-      </Linked>
-      <Linel>
-        <LineInner></LineInner>
-      </Linel>
+      <LoadingInner>
+        <Linked>
+          Linked
+          <LinkedInIcon />
+        </Linked>
+        <Linel>
+          <LineInner></LineInner>
+        </Linel>
+      </LoadingInner>
     </LoadingMain>
   );
 }

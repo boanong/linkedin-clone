@@ -5,5 +5,4 @@ export const CreatePostDiv = styled.div`
     gap: 10px;
     height: fit-content;
     align-items: center;
-    justify-content: center;
 `;

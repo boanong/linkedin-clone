@@ -3,14 +3,16 @@ import styled from "styled-components";
 export const LandingNav = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 5px 3px;
   justify-content: space-between;
   align-items: center;
   top: 0;
   width: 100vw;
+  @media only screen and (min-width: 400px) {
+    flex-direction: row;
+  }
   @media only screen and (min-width: 768px) {
     padding: 10px 15%;
-    flex-direction: row;
   }
 `;
 
