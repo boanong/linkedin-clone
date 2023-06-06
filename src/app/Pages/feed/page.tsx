@@ -36,16 +36,10 @@ function Feed({ userData }: Props) {
         <FeedInnerMainR>
           <PostSecHolder>
             <Post userData={userData} />
-            <PostsSection userData={userData}/>
+            <PostsSection userData={userData} />
           </PostSecHolder>
           <FeedR />
         </FeedInnerMainR>
-
-        {/* <PostSecHolder>
-          <Post userData={userData} />
-          <PostsSection />
-        </PostSecHolder>
-        <FeedR /> */}
       </FeedInnerMain>
     </FeedMain>
   );
