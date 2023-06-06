@@ -21,7 +21,13 @@ import { Footer } from "@/Components/Organisms/Footer";
 import { MainDiv } from "@/Components/Organisms/MainDiv";
 import { NavBar } from "@/Components/Organisms/NavBar";
 import { auth } from "@/firebase/config";
-import { GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
@@ -29,86 +35,101 @@ import swal from "sweetalert";
 
 type Props = {};
 
-function Login({ }: Props) {
+function Login({}: Props) {
   const [data, setData] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
-  const router = useRouter()
+  const [passwordType, setPasswordType] = useState("password");
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
+
+  const router = useRouter();
   const [authing, setAuthing] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [noEmail, setNoEmail] = useState(false);
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
-      .then(() => { router.push('/Pages/feed') }).
-      catch(function (error) {
+      .then(() => {
+        router.push("/Pages/feed");
+      })
+      .catch(function (error) {
         //Handle error
         let errorCode = error.code;
         let errorMessage = error.message;
-        if (errorCode === 'auth/wrong-password') {
-          swal("Wrong info!", "We can't log you in. Please check for an email from us, reset your password, or try again", "error");
-
+        if (errorCode === "auth/wrong-password") {
+          swal(
+            "Wrong info!",
+            "We can't log you in. Please check for an email from us, reset your password, or try again",
+            "error"
+          );
         } else {
-          swal(errorMessage, { icon: "warning" })
+          swal(errorMessage, { icon: "warning" });
         }
         console.log(error);
-      })
-  }
-
-
+      });
+  };
 
   const handleLogin = async (e: any) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
     console.log(data.email, data.password);
     try {
-      await login(data.email, data.password)
+      await login(data.email, data.password);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const signInWithGoogle = async () => {
     setAuthing(true);
 
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then(res => {
+      .then((res) => {
         console.log(res.user.uid);
         router.push("/Pages/feed");
       })
-      .catch(err => {
-        console.log(err)
+      .catch((err) => {
+        console.log(err);
         setAuthing(false);
-      })
-  }
-
+      });
+  };
 
   const githubSignin = async () => {
     setAuthing(true);
 
     signInWithPopup(auth, new GithubAuthProvider())
-      .then(response => {
-        console.log(response.user.uid)
-        router.push("/Pages/feed")
+      .then((response) => {
+        console.log(response.user.uid);
+        router.push("/Pages/feed");
       })
-      .catch(err => {
-        console.log(err)
+      .catch((err) => {
+        console.log(err);
         setAuthing(false);
-      })
-  }
+      });
+  };
 
   const resetPassword = () => {
     if (!data.email) {
       setNoEmail(true);
       return;
-    };
+    }
 
     sendPasswordResetEmail(auth, data.email)
       .then(() => {
         // Password reset email sent!
-        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
+        swal(
+          "Password Reset Email Sent!",
+          "An email has been sent to your rescue email address, Please click the link in the email to reset your password.",
+          "success"
+        );
         // ..
       })
       .catch((error) => {
@@ -117,9 +138,7 @@ function Login({ }: Props) {
         swal(errorMessage, { icon: "warning" });
         // ..
       });
-
-  }
-
+  };
 
   return (
     <AuthContextProvider>
@@ -127,13 +146,13 @@ function Login({ }: Props) {
         <NavBar>
           <Linked>
             Linked
-            <Link href="/"><LinkedInIcon /></Link>
+            <Link href="/">
+              <LinkedInIcon />
+            </Link>
           </Linked>
         </NavBar>
-        <Form
-          onSubmit={(e: any) => handleLogin(e)}
-        >
-          {isLoading && <Ptag color='green'>Loading...</Ptag>}
+        <Form onSubmit={(e: any) => handleLogin(e)}>
+          {isLoading && <Ptag color="green">Loading...</Ptag>}
           <FormHeading>Login</FormHeading>
           <Ptag>
             Keep up to date with developments in your professional world.
@@ -152,14 +171,19 @@ function Login({ }: Props) {
             noEmail={noEmail}
           />
           <PassHolder>
-            <PassInput placeholder="Password" name="password" type="password" onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value
-              })
-            }
-              value={data.password} />
-            <ViewPass>display</ViewPass>
+            <PassInput
+              placeholder="Password"
+              name="password"
+              type={passwordType}
+              onChange={(e: any) =>
+                setData({
+                  ...data,
+                  password: e.target.value,
+                })
+              }
+              value={data.password}
+            />
+            <ViewPass onClick={() => togglePassword()}>Display</ViewPass>
           </PassHolder>
           <ForgotPass onClick={resetPassword}>Forgot your Password?</ForgotPass>
           <SubmitBtn type="submit">Login</SubmitBtn>
@@ -168,21 +192,32 @@ function Login({ }: Props) {
             <Or>Or</Or>
             <Line />
           </OrSec>
-          <SocilaLogBtn type="button" onClick={() => signInWithGoogle()} disabled={authing}>
+          <SocilaLogBtn
+            type="button"
+            onClick={() => signInWithGoogle()}
+            disabled={authing}
+          >
             <FcGoogle />
             Google
           </SocilaLogBtn>
-          <SocilaLogBtn type="button" onClick={() => githubSignin()} disabled={authing}>
+          <SocilaLogBtn
+            type="button"
+            onClick={() => githubSignin()}
+            disabled={authing}
+          >
             <FaGithub />
             GitHub
           </SocilaLogBtn>
         </Form>
         <Span>
-          New to LinkedIn?<Link href="/Pages/signup"><ForgotPass>Register</ForgotPass></Link>
+          New to LinkedIn?
+          <Link href="/Pages/signup">
+            <ForgotPass>Register</ForgotPass>
+          </Link>
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>
-    </AuthContextProvider >
+    </AuthContextProvider>
   );
 }
 

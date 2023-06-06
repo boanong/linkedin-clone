@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import FeedUserSec from "@/Components/FeedUser/FeedUser";
-import { FeedInnerMain } from "@/Components/Organisms/FeedInnerMain";
+import { FeedInnerMain, FeedInnerMainR } from "@/Components/Organisms/FeedInnerMain";
 import styled from "@emotion/styled";
 import Topnav from "@/Components/Topnav/Topnav";
 import { PostSecHolder } from "@/Components/Organisms/PostSecHolder";
@@ -26,14 +26,16 @@ const FeedMain = styled.div`
 function Feed({ userData }: Props) {
   return (
     <FeedMain>
-      <Topnav />
+      <Topnav userData={userData} />
       <FeedInnerMain>
         <FeedUserSec userData={userData} />
+        <FeedInnerMainR>
         <PostSecHolder>
           <Post userData={userData} />
           <PostsSection userData={userData} />
         </PostSecHolder>
-        {/* <FeedR /> */}
+        <FeedR />
+        </FeedInnerMainR>
       </FeedInnerMain>
     </FeedMain>
   );

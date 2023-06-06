@@ -1,8 +1,24 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  position: sticky;
+  top: inherit;
   overflow: hidden;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  max-width: 471px;
+  @media only screen and (max-width: 425px) {
+    width: 100vw;
+  }
+ 
+  @media only screen and (min-width: 770px) {
+    width: fit-content;
+    gap: 15px;
+    max-width: 310px;
+    position: fixed;
+    right: 17%;
+  }
 `;
 
 export const FeedRSpan = styled.span`

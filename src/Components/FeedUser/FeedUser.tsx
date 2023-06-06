@@ -15,19 +15,33 @@ import {
   FeedUserP1U,
   FeedUserTxtH,
 } from "../Molecules/FeedUserDivs";
-import { PostSection, Header, ProfilePicture, JobTitle, PostText, PostImage, OptionsSection } from "../Molecules/PostSection";
+import { ProfilePicture } from "../Molecules/PostSection";
+import { Profpic } from "../Atoms/Profpic";
 
 
 type Props = { userData: any };
 
 const FeedUser = styled.div`
-  display: none;
-  @media only screen and (min-width: 768px) {
-    width: 20vw;
-    position: sticky;
+  width: 20vw;
+  margin: auto;
+  display: flex;
+  top: inherit;
+  flex-direction: column;
+  @media only screen and (min-width: 920px) {
+    position: fixed;
+    left: 22%;
     max-width: 230px;
     display: flex;
     flex-direction: column;
+  }
+  @media only screen and (max-width: 769px) {
+    position: fixed;
+    left: 3%;
+    top: inherit;
+    max-width: 180px;
+  }
+  @media only screen and (max-width: 428px) {
+    display: none;
   }
 `;
 
@@ -37,11 +51,13 @@ export default function FeedUserSec({ userData }: Props) {
       <FeedUserDiv1>
         <FeedUserImages></FeedUserImages>
         {/* <FeedUserProfilePic> */}
-        <FeedUserPPic />
+       { <Profpic src={userData?.photoUrl}/> || <FeedUserPPic />}
         {/* </FeedUserProfilePic> */}
 
         {/* <FeedUserBio> */}
-        <FeedUserBioH>{userData?.displayName || userData?.email || 'username'}</FeedUserBioH>
+        <FeedUserBioH>
+          {userData?.displayName || userData?.email || "username"}
+        </FeedUserBioH>
         <FeedUserBioP>
           Mans baller, Keep Grinding, Head For the money
         </FeedUserBioP>
