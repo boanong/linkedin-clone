@@ -30,14 +30,14 @@ import Dropdown from "../Organisms/Dropdown/Dropdown";
 
 type Props = {};
 
-const FeedMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-`;
+// const FeedMain = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   height: fit-content;
+//   align-items: center;
+//   margin: 0;
+//   padding: 0;
+// `;
 
 const Overlay = styled.div`
   background-color: #00000000;
@@ -70,7 +70,7 @@ function Topnav({}: Props) {
 
   return (
     <>
-      <FeedMain>
+      {/* <FeedMain> */}
         {showDrop && <Overlay onClick={toggleDrop} />}
 
         <FeedNav>
@@ -148,7 +148,7 @@ function Topnav({}: Props) {
             </DisplayNoneDiv>
           </FeaturesHolder>
         </FeedNav>
-      </FeedMain>
+      {/* </FeedMain> */}
 
     </>
   );

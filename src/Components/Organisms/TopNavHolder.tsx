@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 export const FeedNav = styled.div`
   display: flex;
   padding: 5px;
+  position: fixed;
   width: 100vw;
+  z-index: 20;
   background-color: white;
   @media only screen and (min-width: 768px) {
     width: 100vw;

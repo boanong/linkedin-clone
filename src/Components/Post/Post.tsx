@@ -19,9 +19,6 @@ import {
   addDoc,
   collection,
   doc,
-  onSnapshot,
-  orderBy,
-  query,
   serverTimestamp,
   updateDoc,
 } from "@firebase/firestore";
@@ -58,8 +55,7 @@ function Post({ userData }: Props) {
     });
 
     setOpenFirst(false);
-    // setSelectedFile(null);
-    // console.log(selectedFile);
+    setSelectedFile(null);
 
     const imageRef = ref(fileStore, `posts/${postData.id}/image`);
 

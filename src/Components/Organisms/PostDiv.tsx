@@ -13,5 +13,6 @@ export const PostDiv = styled.div`
   @media only screen and (min-width: 768px) {
     border-radius: 10px;
     width: fit-content;
+    max-width: 530px;
   }
 `;
