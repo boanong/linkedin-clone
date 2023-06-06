@@ -124,9 +124,10 @@ function Landing({}: Props) {
 
   const signInWithGoogle = async () => {
     setAuthing(true);
-
+  
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
+        setLoading(true)
         console.log(res.user.uid);
         router.push("/Pages/feed");
       })

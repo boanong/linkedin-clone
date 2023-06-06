@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "@emotion/styled";
 import { SlLike } from "react-icons/sl"
 import { LikeIcon2, Celebrate, SupportIcon, HeartIcon, InsightIcon, FunnyIcon } from './Reaction';
-import firebase from 'firebase/app';
-import 'firebase/database';
 
 export const LikeIcon = styled(SlLike)`
     color: #666666;
@@ -52,13 +50,15 @@ const ReactionsHolder = styled.div`
 type Props = {}
 
 function LikeButton({}: Props) {
+    const [likes, setLikes] = useState()
+    const [likeCount, setLikeCount] = useState()
     const handleLike = (userId:any, postId:any ) => {
-        const post = firebase.database().ref(`post/${postId}`);
 
     }
+
   return (
   <>
-  <ReactionsHolder><LikeIcon2 /><Celebrate /><SupportIcon /><HeartIcon /><InsightIcon /><FunnyIcon /></ReactionsHolder>
+  <ReactionsHolder><LikeIcon2 onClick={() => handleLike()} /><Celebrate /><SupportIcon /><HeartIcon /><InsightIcon /><FunnyIcon /></ReactionsHolder>
   <LikeHolder>
         <LikeIcon />
         <LikeP>Like</LikeP>
@@ -67,4 +67,4 @@ function LikeButton({}: Props) {
   )
 }
 
-export default LikeIcon
+export default LikeButton

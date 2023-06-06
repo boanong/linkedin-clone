@@ -1,3 +1,6 @@
+'use-client'
+import React from 'react'
+import styled from "@emotion/styled";
 import { ProfilePicture, JobTitle } from "../Atoms/DropdownCard";
 import {
   PostSection,
@@ -6,16 +9,33 @@ import {
   PostImage,
   OptionsSection,
 } from "../Molecules/PostSection";
+import LikeButton from "../Atoms/LikeIcon";
+import { MeFeatureIcon2 } from "../Atoms/MeFeatureIcon";
 
-export  function PostsSection() {
+const PostReaction = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  width: 100%;
+`;
+
+const PostReactionInner = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+type Props = { userData: any };
+
+function PostsSection({ userData }: Props) {
   return (
     <>
       <PostSection>
         <Header>
-          <ProfilePicture
-            src="https://media.istockphoto.com/id/1286810719/photo/smiling-cheerful-young-adult-african-american-ethnicity-man-looking-at-camera-standing-at.jpg?s=612x612&w=0&k=20&c=b9sWYITIZ_yjXB3m-Xftj-latPXQDhb5Roa0pA0JaNY="
-            alt="Profile Picture"
-          />
+          {(
+            <ProfilePicture src={userData?.photoUrl} alt="Profile Picture" />
+          ) || <MeFeatureIcon2 />}
           <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
         </Header>
         <PostText>
@@ -32,8 +52,15 @@ export  function PostsSection() {
         />
 
         <OptionsSection></OptionsSection>
+        <PostReaction>
+          <PostReactionInner>
+            <LikeButton />
+          </PostReactionInner>
+        </PostReaction>
       </PostSection>
       ;
     </>
   );
 }
+
+export default PostsSection;
