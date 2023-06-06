@@ -26,7 +26,7 @@ const FeedMain = styled.div`
 function Feed({ userData }: Props) {
   return (
     <FeedMain>
-      <Topnav />
+      <Topnav userData={userData} />
       <FeedInnerMain>
         <FeedUserSec userData={userData} />
         <FeedInnerMainR>

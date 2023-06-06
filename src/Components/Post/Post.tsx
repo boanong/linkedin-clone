@@ -30,6 +30,7 @@ import { PostEmojiIcon } from "../Atoms/EmojiIcon";
 import { fileStore } from "../../firebase/config";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { CloseIcon } from "../Atoms/CloseIcon";
+import { ProfilePicture } from "../Molecules/PostSection";
 
 type Props = { userData: any };
 
@@ -83,7 +84,10 @@ function Post({ userData }: Props) {
     <>
       <PostDiv>
         <CreatePostDiv>
-          <ProfileIcon />
+          {<ProfilePicture src={userData.photoUrl} alt="Profile Picture" /> || (
+            <ProfileIcon />
+          )}
+
           <PostBtn onClick={() => setOpenFirst(true)}>Start a post</PostBtn>
         </CreatePostDiv>
         <PostDiv2>

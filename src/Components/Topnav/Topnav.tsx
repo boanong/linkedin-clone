@@ -26,18 +26,21 @@ import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
 import styled from "@emotion/styled";
 import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
+import { Profpic2 } from "../Atoms/Profpic";
+
+
 import Dropdown from "../Organisms/Dropdown/Dropdown";
 
-type Props = {};
+type Props = { userData: any };
 
-// const FeedMain = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   height: fit-content;
-//   align-items: center;
-//   margin: 0;
-//   padding: 0;
-// `;
+const FeedMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+`;
 
 const Overlay = styled.div`
   background-color: #00000000;
@@ -61,7 +64,7 @@ const DisplayNoneDiv = styled.div`
   }
 `;
 
-function Topnav({}: Props) {
+function Topnav({userData}: Props) {
   const [showDrop, setShowDrop] = useState<boolean>(false);
 
   const toggleDrop = () => {
@@ -107,25 +110,25 @@ function Topnav({}: Props) {
               <NavTxt>Messaging</NavTxt>
             </NIconHolder>
 
-            <NIconHolder>
-              <NotificationBell />
-              <NavTxt>Notifications</NavTxt>
-            </NIconHolder>
+          <NIconHolder>
+            <NotificationBell />
+            <NavTxt>Notifications</NavTxt>
+          </NIconHolder>
 
-            <DisplayNoneDiv>
-              <NIconHolder2>
-                <MeFeatureIcon onClick={toggleDrop} />
-                <Textandiconcontainer onClick={toggleDrop}>
-                  <MeAndTextHolder>
-                    <NavTxt>Me</NavTxt>
-                  </MeAndTextHolder>
-                  <Icondiv>
-                    <DropdownIcon />
-                  </Icondiv>
-                </Textandiconcontainer>
+          <DisplayNoneDiv>
+            <NIconHolder2>
+            { <Profpic2 src={userData?.photoUrl} onClick={toggleDrop} /> || <MeFeatureIcon onClick={toggleDrop} />}
+              <Textandiconcontainer onClick={toggleDrop}>
+                <MeAndTextHolder>
+                  <NavTxt>Me</NavTxt>
+                </MeAndTextHolder>
+                <Icondiv>
+                  <DropdownIcon />
+                </Icondiv>
+              </Textandiconcontainer>
 
-                {showDrop && <Dropdown />}
-              </NIconHolder2>
+              {showDrop && <Dropdown userData={userData} />}
+            </NIconHolder2>
 
               <VerticalLine></VerticalLine>
 

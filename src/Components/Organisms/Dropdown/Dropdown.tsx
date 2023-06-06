@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   DropdownCard,
-  ProfilePicture,
   ProfilePictureAndName,
   ProfileName,
   Button,
@@ -17,20 +16,27 @@ import {
   JobTitle,
   SignOut,
   JobtitleDiv,
-  ProfilePictureDiv,
 } from "../../Atoms/DropdownCard";
+import { Profpic3 } from "@/Components/Atoms/Profpic";
+import { FeedUserPPic } from "@/Components/Molecules/FeedUserDivs";
+import { useAuth } from "@/context/AuthContex";
+import Link from "next/link";
 
-type Props = {};
+type Props = { userData: any };
 
-export default function Dropdown({}: Props) {
+export default function Dropdown({ userData }: Props) {
+
+  const { logout } = useAuth();
+
   return (
     <DropdownCard>
       <ProfilePictureAndName>
-        <ProfilePicture />
+        {/* <ProfilePicture /> */}
+        { <Profpic3 src={userData?.photoUrl} /> || <FeedUserPPic />}
 
         <JobtitleDiv>
-          <ProfileName>Boanong Joshua</ProfileName>
-          <JobTitle>UI/UX Designer || Web developer </JobTitle>
+          <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
+          <JobTitle>Bio </JobTitle>
         </JobtitleDiv>
       </ProfilePictureAndName>
 
@@ -51,7 +57,7 @@ export default function Dropdown({}: Props) {
         <LanguageText>Posts and activities</LanguageText>
         <LanguageText>Job posting Account</LanguageText>
       </ManageDiv>
-      <SignOut>Sign out </SignOut>
+      <SignOut onClick={() => logout()}><Link href="/">Sign out</Link></SignOut>
     </DropdownCard>
   );
 }

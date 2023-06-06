@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProfilePicture, JobTitle } from "../Atoms/DropdownCard";
+import { JobTitle, ProfileName, ProfilePicture2 } from "../Atoms/DropdownCard";
 import {
   PostSection,
   Header,
@@ -9,6 +9,15 @@ import {
 } from "../Molecules/PostSection";
 import { onSnapshot, query, collection, orderBy } from "@firebase/firestore";
 import { db } from "@/firebase/config";
+import { MeFeatureIcon } from "../Atoms/MeFeatureIcon";
+import styled from "@emotion/styled";
+
+const UserProfHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+`
 
 type Props = { userData: any };
 
@@ -29,12 +38,16 @@ export function PostsSection({ userData }: Props) {
     <>
       {vals?.map((info: any) => (
         <PostSection key={info?.data()?.id}>
-          <Header>
-            <ProfilePicture
-              src="https://media.istockphoto.com/id/1286810719/photo/smiling-cheerful-young-adult-african-american-ethnicity-man-looking-at-camera-standing-at.jpg?s=612x612&w=0&k=20&c=b9sWYITIZ_yjXB3m-Xftj-latPXQDhb5Roa0pA0JaNY="
+          <Header>{
+            <ProfilePicture2
+              src={userData.photoUrl}
               alt="Profile Picture"
-            />
+            /> || <MeFeatureIcon />}
+            <UserProfHolder>
+            <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
             <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
+            </UserProfHolder>
+            
           </Header>
           <PostText>{info?.data()?.postContent}</PostText>
           {info?.data()?.image && (

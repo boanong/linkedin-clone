@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const DropdownCard = styled.div`
   height: 520px;
+  font-size: 16px;
   width: 360px;
   background-color: white;
   border-radius: 10px;
@@ -11,17 +12,14 @@ export const DropdownCard = styled.div`
   transform: translate(-50%);
   margin: 15px 0 0;
   z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
-
 
 export const ProfilePictureAndName = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 7px;
-  margin: 5px auto 1rem;
-
+  /* margin: 5px auto 1rem; */
 `;
 
 export const ProfilePictureDiv = styled.div``;
@@ -34,23 +32,35 @@ export const ProfilePicture = styled.img`
   border-radius: 50%;
   margin: 2%;
   &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
+  }
+`;
+
+export const ProfilePicture2 = styled.img`
+  width: 45px;
+  height: 45px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 2%;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const ProfileName = styled.p`
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
   &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
+  }
 `;
 
 export const JobTitle = styled.p`
   font-size: 20px;
   &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
+  }
 `;
 
 export const JobtitleDiv = styled.div`
@@ -87,19 +97,18 @@ export const StyledText2 = styled.p`
   font-size: 23px;
   color: #5b5959;
   &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 export const Manage = styled.p`
   font-size: 23px;
   font-weight: bolder;
   color: #454444;
-  
-  &:hover {
 
-    }
+  &:hover {
+  }
 `;
 export const ProfileDiv = styled.div`
   border-top: 1px solid #e4e3e3;
@@ -109,12 +118,12 @@ export const ProfileDiv = styled.div`
 `;
 
 export const SettingAndPrivacy = styled.p`
-  font-size: 23px;
+  font-size: 18px;
   color: #8e8a8a;
   &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 export const ManageDiv = styled.div`
@@ -124,20 +133,21 @@ export const ManageDiv = styled.div`
 `;
 
 export const LanguageText = styled.p`
-  font-size: 23px;
+  font-size: 18px;
   color: #8e8a8a;
   &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 export const SignOut = styled.p`
-  font-size: 25px;
+  font-size: 18px;
   color: #8e8a8a;
   padding-left: 15px;
   &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    font-size: 19px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
