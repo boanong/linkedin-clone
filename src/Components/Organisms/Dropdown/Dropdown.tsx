@@ -36,7 +36,7 @@ export default function Dropdown({ userData }: Props) {
 
         <JobtitleDiv>
           <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
-          <JobTitle>Bio </JobTitle>
+          <JobTitle>Bio</JobTitle>
         </JobtitleDiv>
       </ProfilePictureAndName>
 

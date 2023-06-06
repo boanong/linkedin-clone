@@ -11,7 +11,7 @@ export const PostBtn = styled.button`
   color: #0000009e;
   white-space: nowrap;
   @media only screen and (min-width: 768px) {
-    width: 450px;
+    width: 413px;
     &:hover {
       background-color: #b0b0b06e;
     }

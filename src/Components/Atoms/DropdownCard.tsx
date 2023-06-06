@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const DropdownCard = styled.div`
   height: 520px;
   font-size: 16px;
-  width: 360px;
+  width: 300px;
   background-color: white;
   border-radius: 10px;
   position: absolute;
@@ -19,7 +19,7 @@ export const ProfilePictureAndName = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  /* margin: 5px auto 1rem; */
+  margin: 5px auto 1rem;
 `;
 
 export const ProfilePictureDiv = styled.div``;
@@ -49,7 +49,7 @@ export const ProfilePicture2 = styled.img`
 `;
 
 export const ProfileName = styled.p`
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bolder;
   &:hover {
     cursor: pointer;
@@ -57,7 +57,7 @@ export const ProfileName = styled.p`
 `;
 
 export const JobTitle = styled.p`
-  font-size: 20px;
+  font-size: 15px;
   &:hover {
     cursor: pointer;
   }
@@ -69,14 +69,15 @@ export const JobtitleDiv = styled.div`
 
 export const Button = styled.div`
   background-color: none;
+  white-space: nowrap;
   border-width: 2px;
   border-color: #0077b5;
   color: #0077b5;
-  padding: 0px 120px;
+  padding: 0 95px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 20px;
@@ -88,13 +89,13 @@ export const ButtonDiv = styled.div`
 `;
 
 export const StyledText = styled.p`
-  font-size: 23px;
+  font-size: 18px;
   font-weight: bolder;
   color: #454444;
 `;
 
 export const StyledText2 = styled.p`
-  font-size: 23px;
+  font-size: 18px;
   color: #5b5959;
   &:hover {
     cursor: pointer;
@@ -103,7 +104,7 @@ export const StyledText2 = styled.p`
 `;
 
 export const Manage = styled.p`
-  font-size: 23px;
+  font-size: 18px;
   font-weight: bolder;
   color: #454444;
 
@@ -114,11 +115,14 @@ export const ProfileDiv = styled.div`
   border-top: 1px solid #e4e3e3;
   border-bottom: 1px solid #e4e3e3;
   margin-top: 2%;
+  line-height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 15px;
 `;
 
 export const SettingAndPrivacy = styled.p`
-  font-size: 18px;
+  font-size: 15px;
   color: #8e8a8a;
   &:hover {
     cursor: pointer;
@@ -129,11 +133,14 @@ export const SettingAndPrivacy = styled.p`
 export const ManageDiv = styled.div`
   font-size: 25px;
   border-bottom: 1px solid #e4e3e3;
+  line-height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 15px;
 `;
 
 export const LanguageText = styled.p`
-  font-size: 18px;
+  font-size: 15px;
   color: #8e8a8a;
   &:hover {
     cursor: pointer;
@@ -144,6 +151,9 @@ export const LanguageText = styled.p`
 export const SignOut = styled.p`
   font-size: 18px;
   color: #8e8a8a;
+  line-height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 15px;
   &:hover {
     font-size: 19px;

@@ -6,7 +6,8 @@ export const FeedNav = styled.div`
   position: fixed;
   width: 100vw;
   z-index: 20;
-  background-color: white;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   @media only screen and (min-width: 768px) {
     width: 100vw;
     padding: 5px 100px;

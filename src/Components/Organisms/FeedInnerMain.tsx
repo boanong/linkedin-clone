@@ -13,7 +13,7 @@ export const FeedInnerMain = styled.div`
     flex-direction: row;
     width: 96vw;
     max-width: 1128px;
-    margin: 5% auto;
+    margin: 10% auto;
   }
 `;
 
@@ -26,6 +26,10 @@ export const FeedInnerMainR = styled.div`
   margin-inline: auto;
   @media only screen and (max-width: 425px) {
     width: 100vw;
+  }
+
+  @media only screen and (width: 768px) {
+    margin-inline: 200px;
   }
  
   @media only screen and (min-width: 770px) {
