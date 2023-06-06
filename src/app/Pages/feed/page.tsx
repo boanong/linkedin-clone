@@ -32,7 +32,6 @@ function Feed({ userData }: Props) {
       <Topnav userData={userData} />
       <FeedInnerMain>
         <FeedUserSec userData={userData} />
-
         <FeedInnerMainR>
           <PostSecHolder>
             <Post userData={userData} />
