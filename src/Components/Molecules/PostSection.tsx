@@ -19,6 +19,8 @@ export const PostSection = styled.div`
   margin-inline: auto;
   @media only screen and (max-width: 440px) {
     width: 100vw;
+    border-radius: 0;
+    margin-inline: -3px;
   }
 `;
 
@@ -32,7 +34,7 @@ export const ProfilePicture = styled.img`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  margin-right: 16px;
+  margin-right: 1px;
 `;
 
 export const JobTitle = styled.div`
@@ -44,6 +46,7 @@ export const JobTitle = styled.div`
 export const PostText = styled.div`
   font-size: 16px;
   margin-bottom: 16px;
+  padding-left:  15px;
 `;
 
 export const PostImage = styled.img`
