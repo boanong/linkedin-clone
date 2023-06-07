@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const NavSearchHolder = styled.div`
     display: none;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 769px) {
     width: 20vw;
     max-width: 300px;
     display: flex;
@@ -19,7 +19,7 @@ export const NavSearchHolder2 = styled.div`
     gap: 5px;
     margin: auto;
     justify-self: flex-start;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 769px) {
     display: none;
   }
 `;

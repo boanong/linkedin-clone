@@ -18,7 +18,6 @@ import {
 import { ProfilePicture } from "../Molecules/PostSection";
 import { Profpic } from "../Atoms/Profpic";
 
-
 type Props = { userData: any };
 
 const FeedUser = styled.div`
@@ -51,7 +50,14 @@ export default function FeedUserSec({ userData }: Props) {
       <FeedUserDiv1>
         <FeedUserImages></FeedUserImages>
         {/* <FeedUserProfilePic> */}
-       { <Profpic src={userData?.photoUrl}/> || <FeedUserPPic />}
+        {
+          <Profpic
+            src={
+              userData?.photoUrl ||
+              "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+            }
+          />
+        }
         {/* </FeedUserProfilePic> */}
 
         {/* <FeedUserBio> */}

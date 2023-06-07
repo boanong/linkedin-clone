@@ -17,7 +17,7 @@ const UserProfHolder = styled.div`
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-`
+`;
 
 type Props = { userData: any };
 
@@ -38,16 +38,21 @@ export function PostsSection({ userData }: Props) {
     <>
       {vals?.map((info: any) => (
         <PostSection key={info?.data()?.id}>
-          <Header>{
-            <ProfilePicture2
-              src={userData.photoUrl}
-              alt="Profile Picture"
-            /> || <MeFeatureIcon />}
+          <Header>
+            {
+              <ProfilePicture2
+                src={
+                  userData.photoUrl ||
+                  "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+                }
+              />
+            }
             <UserProfHolder>
-            <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
-            <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
+              <ProfileName>
+                {userData?.displayName || userData?.email || "username"}
+              </ProfileName>
+              <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
             </UserProfHolder>
-            
           </Header>
           <PostText>{info?.data()?.postContent}</PostText>
           {info?.data()?.image && (

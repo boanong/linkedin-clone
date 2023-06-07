@@ -6,11 +6,12 @@ export const FeedNav = styled.div`
   position: fixed;
   width: 100vw;
   z-index: 20;
+  gap: 10px;
   background-color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 769px) {
     width: 100vw;
-    padding: 5px 100px;
+    padding: 5px;
     justify-content: space-between;
   }
 `;
