@@ -84,9 +84,14 @@ function Post({ userData }: Props) {
     <>
       <PostDiv>
         <CreatePostDiv>
-          {<ProfilePicture src={userData.photoUrl} alt="Profile Picture" /> || (
-            <ProfileIcon />
-          )}
+          {
+            <ProfilePicture
+              src={
+                userData.photoUrl ||
+                "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+              }
+            />
+          }
 
           <PostBtn onClick={() => setOpenFirst(true)}>Start a post</PostBtn>
         </CreatePostDiv>

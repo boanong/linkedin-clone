@@ -34,7 +34,7 @@ export const LinkedInIconLarge2 = styled(FaLinkedin)`
   font-size: 32px;
   color: #0a66c2;
   cursor: pointer;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 769px) {
     display: none;
   }
 `;

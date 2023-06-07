@@ -28,7 +28,6 @@ import { VerticalLine } from "../Atoms/VerticalLine";
 import { DropdownIcon } from "../Atoms/DropdownIcon";
 import { Profpic2 } from "../Atoms/Profpic";
 
-
 import Dropdown from "../Organisms/Dropdown/Dropdown";
 
 type Props = { userData: any };
@@ -64,7 +63,7 @@ const DisplayNoneDiv = styled.div`
   }
 `;
 
-function Topnav({userData}: Props) {
+function Topnav({ userData }: Props) {
   const [showDrop, setShowDrop] = useState<boolean>(false);
 
   const toggleDrop = () => {
@@ -74,41 +73,41 @@ function Topnav({userData}: Props) {
   return (
     <>
       {/* <FeedMain> */}
-        {showDrop && <Overlay onClick={toggleDrop} />}
+      {showDrop && <Overlay onClick={toggleDrop} />}
 
-        <FeedNav>
-          <NavSearchHolder2>
-            <LinkedInIconLarge2 />
+      <FeedNav>
+        <NavSearchHolder2>
+          <LinkedInIconLarge2 />
+          <SearchIcon />
+        </NavSearchHolder2>
+        <NavSearchHolder>
+          <LinkedInIconLarge />
+          <Searchbar>
             <SearchIcon />
-          </NavSearchHolder2>
-          <NavSearchHolder>
-            <LinkedInIconLarge />
-            <Searchbar>
-              <SearchIcon />
-              <SearchInput type="text" placeholder="Search" />
-            </Searchbar>
-          </NavSearchHolder>
+            <SearchInput type="text" placeholder="Search" />
+          </Searchbar>
+        </NavSearchHolder>
 
-          <FeaturesHolder>
-            <NIconHolder>
-              <HomeIcon />
-              <NavTxt>Home</NavTxt>
-            </NIconHolder>
+        <FeaturesHolder>
+          <NIconHolder>
+            <HomeIcon />
+            <NavTxt>Home</NavTxt>
+          </NIconHolder>
 
-            <NIconHolder>
-              <NetworkIcon />
-              <NavTxt>My Network</NavTxt>
-            </NIconHolder>
+          <NIconHolder>
+            <NetworkIcon />
+            <NavTxt>My Network</NavTxt>
+          </NIconHolder>
 
-            <NIconHolder>
-              <JobsIcon />
-              <NavTxt>Jobs</NavTxt>
-            </NIconHolder>
+          <NIconHolder>
+            <JobsIcon />
+            <NavTxt>Jobs</NavTxt>
+          </NIconHolder>
 
-            <NIconHolder>
-              <MessageIcon />
-              <NavTxt>Messaging</NavTxt>
-            </NIconHolder>
+          <NIconHolder>
+            <MessageIcon />
+            <NavTxt>Messaging</NavTxt>
+          </NIconHolder>
 
           <NIconHolder>
             <NotificationBell />
@@ -117,7 +116,14 @@ function Topnav({userData}: Props) {
 
           <DisplayNoneDiv>
             <NIconHolder2>
-            { <Profpic2 src={userData?.photoUrl} onClick={toggleDrop} /> || <MeFeatureIcon onClick={toggleDrop} />}
+              <Profpic2
+                src={
+                  userData?.photoUrl ||
+                  "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
+                }
+                onClick={toggleDrop}
+              />
+              {/* { <Profpic2 src={userData?.photoUrl} onClick={toggleDrop} /> ||  */}
               <Textandiconcontainer onClick={toggleDrop}>
                 <MeAndTextHolder>
                   <NavTxt>Me</NavTxt>
@@ -130,29 +136,28 @@ function Topnav({userData}: Props) {
               {showDrop && <Dropdown userData={userData} />}
             </NIconHolder2>
 
-              <VerticalLine></VerticalLine>
+            <VerticalLine></VerticalLine>
 
-              <NIconHolder>
-                <ForBusinessIcon />
-                <Textandiconcontainer>
-                  <MeAndTextHolder>
-                    <NavTxt>For Business</NavTxt>
-                  </MeAndTextHolder>
-                  <Icondiv>
-                    <DropdownIcon />
-                  </Icondiv>
-                </Textandiconcontainer>
-              </NIconHolder>
+            <NIconHolder>
+              <ForBusinessIcon />
+              <Textandiconcontainer>
+                <MeAndTextHolder>
+                  <NavTxt>For Business</NavTxt>
+                </MeAndTextHolder>
+                <Icondiv>
+                  <DropdownIcon />
+                </Icondiv>
+              </Textandiconcontainer>
+            </NIconHolder>
 
-              <NIconHolder>
-                <PostJobs />
-                <NavTxt>Post a job</NavTxt>
-              </NIconHolder>
-            </DisplayNoneDiv>
-          </FeaturesHolder>
-        </FeedNav>
+            <NIconHolder>
+              <PostJobs />
+              <NavTxt>Post a job</NavTxt>
+            </NIconHolder>
+          </DisplayNoneDiv>
+        </FeaturesHolder>
+      </FeedNav>
       {/* </FeedMain> */}
-
     </>
   );
 }
