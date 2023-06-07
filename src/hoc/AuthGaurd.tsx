@@ -4,10 +4,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 // console.log("this user in onAuth", { user: 'user info' });
 
-const RenderPage = (Component: any, userData: any) => {
-  if(userData) return <Component />
-  return <p>404! Not Authorised</p>
-}
+// const RenderPage = (Component: any, userData: any) => {
+//   if(userData) return <Component />
+//   return <p>404! Not Authorised</p>
+// }
 
 function AuthGaurd(Component: any) {
   return function GAURD(props: any) {
@@ -34,8 +34,8 @@ function AuthGaurd(Component: any) {
 
     // console.log("this userData", userData);
 
-    return typeof userData !== 'boolean' ? (
-      RenderPage(<Component {...props} userData={userData} />, userData)
+    return userData ? (
+      <Component {...props} userData={userData} />
     ) : (
       <Loading />
     );

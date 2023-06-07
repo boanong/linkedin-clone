@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { SlLike } from "react-icons/sl";
+import { onSnapshot } from 'firebase/firestore';
 import {
   LikeIcon2,
   Celebrate,
@@ -52,13 +53,18 @@ const ReactionsHolder = styled.div`
   padding: 2px 8px;
 `;
 
-type Props = {};
+type Props = { userData: any; vals: any };
 
-function LikeButton({}: Props) {
+function LikeButton({ userData, vals }: Props) {
   const [likes, setLikes] = useState();
   const [likeCount, setLikeCount] = useState();
-  const handleLike = (userId: any, postId: any) => {};
-      
+  useEffect(() => {
+    return onSnapshot
+  }, [])
+  const handleLike = () => {
+
+  };
+
   return (
     <>
       <ReactionsHolder>
