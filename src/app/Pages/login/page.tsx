@@ -76,18 +76,15 @@ function Login({}: Props) {
         } else {
           swal(errorMessage, { icon: "warning" });
         }
-        console.log(error);
       });
   };
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
     setLoading(true)
-    // console.log(data.email, data.password);
     try {
       await login(data.email, data.password);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -96,11 +93,9 @@ function Login({}: Props) {
 
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((res) => {
-        console.log(res.user.uid);
         router.push("/Pages/feed");
       })
       .catch(err => {
-        // console.log(err)
         setAuthing(false);
       });
   };
@@ -110,11 +105,9 @@ function Login({}: Props) {
 
     signInWithPopup(auth, new GithubAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
         router.push("/Pages/feed");
       })
       .catch((err) => {
-        console.log(err);
         setAuthing(false);
       });
   };

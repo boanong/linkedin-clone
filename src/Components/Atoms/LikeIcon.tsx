@@ -1,7 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { SlLike } from "react-icons/sl";
-import { collection, onSnapshot, doc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
 import {
   LikeIcon2,
   Celebrate,
@@ -10,11 +17,13 @@ import {
   InsightIcon,
   FunnyIcon,
 } from "./Reaction";
+import { db } from "@/firebase/config";
 
 export const LikeIcon = styled(SlLike)`
   color: #666666;
   font-size: 1rem;
   font-weight: 300;
+  cursor: pointer;
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
@@ -23,12 +32,20 @@ export const LikeIcon = styled(SlLike)`
 
 export const LikeP = styled.p`
   color: #666666;
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 300;
   @media only screen and (min-width: 770px) {
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
+`;
+
+
+const ReactionsHolder = styled.div`
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px;
 `;
 
 const LikeHolder = styled.div`
@@ -39,37 +56,50 @@ const LikeHolder = styled.div`
   @media only screen and (min-width: 770px) {
     padding: 5px 25px;
     gap: 15px;
-    &:hover + ReactionsHolder {
+    cursor: pointer;
+    &:hover {
+      ${ReactionsHolder}
       display: block;
       background-color: #acacac;
     }
   }
 `;
 
-const ReactionsHolder = styled.div`
-  display: none;
-  align-items: center;
-  gap: 8px;
-  padding: 2px 8px;
-`;
-
 type Props = { userData: any; vals: any };
 
 function LikeButton({ userData, vals }: Props) {
-  const [likes, setLikes] = useState();
-  const [likeCount, setLikeCount] = useState();
+  const [likes, setLikes] = useState<any>([]);
+  const [liked, setLiked] = useState<boolean>(false);
+  // const [likeCount, setLikeCount] = useState();
+  // console.log(vals.id);
   useEffect(() => {
-    return onSnapshot(
+    const unsubscribe = onSnapshot(
       collection(db, "posts", vals.id, "likes"),
       (snapshot) => setLikes(snapshot.docs)
-      );
+    );
   }, [vals.id]);
-  const handleLike = () => {};
+
+  useEffect(() => {
+    setLiked(
+      likes.findIndex((like: { id: any }) => like?.id === userData?.uid) !== -1
+    );
+  }, [likes]);
+
+  const handleLike = async () => {
+    // console.log(vals.id);
+    if (liked) {
+      await deleteDoc(doc(db, "posts", vals.id, "likes", userData?.uid));
+    } else {
+      await setDoc(doc(db, "posts", vals.id, "likes", userData?.uid), {
+        currentUser: userData?.displayName,
+      });
+    }
+  };
 
   return (
     <>
       <ReactionsHolder>
-        <LikeIcon2 onClick={() => handleLike()} />
+        <LikeIcon2 />
         <Celebrate />
         <SupportIcon />
         <HeartIcon />
@@ -77,8 +107,14 @@ function LikeButton({ userData, vals }: Props) {
         <FunnyIcon />
       </ReactionsHolder>
       <LikeHolder>
-        <LikeIcon />
-        <LikeP>Like</LikeP>
+        {liked ? (
+          <LikeIcon2 onClick={handleLike} />
+        ) : (
+        <LikeIcon onClick={handleLike} />
+        )
+        }
+        <LikeP>Likes</LikeP>
+        {likes.length > 0 && <p>{likes.length}</p>}
       </LikeHolder>
     </>
   );

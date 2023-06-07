@@ -2,7 +2,6 @@ import Loading from "@/Components/Loading/Loading";
 import { auth } from "@/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
-console.log("this user in onAuth", { user: "user info" });
 
 function AuthGaurd(Component: any) {
   return function GAURD(props: any) {
@@ -10,7 +9,6 @@ function AuthGaurd(Component: any) {
 
     useEffect((): any => {
       const unsubcribe = onAuthStateChanged(auth, (user) => {
-        console.log("this user in onAuth", user);
         if (user) {
           setUserData({
             uid: user.uid,

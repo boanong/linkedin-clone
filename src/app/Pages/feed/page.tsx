@@ -39,10 +39,10 @@ function Feed({ userData }: Props) {
     <FeedMain>
       <Topnav userData={userData} />
       <FeedInnerMain>
-        <FeedLeft>
+        {/* <FeedLeft> */}
           <FeedUserSec userData={userData} />
-        </FeedLeft>
-        <FeedRight>
+        {/* </FeedLeft> */}
+        {/* <FeedRight> */}
           <FeedInnerMainR>
             <PostSecHolder>
               <Post userData={userData} />
@@ -50,7 +50,7 @@ function Feed({ userData }: Props) {
             </PostSecHolder>
             <FeedR />
           </FeedInnerMainR>
-        </FeedRight>
+        {/* </FeedRight> */}
       </FeedInnerMain>
     </FeedMain>
   );

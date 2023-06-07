@@ -107,18 +107,15 @@ function Landing({}: Props) {
         } else {
           swal(errorMessage, { icon: "warning" })
         }
-        console.log(error);
       })
   }
 
   const handleLogin = async (e: any) => {
     e.preventDefault()
     setLoading(true)
-    // console.log(data.email, data.password);
     try {
       await login(data.email, data.password)
     } catch (err) {
-      console.log(err)
     }
   }
 
@@ -128,11 +125,9 @@ function Landing({}: Props) {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
         setLoading(true)
-        console.log(res.user.uid);
         router.push("/Pages/feed");
       })
       .catch(err => {
-        // console.log(err)
         setAuthing(false);
       })
   }

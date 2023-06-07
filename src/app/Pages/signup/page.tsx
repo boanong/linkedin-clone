@@ -65,13 +65,10 @@ function Signup() {
   const handleSignup = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-    // console.log("this e", e);
     try {
       await signup(data.email, data.password);
     } catch (err) {
-      console.log(err);
     }
-    console.log(data.email, data.password);
   };
 
   const signUpWithGoogle = async () => {
@@ -79,11 +76,9 @@ function Signup() {
 
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((res) => {
-        console.log(res.user.uid);
         router.push("/Pages/feed");
       })
       .catch((err) => {
-        console.log(err);
         setAuthing(false);
       });
   };
@@ -93,11 +88,9 @@ function Signup() {
 
     signInWithPopup(auth, new GithubAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
         router.push("/Pages/feed");
       })
       .catch((err) => {
-        console.log(err);
         setAuthing(false);
       });
   };

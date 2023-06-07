@@ -33,7 +33,7 @@ export function PostsSection({ userData }: Props) {
       }
     );
   }, []);
-  console.log(vals);
+  // console.log(vals);
 
   return (
     <>
@@ -56,7 +56,7 @@ export function PostsSection({ userData }: Props) {
           )}
 
           <OptionsSection></OptionsSection>
-          <LikeButton vals={vals} userData={userData}/>
+          <LikeButton vals={info} userData={userData}/>
         </PostSection>
       ))}
     </>

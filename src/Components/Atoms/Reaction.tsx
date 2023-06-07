@@ -1,6 +1,7 @@
 import { SlLike } from "react-icons/sl";
 import { FcLike } from "react-icons/fc";
 import { FaHands } from "react-icons/fa";
+import { AiTwotoneLike } from 'react-icons/ai';
 import { TbBulbFilled } from "react-icons/tb";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { BsEmojiLaughing } from "react-icons/bs";
@@ -36,11 +37,15 @@ export const ReactHoverTxtHolder = styled.div`
   }
 `;
 
-export const LikeIcon2 = styled(SlLike)`
+export const LikeIcon2 = styled(AiTwotoneLike)`
   color: #0a66c2;
-  background-color: #0a66c291;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
   font-size: 1rem;
   font-weight: 300;
+  cursor: pointer;
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
@@ -62,6 +67,7 @@ export const SupportIcon = styled(FaHandHoldingHeart)`
   background-color: #6d08e086;
   font-size: 1rem;
   font-weight: 300;
+  cursor: pointer;
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
@@ -86,6 +92,7 @@ export const InsightIcon = styled(TbBulbFilled)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
+    cursor: pointer;
     &:hover {
       ${ReactHover5} {
         display: block;
@@ -107,6 +114,7 @@ export const HeartIcon = styled(FcLike)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
+    cursor: pointer;
     &:hover {
       ${ReactHover4} {
         display: block;
