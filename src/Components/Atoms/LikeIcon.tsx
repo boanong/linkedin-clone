@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import { db } from '@/configs/firebase'
 import { SlLike } from "react-icons/sl";
-import { onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, doc } from "firebase/firestore";
 import {
   LikeIcon2,
   Celebrate,
@@ -59,11 +60,12 @@ function LikeButton({ userData, vals }: Props) {
   const [likes, setLikes] = useState();
   const [likeCount, setLikeCount] = useState();
   useEffect(() => {
-    return onSnapshot
-  }, [])
-  const handleLike = () => {
-
-  };
+    return onSnapshot(
+      collection(db, "posts", vals.id, "likes"),
+      (snapshot) => setLikes(snapshot.docs)
+      );
+  }, [vals.id]);
+  const handleLike = () => {};
 
   return (
     <>
