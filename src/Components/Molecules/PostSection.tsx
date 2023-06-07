@@ -12,9 +12,14 @@ export const PostSection = styled.div`
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
+  margin-top: 18px;
   height: fit-content;
-  width: 570px;
-  margin-right: 60px;
+  width: 100%;
+  max-width: 530px;
+  margin-inline: auto;
+  @media only screen and (max-width: 440px) {
+    width: 100vw;
+  }
 `;
 
 export const Header = styled.div`

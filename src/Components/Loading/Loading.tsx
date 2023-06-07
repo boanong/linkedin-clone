@@ -3,7 +3,7 @@ import React from "react";
 import { LinkedInIcon } from "../Atoms/LinkedLogo";
 import { Linked } from "../Atoms/LinkedLogoTxt";
 import { LineInner } from "../Molecules/LineInner";
-import { Linel } from "../Molecules/Linel";
+
 
 type Props = {};
 

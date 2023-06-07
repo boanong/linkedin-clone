@@ -73,7 +73,7 @@ function Topnav({userData}: Props) {
 
   return (
     <>
-      <FeedMain>
+      {/* <FeedMain> */}
         {showDrop && <Overlay onClick={toggleDrop} />}
 
         <FeedNav>
@@ -151,7 +151,7 @@ function Topnav({userData}: Props) {
             </DisplayNoneDiv>
           </FeaturesHolder>
         </FeedNav>
-      </FeedMain>
+      {/* </FeedMain> */}
 
     </>
   );

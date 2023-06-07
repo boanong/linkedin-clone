@@ -33,74 +33,74 @@ import swal from 'sweetalert';
 
 function Signup() {
   const [authing, setAuthing] = useState(false);
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
   const router = useRouter();
 
-  const [passwordType, setPasswordType] = useState('password');
+  const [passwordType, setPasswordType] = useState("password");
   const togglePassword = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text');
+    if (passwordType === "password") {
+      setPasswordType("text");
       return;
     }
-    setPasswordType('password');
+    setPasswordType("password");
   };
 
   const signup = (email: string, password: string) => {
     return createUserWithEmailAndPassword(auth, email, password)
-      .then(() => { router.push('/Pages/feed') }).
-      catch(function (error) {
+      .then(() => {
+        router.push("/Pages/feed");
+      })
+      .catch(function (error) {
         //Handle error
         let errorMessage = error.message;
-        swal(errorMessage, { icon: "warning" })
+        swal(errorMessage, { icon: "warning" });
         console.log(error);
-      })
-  }
+      });
+  };
 
   const handleSignup = async (e: any) => {
-    e.preventDefault()
-    setLoading(true)
-    console.log('this e', e)
-    
+    e.preventDefault();
+    setLoading(true);
+    // console.log("this e", e);
     try {
-      await signup(data.email, data.password)
+      await signup(data.email, data.password);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-    console.log(data.email, data.password)
-  }
+    console.log(data.email, data.password);
+  };
 
   const signUpWithGoogle = async () => {
     setAuthing(true);
 
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then(res => {
+      .then((res) => {
         console.log(res.user.uid);
         router.push("/Pages/feed");
       })
-      .catch(err => {
-        console.log(err)
+      .catch((err) => {
+        console.log(err);
         setAuthing(false);
-      })
-  }
-
+      });
+  };
 
   const GithubSignup = async () => {
     setAuthing(true);
 
     signInWithPopup(auth, new GithubAuthProvider())
-      .then(response => {
-        console.log(response.user.uid)
-        router.push("/Pages/feed")
+      .then((response) => {
+        console.log(response.user.uid);
+        router.push("/Pages/feed");
       })
-      .catch(err => {
-        console.log(err)
+      .catch((err) => {
+        console.log(err);
         setAuthing(false);
-      })
-  }
+      });
+  };
 
   return (
     <AuthContextProvider>
@@ -125,17 +125,27 @@ function Signup() {
             value={data.email} />
           <Label>Password(6 characters minimum)</Label>
           <PassHolder>
-            <PassInput placeholder='Password' required type={passwordType} name='password' onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-              value={data.password} />
+            <PassInput
+              placeholder="Password"
+              required
+              type={passwordType}
+              name="password"
+              onChange={(e: any) =>
+                setData({
+                  ...data,
+                  password: e.target.value,
+                })
+              }
+              value={data.password}
+            />
             <ViewPass onClick={() => togglePassword()}>Display</ViewPass>
           </PassHolder>
-          <Terms>By clicking Accept and Join, you agree to LinkedIn's <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA> , and <TermsA>Cookie Policy</TermsA> .</Terms>
-          <SubmitBtn type='submit'>Accept and Join</SubmitBtn>
+          <Terms>
+            By clicking Accept and Join, you agree to LinkedIn's
+            <TermsA>Terms of Service</TermsA> , <TermsA>Privacy Policy</TermsA>
+            , and <TermsA>Cookie Policy</TermsA> .
+          </Terms>
+          <SubmitBtn type="submit">Accept and Join</SubmitBtn>
           <OrSec>
             <Line />
             <Or>Or</Or>
@@ -147,7 +157,8 @@ function Signup() {
         </Form >
       </MainDiv >
     </AuthContextProvider >
-  )
+
+  );
 }
 
-export default Signup
+export default Signup;

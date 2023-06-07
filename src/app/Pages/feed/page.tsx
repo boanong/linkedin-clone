@@ -26,19 +26,31 @@ const FeedMain = styled.div`
   min-height: 100vh;
 `;
 
+const FeedRight = styled.div`
+  position: absolute;
+`;
+
+const FeedLeft = styled.div`
+  position: absolute;
+`;
+
 function Feed({ userData }: Props) {
   return (
     <FeedMain>
       <Topnav userData={userData} />
       <FeedInnerMain>
-        <FeedUserSec userData={userData} />
-        <FeedInnerMainR>
-          <PostSecHolder>
-            <Post userData={userData} />
-            <PostsSection userData={userData} />
-          </PostSecHolder>
-          <FeedR />
-        </FeedInnerMainR>
+        <FeedLeft>
+          <FeedUserSec userData={userData} />
+        </FeedLeft>
+        <FeedRight>
+          <FeedInnerMainR>
+            <PostSecHolder>
+              <Post userData={userData} />
+              <PostsSection userData={userData} />
+            </PostSecHolder>
+            <FeedR />
+          </FeedInnerMainR>
+        </FeedRight>
       </FeedInnerMain>
     </FeedMain>
   );

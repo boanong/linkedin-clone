@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Profpic = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center right;
@@ -10,8 +10,11 @@ export const Profpic = styled.img`
   border: 2px solid var(--color-white);
   box-shadow: inset 0 1.5px 3px 0 var(--black-a15, rgba(0, 0, 0, 0.15)),
     0 1.5px 3px 0 var(--black-a15, rgba(0, 0, 0, 0.15));
-  display: flex;
   margin: -38px auto 12px;
+`;
+
+export const Profpic3 = styled(Profpic)`
+  margin: 5px 10px 12px;
 `;
 
 export const Profpic2 = styled.img`

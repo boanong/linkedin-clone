@@ -17,7 +17,7 @@ import {
   SignOut,
   JobtitleDiv,
 } from "../../Atoms/DropdownCard";
-import { Profpic } from "@/Components/Atoms/Profpic";
+import { Profpic3 } from "@/Components/Atoms/Profpic";
 import { FeedUserPPic } from "@/Components/Molecules/FeedUserDivs";
 import { useAuth } from "@/context/AuthContex";
 import Link from "next/link";
@@ -32,11 +32,11 @@ export default function Dropdown({ userData }: Props) {
     <DropdownCard>
       <ProfilePictureAndName>
         {/* <ProfilePicture /> */}
-        { <Profpic src={userData?.photoUrl} /> || <FeedUserPPic />}
+        { <Profpic3 src={userData?.photoUrl} /> || <FeedUserPPic />}
 
         <JobtitleDiv>
           <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
-          <JobTitle>Bio </JobTitle>
+          <JobTitle>Bio</JobTitle>
         </JobtitleDiv>
       </ProfilePictureAndName>
 
@@ -57,7 +57,7 @@ export default function Dropdown({ userData }: Props) {
         <LanguageText>Posts and activities</LanguageText>
         <LanguageText>Job posting Account</LanguageText>
       </ManageDiv>
-      <SignOut type='button' onClick={() => logout()}><Link href="/">Sign out</Link></SignOut>
+      <SignOut onClick={() => logout()}><Link href="/">Sign out</Link></SignOut>
     </DropdownCard>
   );
 }
