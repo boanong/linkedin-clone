@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { db } from '@/configs/firebase'
 import { SlLike } from "react-icons/sl";
 import { collection, onSnapshot, doc } from "firebase/firestore";
 import {
