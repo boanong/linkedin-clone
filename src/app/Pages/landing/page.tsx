@@ -124,7 +124,6 @@ function Landing({}: Props) {
   
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
-        setLoading(true)
         router.push("/Pages/feed");
       })
       .catch(err => {

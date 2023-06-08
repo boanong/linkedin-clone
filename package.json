@@ -8,12 +8,24 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "plugins": [
+    [
+      "@emotion",
+      {
+        "sourceMap": true,
+        "autoLabel": "dev-only",
+        "labelFormat": "[local]",
+        "cssPropOptimization": true
+      }
+    ]
+  ],
   "dependencies": {
     "@emotion/css": "^11.11.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@firebase/app": "^0.9.10",
     "@firebase/firestore": "^3.12.1",
+    "@swc/plugin-emotion": "^2.5.67",
     "@types/firebase": "^3.2.1",
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
@@ -34,6 +46,7 @@
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "^18.2.4",
