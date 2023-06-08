@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
-import FeedUserSec from "@/Components/FeedUser/FeedUser";
 import {
   FeedInnerMain,
   FeedInnerMainR,
 } from "@/Components/Organisms/FeedInnerMain";
-import styled from "@emotion/styled";
 import Topnav from "@/Components/Topnav/Topnav";
 import { PostSecHolder } from "@/Components/Organisms/PostSecHolder";
 import Post from "@/Components/Post/Post";
 import FeedR from "@/Components/FeedRight/FeedR";
 import AuthGaurd from "@/hoc/AuthGaurd";
 import PostsSection from "@/Components/PostSection/PostsSection";
+import FeedUserSec from "@/Components/FeedUser/FeedUser";
+import styled from "@emotion/styled";
 
 type Props = { userData: any };
 
@@ -54,6 +54,6 @@ function Feed({ userData }: Props) {
       </FeedInnerMain>
     </FeedMain>
   );
-}
+  }
 
 export default AuthGaurd(Feed);

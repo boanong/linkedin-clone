@@ -49,7 +49,7 @@ export const LikeIcon2 = styled(AiTwotoneLike)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
-    &:hover {
+    /* &:hover {
       ${ReactHover1} {
         display: block;
         font-size: 16px;
@@ -58,7 +58,7 @@ export const LikeIcon2 = styled(AiTwotoneLike)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;
 
@@ -71,7 +71,7 @@ export const SupportIcon = styled(FaHandHoldingHeart)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
-    &:hover {
+    /* &:hover {
       ${ReactHover3} {
         display: block;
         font-size: 16px;
@@ -80,7 +80,7 @@ export const SupportIcon = styled(FaHandHoldingHeart)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;
 
@@ -93,7 +93,7 @@ export const InsightIcon = styled(TbBulbFilled)`
     font-weight: 600;
     font-size: 1.2rem;
     cursor: pointer;
-    &:hover {
+    /* &:hover {
       ${ReactHover5} {
         display: block;
         font-size: 16px;
@@ -102,7 +102,7 @@ export const InsightIcon = styled(TbBulbFilled)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;
 
@@ -115,7 +115,7 @@ export const HeartIcon = styled(FcLike)`
     font-weight: 600;
     font-size: 1.2rem;
     cursor: pointer;
-    &:hover {
+    /* &:hover {
       ${ReactHover4} {
         display: block;
         font-size: 16px;
@@ -124,7 +124,7 @@ export const HeartIcon = styled(FcLike)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;
 
@@ -136,7 +136,7 @@ export const FunnyIcon = styled(BsEmojiLaughing)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
-    &:hover {
+    /* &:hover {
       ${ReactHover6} {
         display: block;
         font-size: 16px;
@@ -145,7 +145,7 @@ export const FunnyIcon = styled(BsEmojiLaughing)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;
 
@@ -157,7 +157,7 @@ export const Celebrate = styled(FaHands)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
-    &:hover {
+    /* &:hover {
       ${ReactHover2} {
         display: block;
         font-size: 16px;
@@ -166,6 +166,6 @@ export const Celebrate = styled(FaHands)`
         padding: 3px 8px;
         border-radius: 25%;
       }
-    }
+    } */
   }
 `;

@@ -40,7 +40,6 @@ export const LikeP = styled.p`
   }
 `;
 
-
 const ReactionsHolder = styled.div`
   display: none;
   align-items: center;
@@ -57,11 +56,6 @@ const LikeHolder = styled.div`
     padding: 5px 25px;
     gap: 15px;
     cursor: pointer;
-    &:hover {
-      ${ReactionsHolder}
-      display: block;
-      background-color: #acacac;
-    }
   }
 `;
 
@@ -98,21 +92,20 @@ function LikeButton({ userData, vals }: Props) {
 
   return (
     <>
-      <ReactionsHolder>
-        <LikeIcon2 />
-        <Celebrate />
-        <SupportIcon />
-        <HeartIcon />
-        <InsightIcon />
-        <FunnyIcon />
+      <ReactionsHolder className="actions-holder">
+        <LikeIcon2 className="like1" />
+        <Celebrate className="celebrate" />
+        <SupportIcon className="support" />
+        <HeartIcon className="heart" />
+        <InsightIcon className="insight" />
+        <FunnyIcon className="funny" />
       </ReactionsHolder>
       <LikeHolder>
-        {liked ? (
+      {liked ? (
           <LikeIcon2 onClick={handleLike} />
         ) : (
-        <LikeIcon onClick={handleLike} />
-        )
-        }
+          <LikeIcon onClick={handleLike} className="likemain" />
+        )}
         <LikeP>Likes</LikeP>
         {likes.length > 0 && <p>{likes.length}</p>}
       </LikeHolder>

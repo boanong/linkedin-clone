@@ -9,10 +9,8 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthContextProvider = ({ children,
 
 }: { children: React.ReactNode }) => {
-
     const [user, setUser] = useState<any>(null);
-    const [loading, setloading] = useState(true);
-    // console.log(user)
+    const [loading, setloading] = useState<boolean>(true);
 
     useEffect(() => {
         const unsubcribe = onAuthStateChanged(auth, (user) => {
