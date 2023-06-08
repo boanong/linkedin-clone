@@ -32,7 +32,8 @@ export default function Dropdown({ userData }: Props) {
     <DropdownCard>
       <ProfilePictureAndName>
         {/* <ProfilePicture /> */}
-        { <Profpic3 src={userData?.photoUrl} /> || <FeedUserPPic />}
+        { <Profpic3 src={userData?.photoUrl  ||
+                "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"} />}
 
         <JobtitleDiv>
           <ProfileName>{userData?.displayName || userData?.email || 'username'}</ProfileName>
