@@ -15,7 +15,7 @@ export const PostSection = styled.div`
   margin-top: 18px;
   height: fit-content;
   width: 100%;
-  max-width: 530px;
+  max-width: 460px;
   margin-inline: auto;
   @media only screen and (max-width: 440px) {
     width: 100vw;
@@ -34,7 +34,7 @@ export const ProfilePicture = styled.img`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  margin-right: 1px;
+  margin-right: 7px;
 `;
 
 export const JobTitle = styled.div`

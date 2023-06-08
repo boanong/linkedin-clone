@@ -87,7 +87,7 @@ function Post({ userData }: Props) {
           {
             <ProfilePicture
               src={
-                userData.photoUrl ||
+                userData?.photoUrl ||
                 "https://cdn-icons-png.flaticon.com/512/6522/6522516.png"
               }
             />

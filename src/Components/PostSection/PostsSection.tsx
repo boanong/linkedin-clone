@@ -108,7 +108,7 @@ export function PostsSection({ userData }: Props) {
               <ProfileName>
                 {userData?.displayName || userData?.email || "username"}
               </ProfileName>
-              <JobTitle>UI/UX Designer || Full stack Developer</JobTitle>
+              <JobTitle></JobTitle>
             </UserProfHolder>
           </Header>
           <PostText>{info?.data()?.postContent}</PostText>
