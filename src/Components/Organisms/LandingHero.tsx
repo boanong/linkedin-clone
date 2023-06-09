@@ -61,10 +61,11 @@ export const LandingHeroH1 = styled.h1`
   }
 `;
 
-export const LandingHeroInput = styled.input<StyledProps>`
+export const LandingHeroInput = styled.input`
   padding: 5px 10px;
   font-size: 15px;
   margin-top: 15px;
+  border: 1px solid #000;
   border-radius: 5px;
   width: min(94vw, 380px);
   height: fit-content;
@@ -75,7 +76,6 @@ export const LandingHeroInput = styled.input<StyledProps>`
     padding: 10px 15px;
     font-size: 1.1rem;
     margin-top: 15px;
-    border: ${({ noEmail }) => noEmail ? '1px solid red' : ' 1px solid #000'};
   }
 `;
 

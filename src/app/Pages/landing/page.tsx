@@ -57,7 +57,6 @@ const LandingMain = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
-  background-color: #cfcfcf;
   height: fit-content;
   @media only screen and (min-width: 768px) {
     display: flex;
@@ -85,62 +84,70 @@ const LandingForm = styled.form`
 
 function Landing({}: Props) {
   const [data, setData] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
-  const router = useRouter()
+  const router = useRouter();
   const [authing, setAuthing] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [noEmail, setNoEmail] = useState(false)
+  const [noEmail, setNoEmail] = useState(false);
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
-      .then(() => { router.push('/Pages/feed') }).
-      catch(function (error) {
+      .then(() => {
+        router.push("/Pages/feed");
+      })
+      .catch(function (error) {
         //Handle error
         let errorCode = error.code;
         let errorMessage = error.message;
-        if (errorCode === 'auth/wrong-password') {
-          swal("Wrong info!", "We can't log you in. Please check for an email from us, reset your password, or try again", "error");
-
+        if (errorCode === "auth/wrong-password") {
+          swal(
+            "Wrong info!",
+            "We can't log you in. Please check for an email from us, reset your password, or try again",
+            "error"
+          );
         } else {
-          swal(errorMessage, { icon: "warning" })
+          swal(errorMessage, { icon: "warning" });
         }
-      })
-  }
+      });
+  };
 
   const handleLogin = async (e: any) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
     try {
-      await login(data.email, data.password)
-    } catch (err) {
-    }
-  }
+      await login(data.email, data.password);
+    } catch (err) {}
+  };
 
   const signInWithGoogle = async () => {
     setAuthing(true);
-  
+
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then(res => {
+      .then((res) => {
         router.push("/Pages/feed");
       })
-      .catch(err => {
+      .catch((err) => {
         setAuthing(false);
-      })
-  }
+      });
+  };
 
   const resetPassword = () => {
     if (!data.email) {
       setNoEmail(true);
       return;
-    };
+    }
 
     sendPasswordResetEmail(auth, data.email)
       .then(() => {
         // Password reset email sent!
-        swal("Password Reset Email Sent!", "An email has been sent to your rescue email address, Please click the link in the email to reset your password.", "success");
+        swal(
+          "Password Reset Email Sent!",
+          "An email has been sent to your rescue email address, Please click the link in the email to reset your password.",
+          "success"
+        );
         // ..
       })
       .catch((error) => {
@@ -148,8 +155,7 @@ function Landing({}: Props) {
         swal(errorMessage, { icon: "warning" });
         // ..
       });
-
-  }
+  };
 
   return (
     <AuthContextProvider>
@@ -201,7 +207,7 @@ function Landing({}: Props) {
               <LandingHeroInput
                 placeholder="Email or phone number"
                 name="email"
-            type="email"
+                type="email"
                 onChange={(e: any) =>
                   setData({
                     ...data,
@@ -209,7 +215,6 @@ function Landing({}: Props) {
                   })
                 }
                 value={data.email}
-                noEmail={noEmail}
               />
               <LandingHeroInput
                 placeholder="Password"
@@ -223,7 +228,9 @@ function Landing({}: Props) {
                 }
                 value={data.password}
               />
-              <ForgotPassH onClick={resetPassword}>Forgot password?</ForgotPassH>
+              <ForgotPassH onClick={resetPassword}>
+                Forgot password?
+              </ForgotPassH>
               <LandingSignInOnclick type="submit">Sign in</LandingSignInOnclick>
             </LandingForm>
             <OrSec>

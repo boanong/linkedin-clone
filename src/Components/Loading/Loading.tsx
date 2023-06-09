@@ -8,7 +8,7 @@ import { LineInner } from "../Molecules/LineInner";
 type Props = {};
 
 const LoadingMain = styled.div`
-  background: #eaeaea;
+  background: white;
   width: 100vw;
   height: 100vh;
   background-size: cover;
