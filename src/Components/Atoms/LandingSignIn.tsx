@@ -36,7 +36,7 @@ export const LandingNewTo = styled.button`
   font-weight: 300;
   margin: 10px auto;
   width: min(94vw, 380px);
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 769px) {
     max-width: 400px;
     width: 400px;
     font-weight: 400;
