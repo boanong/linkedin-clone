@@ -1,7 +1,9 @@
+/* eslint-disable react/no-children-prop */
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ArticleLan } from "@/Components/Atoms/ArticleIcon";
 import { JobsIcon, NetworkIcon } from "@/Components/Atoms/BsIcons";
 import { ForgotPassH } from "@/Components/Atoms/ForgotPassHero";
@@ -42,8 +44,10 @@ import {
 } from "firebase/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-import { sendPasswordResetEmail } from "firebase/auth";
+import Loading from "@/Components/Loading/Loading";
+import { AuthContextProvider } from "@/context/AuthContex";
 import swal from "sweetalert";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 type Props = {};
 
@@ -53,6 +57,7 @@ const LandingMain = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
+  background-color: #cfcfcf;
   height: fit-content;
   @media only screen and (min-width: 768px) {
     display: flex;
@@ -66,15 +71,28 @@ const LandingMain = styled.div`
   }
 `;
 
-function Landing({ }: Props) {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+const LandingForm = styled.form`
+  width: min(94vw, 380px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  @media only screen and (min-width: 768px) {
+    width: 47vw;
+    max-width: 400px;
+  }
+`;
 
-  const router = useRouter();
+function Landing({}: Props) {
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const router = useRouter()
   const [authing, setAuthing] = useState(false);
-  const [noEmail, setNoEmail] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [noEmail, setNoEmail] = useState(false)
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
@@ -89,34 +107,29 @@ function Landing({ }: Props) {
         } else {
           swal(errorMessage, { icon: "warning" })
         }
-        console.log(error);
       })
-  };
+  }
 
   const handleLogin = async (e: any) => {
-    e.preventDefault();
-
-    console.log(data.email, data.password);
+    e.preventDefault()
+    setLoading(true)
     try {
-      await login(data.email, data.password);
+      await login(data.email, data.password)
     } catch (err) {
-      console.log(err);
     }
-  };
+  }
 
   const signInWithGoogle = async () => {
     setAuthing(true);
-
+  
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then((res) => {
-        console.log(res.user.uid);
+      .then(res => {
         router.push("/Pages/feed");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(err => {
         setAuthing(false);
-      });
-  };
+      })
+  }
 
   const resetPassword = () => {
     if (!data.email) {
@@ -131,7 +144,6 @@ function Landing({ }: Props) {
         // ..
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         swal(errorMessage, { icon: "warning" });
         // ..
@@ -140,96 +152,103 @@ function Landing({ }: Props) {
   }
 
   return (
-    <LandingMain>
-      <LandingNav>
-        <Linked>
-          Linked
-          <Link href="/">
-            <LinkedInIconLan />
-          </Link>
-        </Linked>
-        <LandingNavR>
-          <LandingNavRInner>
-            <NIconHolder>
-              <ArticleLan />
-              <NavTxt>Articles</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <NetworkIcon />
-              <NavTxt>People</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <Learning />
-              <NavTxt>Learning</NavTxt>
-            </NIconHolder>
-            <NIconHolder>
-              <JobsIcon />
-              <NavTxt>Jobs</NavTxt>
-            </NIconHolder>
-          </LandingNavRInner>
-          <VerticalLine></VerticalLine>
-          <JoinBtnHolder>
-            <Link href="/Pages/signup">
-              <JoinNowBtn type="button">Join Now</JoinNowBtn>
+    <AuthContextProvider>
+      {isLoading && <Loading />}
+      <LandingMain>
+        <LandingNav>
+          <Linked>
+            Linked
+            <Link href="/">
+              <LinkedInIconLan />
             </Link>
-            <Link href="/Pages/login">
-              <SignInLan type="button">Sign in</SignInLan>
+          </Linked>
+          <LandingNavR>
+            <LandingNavRInner>
+              <NIconHolder>
+                <ArticleLan />
+                <NavTxt>Articles</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <NetworkIcon />
+                <NavTxt>People</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <Learning />
+                <NavTxt>Learning</NavTxt>
+              </NIconHolder>
+              <NIconHolder>
+                <JobsIcon />
+                <NavTxt>Jobs</NavTxt>
+              </NIconHolder>
+            </LandingNavRInner>
+            <VerticalLine></VerticalLine>
+            <JoinBtnHolder>
+              <Link href="/Pages/signup" onClick={() => setLoading(true)}>
+                <JoinNowBtn type="button">Join Now</JoinNowBtn>
+              </Link>
+              <Link href="/Pages/login" onClick={() => setLoading(true)}>
+                <SignInLan type="button">Sign in</SignInLan>
+              </Link>
+            </JoinBtnHolder>
+          </LandingNavR>
+        </LandingNav>
+        <LandingHero>
+          <LandingHeroLeft>
+            <LandingHeroH1>
+              Welcome to your professional community
+            </LandingHeroH1>
+            <LandingForm onSubmit={(e) => handleLogin(e)}>
+              <LandingHeroInput
+                placeholder="Email or phone number"
+                name="email"
+            type="email"
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    email: e.target.value,
+                  })
+                }
+                value={data.email}
+                noEmail={noEmail}
+              />
+              <LandingHeroInput
+                placeholder="Password"
+                type="password"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    password: e.target.value,
+                  })
+                }
+                value={data.password}
+              />
+              <ForgotPassH onClick={resetPassword}>Forgot password?</ForgotPassH>
+              <LandingSignInOnclick type="submit">Sign in</LandingSignInOnclick>
+            </LandingForm>
+            <OrSec>
+              <Line />
+              <Or>Or</Or>
+              <Line />
+            </OrSec>
+            <LandingNewTo1
+              type="button"
+              onClick={() => signInWithGoogle()}
+              disabled={authing}
+            >
+              Continue with google
+              <FcGoogle />
+            </LandingNewTo1>
+            <Link href="/Pages/signup" onClick={() => setLoading(true)}>
+              <LandingNewTo type="button">
+                New to LinkedIn? Join Now
+              </LandingNewTo>
             </Link>
-          </JoinBtnHolder>
-        </LandingNavR>
-      </LandingNav>
-      <LandingHero>
-        <LandingHeroLeft>
-          <LandingHeroH1>Welcome to your professional community</LandingHeroH1>
-          <LandingHeroInput
-            placeholder="Email or phone number"
-            name="email"
-            type="text"
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                email: e.target.value,
-              })
-            }
-            value={data.email}
-            noEmail={noEmail}
-          />
-          <LandingHeroInput
-            placeholder="Password"
-            type="password"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-            value={data.password}
-          />
-          <ForgotPassH onClick={resetPassword}>Forgot password?</ForgotPassH>
-          <LandingSignInOnclick type="button" onClick={(e) => handleLogin(e)}>
-            Sign in
-          </LandingSignInOnclick>
-          <OrSec>
-            <Line />
-            <Or>Or</Or>
-            <Line />
-          </OrSec>
-          <LandingNewTo1
-            type="button"
-            onClick={() => signInWithGoogle()}
-            disabled={authing}
-          >
-            Continue with google
-            <FcGoogle />
-          </LandingNewTo1>
-          <Link href="/Pages/signup">
-            <LandingNewTo type="button">New to LinkedIn? Join Now</LandingNewTo>
-          </Link>
-        </LandingHeroLeft>
-        <LandingHeroRight />
-      </LandingHero>
-    </LandingMain>
+          </LandingHeroLeft>
+          <LandingHeroRight />
+        </LandingHero>
+      </LandingMain>
+    </AuthContextProvider>
   );
 }
 

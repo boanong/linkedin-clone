@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React from "react";
 import {
   DropdownCard,
   ProfilePictureAndName,
@@ -18,7 +18,6 @@ import {
   JobtitleDiv,
 } from "../../Atoms/DropdownCard";
 import { Profpic3 } from "@/Components/Atoms/Profpic";
-import { FeedUserPPic } from "@/Components/Molecules/FeedUserDivs";
 import { useAuth } from "@/context/AuthContex";
 import Link from "next/link";
 

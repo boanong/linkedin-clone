@@ -6,6 +6,7 @@ export const FeedInnerMain = styled.div`
   width: fit-content;
   max-width: 98vw;
   margin: 30px auto;
+  position: relative;
   @media only screen and (max-width: 425px) {
     width: 100vw;
   }
@@ -45,3 +46,19 @@ export const FeedInnerMainR = styled.div`
     max-width: 870px;
   }
 `;
+
+// export const FeedInnerMainR = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   max-width: 475px;
+//   align-items: center;
+//   @media only screen and (min-width: 770px) {
+//     width: fit-content;
+//     /* justify-self: flex-start; */
+//     max-width: 870px;
+//     margin: -30px auto 0 ;
+//     flex-direction: row;
+//     gap: 20px;
+//   }
+// `;

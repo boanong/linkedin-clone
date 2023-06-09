@@ -38,7 +38,7 @@ export const LandingHeroLeft = styled.div`
   margin: auto 0;
   @media only screen and (min-width: 768px) {
     margin: 20px auto;
-    width: 45vw;
+    width: 47vw;
     max-width: 680px;
   }
 `;

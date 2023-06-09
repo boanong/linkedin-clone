@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/no-children-prop */
 "use client";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -31,6 +33,7 @@ import {
 import { useRouter } from "next/navigation";
 import { AuthContextProvider } from "@/context/AuthContex";
 import Link from "next/link";
+import Loading from "@/Components/Loading/Loading";
 import swal from "sweetalert";
 
 type Props = {};
@@ -73,18 +76,15 @@ function Login({}: Props) {
         } else {
           swal(errorMessage, { icon: "warning" });
         }
-        console.log(error);
       });
   };
 
   const handleLogin = async (e: any) => {
-    e.preventDefault();
-    setLoading(true);
-    console.log(data.email, data.password);
+    e.preventDefault()
+    setLoading(true)
     try {
       await login(data.email, data.password);
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -93,11 +93,9 @@ function Login({}: Props) {
 
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((res) => {
-        console.log(res.user.uid);
         router.push("/Pages/feed");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(err => {
         setAuthing(false);
       });
   };
@@ -107,11 +105,9 @@ function Login({}: Props) {
 
     signInWithPopup(auth, new GithubAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
         router.push("/Pages/feed");
       })
       .catch((err) => {
-        console.log(err);
         setAuthing(false);
       });
   };
@@ -133,7 +129,6 @@ function Login({}: Props) {
         // ..
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         swal(errorMessage, { icon: "warning" });
         // ..
@@ -142,6 +137,7 @@ function Login({}: Props) {
 
   return (
     <AuthContextProvider>
+      {isLoading && <Loading />}
       <MainDiv>
         <NavBar>
           <Linked>
@@ -151,8 +147,9 @@ function Login({}: Props) {
             </Link>
           </Linked>
         </NavBar>
-        <Form onSubmit={(e: any) => handleLogin(e)}>
-          {isLoading && <Ptag color="green">Loading...</Ptag>}
+        <Form
+          onSubmit={(e: any) => handleLogin(e)}
+        >
           <FormHeading>Login</FormHeading>
           <Ptag>
             Keep up to date with developments in your professional world.
@@ -160,7 +157,7 @@ function Login({}: Props) {
           <InputCredentials
             placeholder="Email or phone"
             name="email"
-            type="text"
+            type="email"
             onChange={(e: any) =>
               setData({
                 ...data,
@@ -210,10 +207,7 @@ function Login({}: Props) {
           </SocilaLogBtn>
         </Form>
         <Span>
-          New to LinkedIn?
-          <Link href="/Pages/signup">
-            <ForgotPass>Register</ForgotPass>
-          </Link>
+          New to LinkedIn?<Link href="/Pages/signup" onClick={() => setLoading(true)}><ForgotPass>Register</ForgotPass></Link>
         </Span>
         <Footer>Footer</Footer>
       </MainDiv>

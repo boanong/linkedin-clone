@@ -11,3 +11,15 @@ export const MeFeatureIcon = styled(CgProfile)`
     } 
   }
 `;
+
+export const MeFeatureIcon2 = styled(CgProfile)`
+ font-size: 1.3rem;
+  color: #666666;
+  @media only screen and (min-width: 768px) {
+    font-size: 2rem;
+    &:hover {
+      color: #000;
+      cursor: pointer; 
+    } 
+  }
+`;

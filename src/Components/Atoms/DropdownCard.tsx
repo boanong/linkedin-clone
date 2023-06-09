@@ -155,6 +155,7 @@ export const SignOut = styled.p`
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
+  border: none;
   &:hover {
     font-size: 19px;
     cursor: pointer;

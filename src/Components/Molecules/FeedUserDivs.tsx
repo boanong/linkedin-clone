@@ -9,8 +9,11 @@ export const FeedUserDiv1 = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  /* height: fit-content; */
-  /* max-height: 380px; */
+  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: fit-content;
+  max-height: 450px;
+  border: 1px solid #868686b2;
   padding-bottom: 12px;
 `;
 

@@ -2,11 +2,17 @@ import styled from "@emotion/styled";
 
 export const Linel = styled.div`
   height: 3px;
-  width: 100%;
-  max-width: 280px;
-  background: #e8e8e8;
+  background: #897e7e;
   border-radius: 2px;
+  width: 100%;
+  max-width: 180px;
   margin: auto;
-  transform: translate(-50%, -50%);
   overflow: hidden;
+  position: relative;
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 280px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
 `;

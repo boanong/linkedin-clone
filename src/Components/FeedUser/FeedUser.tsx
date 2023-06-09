@@ -15,7 +15,6 @@ import {
   FeedUserP1U,
   FeedUserTxtH,
 } from "../Molecules/FeedUserDivs";
-import { ProfilePicture } from "../Molecules/PostSection";
 import { Profpic } from "../Atoms/Profpic";
 
 type Props = { userData: any };

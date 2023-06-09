@@ -49,6 +49,13 @@ export const PostText = styled.div`
   padding-left:  15px;
 `;
 
+export const CommentText = styled.p`
+  font-size: 16px;
+  white-space: nowrap;
+  width: 89%;
+  text-align: left;
+`;
+
 export const PostImage = styled.img`
   width: 100%;
   height: auto;
