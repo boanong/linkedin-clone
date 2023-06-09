@@ -33,14 +33,14 @@ export const CommentIcon = styled(FaCommentDots)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
-    // &:hover {
-    //   ${CommentHoverText} {
-    //     display: block;
-    //     padding: 3px 5px;
-    //     background-color: #000;
-    //     color: #fff;
-    //   }
-    // }
+    &:hover {
+       .comment {
+        display: block;
+        padding: 3px 5px;
+        background-color: #000;
+        color: #fff;
+      }
+    }
   }
 `;
 

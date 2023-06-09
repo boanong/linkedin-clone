@@ -50,7 +50,7 @@ export const LikeIcon2 = styled(AiTwotoneLike)`
     font-weight: 600;
     font-size: 1.2rem;
     /* &:hover {
-      ${ReactHover1} {
+      {
         display: block;
         font-size: 16px;
         background-color: #000;
@@ -72,7 +72,7 @@ export const SupportIcon = styled(FaHandHoldingHeart)`
     font-weight: 600;
     font-size: 1.2rem;
     /* &:hover {
-      ${ReactHover3} {
+       {
         display: block;
         font-size: 16px;
         background-color: #000;
@@ -94,7 +94,7 @@ export const InsightIcon = styled(TbBulbFilled)`
     font-size: 1.2rem;
     cursor: pointer;
     /* &:hover {
-      ${ReactHover5} {
+      {
         display: block;
         font-size: 16px;
         background-color: #000;
@@ -116,7 +116,7 @@ export const HeartIcon = styled(FcLike)`
     font-size: 1.2rem;
     cursor: pointer;
     /* &:hover {
-      ${ReactHover4} {
+       {
         display: block;
         font-size: 16px;
         background-color: #000;
@@ -137,7 +137,7 @@ export const FunnyIcon = styled(BsEmojiLaughing)`
     font-weight: 600;
     font-size: 1.2rem;
     /* &:hover {
-      ${ReactHover6} {
+      ReactHover6} {
         display: block;
         font-size: 16px;
         background-color: #000;
@@ -158,7 +158,7 @@ export const Celebrate = styled(FaHands)`
     font-weight: 600;
     font-size: 1.2rem;
     /* &:hover {
-      ${ReactHover2} {
+       {
         display: block;
         font-size: 16px;
         background-color: #000;

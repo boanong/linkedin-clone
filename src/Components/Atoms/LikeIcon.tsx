@@ -27,6 +27,13 @@ export const LikeIcon = styled(SlLike)`
   @media only screen and (min-width: 770px) {
     font-weight: 600;
     font-size: 1.2rem;
+    &:hover {
+      .actions-holder {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+    }
   }
 `;
 
@@ -45,6 +52,8 @@ const ReactionsHolder = styled.div`
   align-items: center;
   gap: 8px;
   padding: 2px 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 5;
 `;
 
 const LikeHolder = styled.div`
@@ -104,7 +113,7 @@ function LikeButton({ userData, vals }: Props) {
       {liked ? (
           <LikeIcon2 onClick={handleLike} />
         ) : (
-          <LikeIcon onClick={handleLike} className="likemain" />
+          <LikeIcon onClick={handleLike} />
         )}
         <LikeP>Likes</LikeP>
         {likes.length > 0 && <p>{likes.length}</p>}
